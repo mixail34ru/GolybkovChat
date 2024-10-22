@@ -1,0 +1,7 @@
+set(__QT_DEPLOY_TARGET_ws2_FILE C:/Users/Michael/Documents/QtProjects/GolybkovChat/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/libws2.a)
+set(__QT_DEPLOY_TARGET_ws2_TYPE STATIC_LIBRARY)
+set(__QT_DEPLOY_TARGET_wstd_FILE C:/Users/Michael/Documents/QtProjects/GolybkovChat/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/libwstd.a)
+set(__QT_DEPLOY_TARGET_wstd_TYPE STATIC_LIBRARY)
+set(__QT_DEPLOY_TARGET_GolybkovChat_FILE C:/Users/Michael/Documents/QtProjects/GolybkovChat/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/GolybkovChat.exe)
+set(__QT_DEPLOY_TARGET_GolybkovChat_TYPE EXECUTABLE)
+set(__QT_DEPLOY_TARGET_GolybkovChat_RUNTIME_DLLS C:/Qt/6.7.2/mingw_64/bin/Qt6Widgets.dll;C:/Qt/6.7.2/mingw_64/bin/Qt6Gui.dll;C:/Qt/6.7.2/mingw_64/bin/Qt6Core.dll)

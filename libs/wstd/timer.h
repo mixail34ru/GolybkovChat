@@ -6,6 +6,8 @@
 #include <chrono>
 #include <functional>
 #include <atomic>
+#include <mutex>
+#include <condition_variable>
 
 namespace wstd {
 
@@ -46,7 +48,10 @@ public:
 
 private:
 	std::thread _thread;
+    std::mutex _mtx;
+    std::condition_variable _condition;
 	std::atomic_bool _is_running;
+
 
 	timer(const timer& other) = delete;
 	timer& operator = (const timer& other) = delete;

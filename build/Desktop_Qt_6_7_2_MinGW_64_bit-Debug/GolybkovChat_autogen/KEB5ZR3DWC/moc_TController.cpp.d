@@ -54,6 +54,7 @@ C:/Users/Michael/Documents/QtProjects/GolybkovChat/build/Desktop_Qt_6_7_2_MinGW_
   C:/Qt/6.7.2/mingw_64/include/QtCore/qglobalstatic.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qhash.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qhashfunctions.h \
+  C:/Qt/6.7.2/mingw_64/include/QtCore/qiodevice.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qiodevicebase.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qiterable.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qiterator.h \
@@ -148,6 +149,7 @@ C:/Users/Michael/Documents/QtProjects/GolybkovChat/build/Desktop_Qt_6_7_2_MinGW_
   C:/Qt/6.7.2/mingw_64/include/QtGui/qpaintdevice.h \
   C:/Qt/6.7.2/mingw_64/include/QtGui/qpalette.h \
   C:/Qt/6.7.2/mingw_64/include/QtGui/qpen.h \
+  C:/Qt/6.7.2/mingw_64/include/QtGui/qpicture.h \
   C:/Qt/6.7.2/mingw_64/include/QtGui/qpixelformat.h \
   C:/Qt/6.7.2/mingw_64/include/QtGui/qpixmap.h \
   C:/Qt/6.7.2/mingw_64/include/QtGui/qpolygon.h \
@@ -169,6 +171,7 @@ C:/Users/Michael/Documents/QtProjects/GolybkovChat/build/Desktop_Qt_6_7_2_MinGW_
   C:/Qt/6.7.2/mingw_64/include/QtWidgets/QComboBox \
   C:/Qt/6.7.2/mingw_64/include/QtWidgets/QFormLayout \
   C:/Qt/6.7.2/mingw_64/include/QtWidgets/QGroupBox \
+  C:/Qt/6.7.2/mingw_64/include/QtWidgets/QLabel \
   C:/Qt/6.7.2/mingw_64/include/QtWidgets/QLayout \
   C:/Qt/6.7.2/mingw_64/include/QtWidgets/QLineEdit \
   C:/Qt/6.7.2/mingw_64/include/QtWidgets/QMainWindow \
@@ -185,6 +188,7 @@ C:/Users/Michael/Documents/QtProjects/GolybkovChat/build/Desktop_Qt_6_7_2_MinGW_
   C:/Qt/6.7.2/mingw_64/include/QtWidgets/qframe.h \
   C:/Qt/6.7.2/mingw_64/include/QtWidgets/qgridlayout.h \
   C:/Qt/6.7.2/mingw_64/include/QtWidgets/qgroupbox.h \
+  C:/Qt/6.7.2/mingw_64/include/QtWidgets/qlabel.h \
   C:/Qt/6.7.2/mingw_64/include/QtWidgets/qlayout.h \
   C:/Qt/6.7.2/mingw_64/include/QtWidgets/qlayoutitem.h \
   C:/Qt/6.7.2/mingw_64/include/QtWidgets/qlineedit.h \
@@ -642,16 +646,22 @@ C:/Users/Michael/Documents/QtProjects/GolybkovChat/build/Desktop_Qt_6_7_2_MinGW_
   C:/Users/Michael/Documents/QtProjects/GolybkovChat/include/model/TClient.h \
   C:/Users/Michael/Documents/QtProjects/GolybkovChat/include/model/TModelStateInterface.h \
   C:/Users/Michael/Documents/QtProjects/GolybkovChat/include/model/TPackageFormat.h \
+  C:/Users/Michael/Documents/QtProjects/GolybkovChat/include/model/TSaveVecDataStorage.h \
+  C:/Users/Michael/Documents/QtProjects/GolybkovChat/include/model/TServer.h \
   C:/Users/Michael/Documents/QtProjects/GolybkovChat/include/view/TCentralWidget.h \
   C:/Users/Michael/Documents/QtProjects/GolybkovChat/include/view/TMainWindow.h \
   C:/Users/Michael/Documents/QtProjects/GolybkovChat/include/view/TReceiverWidget.h \
+  C:/Users/Michael/Documents/QtProjects/GolybkovChat/include/view/TRecvModeGroupBox.h \
   C:/Users/Michael/Documents/QtProjects/GolybkovChat/include/view/TSendDataGroupBox.h \
   C:/Users/Michael/Documents/QtProjects/GolybkovChat/include/view/TSendModeGroupBox.h \
   C:/Users/Michael/Documents/QtProjects/GolybkovChat/include/view/TSendNetGroupBox.h \
   C:/Users/Michael/Documents/QtProjects/GolybkovChat/include/view/TSenderWidget.h \
+  C:/Users/Michael/Documents/QtProjects/GolybkovChat/include/view/TUShortLineEdit.h \
   C:/Users/Michael/Documents/QtProjects/GolybkovChat/libs/ws2/TUDPBase.h \
   C:/Users/Michael/Documents/QtProjects/GolybkovChat/libs/ws2/TUDPClient.h \
+  C:/Users/Michael/Documents/QtProjects/GolybkovChat/libs/ws2/TUDPServer.h \
   C:/Users/Michael/Documents/QtProjects/GolybkovChat/libs/ws2/WSADescriptionErr.h \
   C:/Users/Michael/Documents/QtProjects/GolybkovChat/libs/ws2/ws2define.h \
+  C:/Users/Michael/Documents/QtProjects/GolybkovChat/libs/wstd/safe_ptr.h \
   C:/Users/Michael/Documents/QtProjects/GolybkovChat/libs/wstd/thread_pool.h \
   C:/Users/Michael/Documents/QtProjects/GolybkovChat/libs/wstd/timer.h

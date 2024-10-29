@@ -73,6 +73,20 @@ struct Package {
 //-------------------------------------------------------------------
 
 
+struct ViewSendPackage {
+    TypeData type_data;
+    TypeSygnal type_signal;
+    uint16_t id;
+
+    union Payload {
+        double parameter;
+        int32_t word;
+        int64_t llword;
+    } payload;
+}; //struct ViewSendPackage
+//-------------------------------------------------------------------
+
+
 struct NetAddress {
     uint16_t port;
     std::string ip;
@@ -80,8 +94,8 @@ struct NetAddress {
 //-------------------------------------------------------------------
 
 
-struct SendInfo {
-    Package package;
+struct ViewSendInfo {
+    ViewSendPackage package;
     NetAddress address;
 }; //struct SendInfo
 //-------------------------------------------------------------------

@@ -321,9 +321,27 @@
 			null
 		],
 		[
+			"C:/Users/Michael/Documents/QtProjects/GolybkovChat/include/model/TSaveVecDataStorage.h",
+			"MU",
+			"Q6AU6LSD6J/moc_TSaveVecDataStorage.cpp",
+			null
+		],
+		[
+			"C:/Users/Michael/Documents/QtProjects/GolybkovChat/include/model/TServer.h",
+			"MU",
+			"Q6AU6LSD6J/moc_TServer.cpp",
+			null
+		],
+		[
 			"C:/Users/Michael/Documents/QtProjects/GolybkovChat/include/view/TCentralWidget.h",
 			"MU",
 			"75UR3EJMK3/moc_TCentralWidget.cpp",
+			null
+		],
+		[
+			"C:/Users/Michael/Documents/QtProjects/GolybkovChat/include/view/TCorrectItemMap.h",
+			"MU",
+			"75UR3EJMK3/moc_TCorrectItemMap.cpp",
 			null
 		],
 		[
@@ -336,6 +354,12 @@
 			"C:/Users/Michael/Documents/QtProjects/GolybkovChat/include/view/TReceiverWidget.h",
 			"MU",
 			"75UR3EJMK3/moc_TReceiverWidget.cpp",
+			null
+		],
+		[
+			"C:/Users/Michael/Documents/QtProjects/GolybkovChat/include/view/TRecvModeGroupBox.h",
+			"MU",
+			"75UR3EJMK3/moc_TRecvModeGroupBox.cpp",
 			null
 		],
 		[
@@ -360,6 +384,24 @@
 			"C:/Users/Michael/Documents/QtProjects/GolybkovChat/include/view/TSenderWidget.h",
 			"MU",
 			"75UR3EJMK3/moc_TSenderWidget.cpp",
+			null
+		],
+		[
+			"C:/Users/Michael/Documents/QtProjects/GolybkovChat/include/view/TTableModel.h",
+			"MU",
+			"75UR3EJMK3/moc_TTableModel.cpp",
+			null
+		],
+		[
+			"C:/Users/Michael/Documents/QtProjects/GolybkovChat/include/view/TTableView.h",
+			"MU",
+			"75UR3EJMK3/moc_TTableView.cpp",
+			null
+		],
+		[
+			"C:/Users/Michael/Documents/QtProjects/GolybkovChat/include/view/TUShortLineEdit.h",
+			"MU",
+			"75UR3EJMK3/moc_TUShortLineEdit.cpp",
 			null
 		]
 	],
@@ -465,6 +507,11 @@
 			null
 		],
 		[
+			"C:/Users/Michael/Documents/QtProjects/GolybkovChat/source/model/TServer.cpp",
+			"MU",
+			null
+		],
+		[
 			"C:/Users/Michael/Documents/QtProjects/GolybkovChat/source/view/TCentralWidget.cpp",
 			"MU",
 			null
@@ -476,6 +523,11 @@
 		],
 		[
 			"C:/Users/Michael/Documents/QtProjects/GolybkovChat/source/view/TReceiverWidget.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/Michael/Documents/QtProjects/GolybkovChat/source/view/TRecvModeGroupBox.cpp",
 			"MU",
 			null
 		],
@@ -496,6 +548,21 @@
 		],
 		[
 			"C:/Users/Michael/Documents/QtProjects/GolybkovChat/source/view/TSenderWidget.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/Michael/Documents/QtProjects/GolybkovChat/source/view/TTableModel.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/Michael/Documents/QtProjects/GolybkovChat/source/view/TTableView.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/Michael/Documents/QtProjects/GolybkovChat/source/view/TUShortLineEdit.cpp",
 			"MU",
 			null
 		]

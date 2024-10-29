@@ -7,7 +7,7 @@
 				{
 					"build" : ".",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-Debug-a46fcd34af2ccc12be1f.json",
+					"jsonFile" : "directory-.-Debug-0b6c6519468a23337b11.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.16"
@@ -56,7 +56,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "GolybkovChat::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-GolybkovChat-Debug-869ad284091cb931fdad.json",
+					"jsonFile" : "target-GolybkovChat-Debug-ab4124cf7b4fd90e2aab.json",
 					"name" : "GolybkovChat",
 					"projectIndex" : 0
 				},
@@ -70,14 +70,14 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "GolybkovChat_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-GolybkovChat_autogen_timestamp_deps-Debug-fb9b9074301eefd218c5.json",
+					"jsonFile" : "target-GolybkovChat_autogen_timestamp_deps-Debug-92c37439eb1d153e1068.json",
 					"name" : "GolybkovChat_autogen_timestamp_deps",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "ws2::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-ws2-Debug-35758e5e34d73fe8bc6d.json",
+					"jsonFile" : "target-ws2-Debug-10cd77216d48f5ca8c46.json",
 					"name" : "ws2",
 					"projectIndex" : 0
 				},
@@ -98,7 +98,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "wstd::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-wstd-Debug-4302d2f38ba78994ca54.json",
+					"jsonFile" : "target-wstd-Debug-759f296539eb2b0a4992.json",
 					"name" : "wstd",
 					"projectIndex" : 0
 				},

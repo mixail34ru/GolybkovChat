@@ -30,14 +30,21 @@ TController::TController(int &argc, char **argv)
 {
     _pool = std::make_unique<wstd::thread_pool>(2);
 
-    _main_wnd = std::make_unique<TMainWindow>(new TModelStateInterface(&_client));
+    _server = new TServer(this);
+
+
+    _main_wnd = std::make_unique<TMainWindow>(new TModelStateInterface(&_client, _server));
     connect(
-        _main_wnd.get(), &TMainWindow::send_package_activated,
+        _main_wnd.get(), &TMainWindow::sendActivated,
         this, &TController::send_package
     );
     connect(
-        _main_wnd.get(), &TMainWindow::send_timer_package_activated,
+        _main_wnd.get(), &TMainWindow::sendTimerActivated,
         this, &TController::send_timer_package
+    );
+    connect(
+        _main_wnd.get(), &TMainWindow::receiveActivated,
+        this, &TController::startReceivePackage
     );
 
     _main_wnd->show();
@@ -48,30 +55,33 @@ TController::~TController() {
 }//------------------------------------------------------------------
 
 
-void TController::send_package(SendInfo info) {
+void TController::send_package(ViewSendInfo info) {
+    Package package = ViewInfoToPackageConverter(info);
+
     _client.SendMessage(
         info.address.ip,
         info.address.port,
-        reinterpret_cast<void*>(&info.package),
-        sizeof(info.package)
+        reinterpret_cast<void*>(&package),
+        sizeof(package)
     );
 
     debugSendInfo(info);
 }//------------------------------------------------------------------
 
 
-void TController::send_timer_package(uint timeout, SendInfo info) {
+void TController::send_timer_package(uint timeout, ViewSendInfo info) {
     _pool->add_job([=, &info](){
-        if (_client.IsSending()) {
+        if (_client.IsTimerSending()) {
             _client.StopSendingMessage();
         }
         else {
+            Package package = ViewInfoToPackageConverter(info);
             _client.StartSendingMessage(
                 timeout,
                 info.address.ip,
                 info.address.port,
-                reinterpret_cast<void*>(&info.package),
-                sizeof(info.package),
+                reinterpret_cast<void*>(&package),
+                sizeof(package),
                 ThreadExceptionHandler<TClient>(
                     _pool, [this](){ _client.StopSendingMessage(); }
                 )
@@ -83,10 +93,35 @@ void TController::send_timer_package(uint timeout, SendInfo info) {
 }//------------------------------------------------------------------
 
 
-void TController::debugSendInfo(const SendInfo& info) const {
+void TController::startReceivePackage(uint16_t port) {
+    if (_server->isReceiving()) {
+        _server->stopReceiving();
+    }
+    else {
+        _server->startReceiving(
+            port,
+            ThreadExceptionHandler<TServer>(
+                _pool, [this]() { _server->stopReceiving(); }
+            )
+        );
+    }
+}//------------------------------------------------------------------
+
+
+Package TController::ViewInfoToPackageConverter(const ViewSendInfo& vinfo) {
+    return Package {
+        static_cast<int8_t>(vinfo.package.type_data),
+        static_cast<int8_t>(vinfo.package.type_signal),
+        vinfo.package.id,
+        vinfo.package.payload.parameter
+    };
+}//------------------------------------------------------------------
+
+
+void TController::debugSendInfo(const ViewSendInfo& info) const {
     qDebug() << "SendInfo: "
-             << "TypeData: " << info.package.type_data
-             << "\tTypeSignal: " << info.package.type_signal
+             << "TypeData: " << static_cast<int8_t>(info.package.type_data)
+             << "\tTypeSignal: " << static_cast<int8_t>(info.package.type_signal)
              << "\tID: " << info.package.id
              << "\tPayload.parameter: " << info.package.payload.parameter
              << "\tPayload.word: " << info.package.payload.word

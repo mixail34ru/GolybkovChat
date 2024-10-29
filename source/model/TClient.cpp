@@ -17,7 +17,7 @@ void TClient::SendMessage(
     try { _client.SendDataTo(host.c_str(), port, buffer, size); }
     catch (...) { qDebug() << "exception TClient::SendMessage"; }
 
-    emit StatusSendingChanged(false);
+    emit statusSendingChanged(false);
 }//------------------------------------------------------------------
 
 
@@ -49,16 +49,16 @@ void TClient::StartSendingMessage(
         qDebug() << "exception TClient::StartTimerMessage";
     }
 
-    emit StatusSendingTimerChanged(IsSending());
+    emit statusSendingTimerChanged(IsTimerSending());
 }//------------------------------------------------------------------
 
 
 void TClient::StopSendingMessage() {
     if (_timer) _timer.reset();
-    emit StatusSendingTimerChanged(IsSending());
+    emit statusSendingTimerChanged(IsTimerSending());
 }//------------------------------------------------------------------
 
 
-bool TClient::IsSending() const {
+bool TClient::IsTimerSending() const {
     return (_timer.get() != nullptr ? true : false);
 }//------------------------------------------------------------------

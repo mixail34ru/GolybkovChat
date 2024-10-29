@@ -53,8 +53,16 @@ void timer::start(
 
 				if (do_immediatly) handler();
 
-				while (_is_running) {
-					std::this_thread::sleep_for(interval);
+                while (_is_running) {
+                    {
+                        std::unique_lock<std::mutex> lock(_mtx);
+                        _condition.wait_for(lock, interval, [this]() {
+                            return !_is_running;
+                        });
+
+                        if (!_is_running) return;
+                    }
+
 					handler();
 				}
 			}
@@ -66,6 +74,7 @@ void timer::start(
 
 void timer::stop() {
 	_is_running = false;
+    _condition.notify_one();
 	if (_thread.joinable()) _thread.join();
 }//------------------------------------------------------------------
 

@@ -4,6 +4,7 @@
 #include "TMainWindow.h"
 
 #include "TClient.h"
+#include "TServer.h"
 #include "TModelStateInterface.h"
 
 #include "thread_pool.h"
@@ -19,6 +20,7 @@ class TController : public QApplication
     std::unique_ptr<wstd::thread_pool> _pool;
 
     TClient _client;
+    TServer* _server;
     TModelStateInterface* _interface;
 
     std::unique_ptr<TMainWindow> _main_wnd;
@@ -28,11 +30,14 @@ public:
     ~TController();
 
 private slots:
-    void send_package(SendInfo info);
-    void send_timer_package(uint timeout, SendInfo info);
+    void send_package(ViewSendInfo info);
+    void send_timer_package(uint timeout, ViewSendInfo info);
+
+    void startReceivePackage(uint16_t port);
 
 private:
-    void debugSendInfo(const SendInfo& info) const;
+    Package ViewInfoToPackageConverter(const ViewSendInfo& vinfo);
+    void debugSendInfo(const ViewSendInfo& info) const;
 
 }; //class TController
 //-------------------------------------------------------------------

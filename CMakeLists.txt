@@ -45,6 +45,17 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(GolybkovChat
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
+        #include/model/TReceiverDataStorage.h
+        #source/model/TReceiverDataStorage.cpp
+        #include/model/TServer.h
+        #source/model/TServer.cpp
+        #include/view/TUShortLineEdit.h
+        #source/view/TUShortLineEdit.cpp
+        #include/view/TRecvModeGroupBox.h
+        #source/view/TRecvModeGroupBox.cpp
+        #include/view/TCorrectItemMap.h
+        #include/view/TIPValidator.h
+        #source/view/TIPValidator.cpp
         #include/model/TModelStateInterface.h
         #source/model/TModelStateInterface.cpp
         #include/model/TClient.h

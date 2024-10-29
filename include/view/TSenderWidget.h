@@ -9,11 +9,18 @@
 
 #include <QWidget>
 
+#include <functional>
+
 class TModelStateInterface;
+class TCorrectItemMap;
 
 class TSenderWidget : public QWidget
 {
     Q_OBJECT
+
+    std::function<bool(void)> CheckTimerSendingStatus;
+
+    TCorrectItemMap* _correct_map;
 
     TSendDataGroupBox* _pack_data_grp_bx;
     TSendNetGroupBox* _net_grp_bx;
@@ -23,9 +30,14 @@ public:
     TSenderWidget(TModelStateInterface* model, QWidget* parent = nullptr);
     ~TSenderWidget();
 
+private slots:
+    void SwitchFieldEdit(bool flag);
+    void UpdateWidgetCorrectState(QObject* obj, bool flag);
+    void SetEnableSending(bool flag);
+
 signals:
-    void send_activated(SendInfo info);
-    void send_timer_activated(uint timeout, SendInfo info);
+    void sendActivated(ViewSendInfo info);
+    void sendTimerActivated(uint timeout, ViewSendInfo info);
 
 }; //class TSenderWidget
 //-------------------------------------------------------------------

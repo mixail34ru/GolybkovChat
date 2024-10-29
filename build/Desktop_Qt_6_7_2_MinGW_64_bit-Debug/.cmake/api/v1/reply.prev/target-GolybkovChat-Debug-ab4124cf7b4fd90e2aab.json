@@ -76,13 +76,13 @@
 			{
 				"command" : 4,
 				"file" : 1,
-				"line" : 99,
+				"line" : 118,
 				"parent" : 0
 			},
 			{
 				"command" : 5,
 				"file" : 1,
-				"line" : 76,
+				"line" : 99,
 				"parent" : 0
 			},
 			{
@@ -349,6 +349,10 @@
 				},
 				{
 					"backtrace" : 40,
+					"path" : "C:/Users/Michael/Documents/QtProjects/GolybkovChat/include/controller"
+				},
+				{
+					"backtrace" : 40,
 					"path" : "C:/Users/Michael/Documents/QtProjects/GolybkovChat/include/view"
 				},
 				{
@@ -407,18 +411,36 @@
 				3,
 				4,
 				5,
-				6
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16
 			]
 		}
 	],
 	"dependencies" : 
 	[
 		{
-			"id" : "GolybkovChat_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
+			"backtrace" : 6,
+			"id" : "wstd::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 6,
+			"id" : "ws2::@6890427a1f51a3e7e1df"
 		},
 		{
 			"backtrace" : 0,
 			"id" : "GolybkovChat_autogen::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "GolybkovChat_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
 		}
 	],
 	"id" : "GolybkovChat::@6890427a1f51a3e7e1df",
@@ -451,6 +473,16 @@
 			{
 				"backtrace" : 6,
 				"fragment" : "C:\\Qt\\6.7.2\\mingw_64\\lib\\libQt6Widgets.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "libws2.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "libwstd.a",
 				"role" : "libraries"
 			},
 			{
@@ -539,33 +571,55 @@
 				3,
 				4,
 				5,
-				6
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16
 			]
 		},
 		{
 			"name" : "Header Files",
 			"sourceIndexes" : 
 			[
-				7,
-				8,
-				9,
-				10,
-				11,
-				12
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24,
+				25,
+				26,
+				27,
+				28,
+				29,
+				30,
+				31,
+				32,
+				33,
+				34
 			]
 		},
 		{
 			"name" : "",
 			"sourceIndexes" : 
 			[
-				13
+				35
 			]
 		},
 		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				14
+				36
 			]
 		}
 	],
@@ -581,7 +635,31 @@
 		{
 			"backtrace" : 4,
 			"compileGroupIndex" : 0,
+			"path" : "source/controller/TController.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
 			"path" : "source/main.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "source/model/TClient.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "source/model/TModelStateInterface.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "source/model/TServer.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -599,13 +677,31 @@
 		{
 			"backtrace" : 4,
 			"compileGroupIndex" : 0,
-			"path" : "source/view/TPackDataGroupBox.cpp",
+			"path" : "source/view/TReceiverWidget.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 4,
 			"compileGroupIndex" : 0,
-			"path" : "source/view/TReceiverWidget.cpp",
+			"path" : "source/view/TRecvModeGroupBox.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "source/view/TSendDataGroupBox.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "source/view/TSendModeGroupBox.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "source/view/TSendNetGroupBox.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -616,7 +712,50 @@
 		},
 		{
 			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "source/view/TTableModel.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "source/view/TTableView.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "source/view/TUShortLineEdit.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"path" : "include/controller/TController.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "include/model/TClient.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "include/model/TModelStateInterface.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
 			"path" : "include/model/TPackageFormat.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "include/model/TSaveVecDataStorage.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "include/model/TServer.h",
 			"sourceGroupIndex" : 1
 		},
 		{
@@ -626,12 +765,12 @@
 		},
 		{
 			"backtrace" : 4,
-			"path" : "include/view/TMainWindow.h",
+			"path" : "include/view/TCorrectItemMap.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 4,
-			"path" : "include/view/TPackDataGroupBox.h",
+			"path" : "include/view/TMainWindow.h",
 			"sourceGroupIndex" : 1
 		},
 		{
@@ -641,7 +780,42 @@
 		},
 		{
 			"backtrace" : 4,
+			"path" : "include/view/TRecvModeGroupBox.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "include/view/TSendDataGroupBox.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "include/view/TSendModeGroupBox.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "include/view/TSendNetGroupBox.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
 			"path" : "include/view/TSenderWidget.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "include/view/TTableModel.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "include/view/TTableView.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "include/view/TUShortLineEdit.h",
 			"sourceGroupIndex" : 1
 		},
 		{

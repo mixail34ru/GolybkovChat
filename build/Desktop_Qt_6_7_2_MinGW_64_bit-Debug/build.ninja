@@ -181,6 +181,14 @@ build CMakeFiles/GolybkovChat.dir/source/model/TModelStateInterface.cpp.obj: CXX
   OBJECT_DIR = CMakeFiles\GolybkovChat.dir
   OBJECT_FILE_DIR = CMakeFiles\GolybkovChat.dir\source\model
 
+build CMakeFiles/GolybkovChat.dir/source/model/TServer.cpp.obj: CXX_COMPILER__GolybkovChat_unscanned_Debug C$:/Users/Michael/Documents/QtProjects/GolybkovChat/source/model/TServer.cpp || cmake_object_order_depends_target_GolybkovChat
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\GolybkovChat.dir\source\model\TServer.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/Michael/Documents/QtProjects/GolybkovChat/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/GolybkovChat_autogen/include -IC:/Users/Michael/Documents/QtProjects/GolybkovChat/include -IC:/Users/Michael/Documents/QtProjects/GolybkovChat/include/controller -IC:/Users/Michael/Documents/QtProjects/GolybkovChat/include/view -IC:/Users/Michael/Documents/QtProjects/GolybkovChat/include/model -IC:/Users/Michael/Documents/QtProjects/GolybkovChat/libs/ws2 -IC:/Users/Michael/Documents/QtProjects/GolybkovChat/libs/wstd -isystem C:/Qt/6.7.2/mingw_64/include/QtCore -isystem C:/Qt/6.7.2/mingw_64/include -isystem C:/Qt/6.7.2/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.7.2/mingw_64/include/QtWidgets -isystem C:/Qt/6.7.2/mingw_64/include/QtGui
+  OBJECT_DIR = CMakeFiles\GolybkovChat.dir
+  OBJECT_FILE_DIR = CMakeFiles\GolybkovChat.dir\source\model
+
 build CMakeFiles/GolybkovChat.dir/source/view/TCentralWidget.cpp.obj: CXX_COMPILER__GolybkovChat_unscanned_Debug C$:/Users/Michael/Documents/QtProjects/GolybkovChat/source/view/TCentralWidget.cpp || cmake_object_order_depends_target_GolybkovChat
   DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\GolybkovChat.dir\source\view\TCentralWidget.cpp.obj.d
@@ -200,6 +208,14 @@ build CMakeFiles/GolybkovChat.dir/source/view/TMainWindow.cpp.obj: CXX_COMPILER_
 build CMakeFiles/GolybkovChat.dir/source/view/TReceiverWidget.cpp.obj: CXX_COMPILER__GolybkovChat_unscanned_Debug C$:/Users/Michael/Documents/QtProjects/GolybkovChat/source/view/TReceiverWidget.cpp || cmake_object_order_depends_target_GolybkovChat
   DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\GolybkovChat.dir\source\view\TReceiverWidget.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/Michael/Documents/QtProjects/GolybkovChat/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/GolybkovChat_autogen/include -IC:/Users/Michael/Documents/QtProjects/GolybkovChat/include -IC:/Users/Michael/Documents/QtProjects/GolybkovChat/include/controller -IC:/Users/Michael/Documents/QtProjects/GolybkovChat/include/view -IC:/Users/Michael/Documents/QtProjects/GolybkovChat/include/model -IC:/Users/Michael/Documents/QtProjects/GolybkovChat/libs/ws2 -IC:/Users/Michael/Documents/QtProjects/GolybkovChat/libs/wstd -isystem C:/Qt/6.7.2/mingw_64/include/QtCore -isystem C:/Qt/6.7.2/mingw_64/include -isystem C:/Qt/6.7.2/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.7.2/mingw_64/include/QtWidgets -isystem C:/Qt/6.7.2/mingw_64/include/QtGui
+  OBJECT_DIR = CMakeFiles\GolybkovChat.dir
+  OBJECT_FILE_DIR = CMakeFiles\GolybkovChat.dir\source\view
+
+build CMakeFiles/GolybkovChat.dir/source/view/TRecvModeGroupBox.cpp.obj: CXX_COMPILER__GolybkovChat_unscanned_Debug C$:/Users/Michael/Documents/QtProjects/GolybkovChat/source/view/TRecvModeGroupBox.cpp || cmake_object_order_depends_target_GolybkovChat
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\GolybkovChat.dir\source\view\TRecvModeGroupBox.cpp.obj.d
   FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
   INCLUDES = -IC:/Users/Michael/Documents/QtProjects/GolybkovChat/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/GolybkovChat_autogen/include -IC:/Users/Michael/Documents/QtProjects/GolybkovChat/include -IC:/Users/Michael/Documents/QtProjects/GolybkovChat/include/controller -IC:/Users/Michael/Documents/QtProjects/GolybkovChat/include/view -IC:/Users/Michael/Documents/QtProjects/GolybkovChat/include/model -IC:/Users/Michael/Documents/QtProjects/GolybkovChat/libs/ws2 -IC:/Users/Michael/Documents/QtProjects/GolybkovChat/libs/wstd -isystem C:/Qt/6.7.2/mingw_64/include/QtCore -isystem C:/Qt/6.7.2/mingw_64/include -isystem C:/Qt/6.7.2/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.7.2/mingw_64/include/QtWidgets -isystem C:/Qt/6.7.2/mingw_64/include/QtGui
   OBJECT_DIR = CMakeFiles\GolybkovChat.dir
@@ -237,6 +253,30 @@ build CMakeFiles/GolybkovChat.dir/source/view/TSenderWidget.cpp.obj: CXX_COMPILE
   OBJECT_DIR = CMakeFiles\GolybkovChat.dir
   OBJECT_FILE_DIR = CMakeFiles\GolybkovChat.dir\source\view
 
+build CMakeFiles/GolybkovChat.dir/source/view/TTableModel.cpp.obj: CXX_COMPILER__GolybkovChat_unscanned_Debug C$:/Users/Michael/Documents/QtProjects/GolybkovChat/source/view/TTableModel.cpp || cmake_object_order_depends_target_GolybkovChat
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\GolybkovChat.dir\source\view\TTableModel.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/Michael/Documents/QtProjects/GolybkovChat/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/GolybkovChat_autogen/include -IC:/Users/Michael/Documents/QtProjects/GolybkovChat/include -IC:/Users/Michael/Documents/QtProjects/GolybkovChat/include/controller -IC:/Users/Michael/Documents/QtProjects/GolybkovChat/include/view -IC:/Users/Michael/Documents/QtProjects/GolybkovChat/include/model -IC:/Users/Michael/Documents/QtProjects/GolybkovChat/libs/ws2 -IC:/Users/Michael/Documents/QtProjects/GolybkovChat/libs/wstd -isystem C:/Qt/6.7.2/mingw_64/include/QtCore -isystem C:/Qt/6.7.2/mingw_64/include -isystem C:/Qt/6.7.2/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.7.2/mingw_64/include/QtWidgets -isystem C:/Qt/6.7.2/mingw_64/include/QtGui
+  OBJECT_DIR = CMakeFiles\GolybkovChat.dir
+  OBJECT_FILE_DIR = CMakeFiles\GolybkovChat.dir\source\view
+
+build CMakeFiles/GolybkovChat.dir/source/view/TTableView.cpp.obj: CXX_COMPILER__GolybkovChat_unscanned_Debug C$:/Users/Michael/Documents/QtProjects/GolybkovChat/source/view/TTableView.cpp || cmake_object_order_depends_target_GolybkovChat
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\GolybkovChat.dir\source\view\TTableView.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/Michael/Documents/QtProjects/GolybkovChat/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/GolybkovChat_autogen/include -IC:/Users/Michael/Documents/QtProjects/GolybkovChat/include -IC:/Users/Michael/Documents/QtProjects/GolybkovChat/include/controller -IC:/Users/Michael/Documents/QtProjects/GolybkovChat/include/view -IC:/Users/Michael/Documents/QtProjects/GolybkovChat/include/model -IC:/Users/Michael/Documents/QtProjects/GolybkovChat/libs/ws2 -IC:/Users/Michael/Documents/QtProjects/GolybkovChat/libs/wstd -isystem C:/Qt/6.7.2/mingw_64/include/QtCore -isystem C:/Qt/6.7.2/mingw_64/include -isystem C:/Qt/6.7.2/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.7.2/mingw_64/include/QtWidgets -isystem C:/Qt/6.7.2/mingw_64/include/QtGui
+  OBJECT_DIR = CMakeFiles\GolybkovChat.dir
+  OBJECT_FILE_DIR = CMakeFiles\GolybkovChat.dir\source\view
+
+build CMakeFiles/GolybkovChat.dir/source/view/TUShortLineEdit.cpp.obj: CXX_COMPILER__GolybkovChat_unscanned_Debug C$:/Users/Michael/Documents/QtProjects/GolybkovChat/source/view/TUShortLineEdit.cpp || cmake_object_order_depends_target_GolybkovChat
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\GolybkovChat.dir\source\view\TUShortLineEdit.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/Michael/Documents/QtProjects/GolybkovChat/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/GolybkovChat_autogen/include -IC:/Users/Michael/Documents/QtProjects/GolybkovChat/include -IC:/Users/Michael/Documents/QtProjects/GolybkovChat/include/controller -IC:/Users/Michael/Documents/QtProjects/GolybkovChat/include/view -IC:/Users/Michael/Documents/QtProjects/GolybkovChat/include/model -IC:/Users/Michael/Documents/QtProjects/GolybkovChat/libs/ws2 -IC:/Users/Michael/Documents/QtProjects/GolybkovChat/libs/wstd -isystem C:/Qt/6.7.2/mingw_64/include/QtCore -isystem C:/Qt/6.7.2/mingw_64/include -isystem C:/Qt/6.7.2/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.7.2/mingw_64/include/QtWidgets -isystem C:/Qt/6.7.2/mingw_64/include/QtGui
+  OBJECT_DIR = CMakeFiles\GolybkovChat.dir
+  OBJECT_FILE_DIR = CMakeFiles\GolybkovChat.dir\source\view
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target GolybkovChat
@@ -245,7 +285,7 @@ build CMakeFiles/GolybkovChat.dir/source/view/TSenderWidget.cpp.obj: CXX_COMPILE
 #############################################
 # Link the executable GolybkovChat.exe
 
-build GolybkovChat.exe: CXX_EXECUTABLE_LINKER__GolybkovChat_Debug CMakeFiles/GolybkovChat.dir/GolybkovChat_autogen/mocs_compilation.cpp.obj CMakeFiles/GolybkovChat.dir/source/controller/TController.cpp.obj CMakeFiles/GolybkovChat.dir/source/main.cpp.obj CMakeFiles/GolybkovChat.dir/source/model/TClient.cpp.obj CMakeFiles/GolybkovChat.dir/source/model/TModelStateInterface.cpp.obj CMakeFiles/GolybkovChat.dir/source/view/TCentralWidget.cpp.obj CMakeFiles/GolybkovChat.dir/source/view/TMainWindow.cpp.obj CMakeFiles/GolybkovChat.dir/source/view/TReceiverWidget.cpp.obj CMakeFiles/GolybkovChat.dir/source/view/TSendDataGroupBox.cpp.obj CMakeFiles/GolybkovChat.dir/source/view/TSendModeGroupBox.cpp.obj CMakeFiles/GolybkovChat.dir/source/view/TSendNetGroupBox.cpp.obj CMakeFiles/GolybkovChat.dir/source/view/TSenderWidget.cpp.obj | C$:/Qt/6.7.2/mingw_64/lib/libQt6Widgets.a libws2.a libwstd.a C$:/Qt/6.7.2/mingw_64/lib/libQt6Gui.a C$:/Qt/6.7.2/mingw_64/lib/libQt6Core.a C$:/Qt/6.7.2/mingw_64/lib/libQt6EntryPoint.a || GolybkovChat_autogen GolybkovChat_autogen_timestamp_deps libws2.a libwstd.a
+build GolybkovChat.exe: CXX_EXECUTABLE_LINKER__GolybkovChat_Debug CMakeFiles/GolybkovChat.dir/GolybkovChat_autogen/mocs_compilation.cpp.obj CMakeFiles/GolybkovChat.dir/source/controller/TController.cpp.obj CMakeFiles/GolybkovChat.dir/source/main.cpp.obj CMakeFiles/GolybkovChat.dir/source/model/TClient.cpp.obj CMakeFiles/GolybkovChat.dir/source/model/TModelStateInterface.cpp.obj CMakeFiles/GolybkovChat.dir/source/model/TServer.cpp.obj CMakeFiles/GolybkovChat.dir/source/view/TCentralWidget.cpp.obj CMakeFiles/GolybkovChat.dir/source/view/TMainWindow.cpp.obj CMakeFiles/GolybkovChat.dir/source/view/TReceiverWidget.cpp.obj CMakeFiles/GolybkovChat.dir/source/view/TRecvModeGroupBox.cpp.obj CMakeFiles/GolybkovChat.dir/source/view/TSendDataGroupBox.cpp.obj CMakeFiles/GolybkovChat.dir/source/view/TSendModeGroupBox.cpp.obj CMakeFiles/GolybkovChat.dir/source/view/TSendNetGroupBox.cpp.obj CMakeFiles/GolybkovChat.dir/source/view/TSenderWidget.cpp.obj CMakeFiles/GolybkovChat.dir/source/view/TTableModel.cpp.obj CMakeFiles/GolybkovChat.dir/source/view/TTableView.cpp.obj CMakeFiles/GolybkovChat.dir/source/view/TUShortLineEdit.cpp.obj | C$:/Qt/6.7.2/mingw_64/lib/libQt6Widgets.a libws2.a libwstd.a C$:/Qt/6.7.2/mingw_64/lib/libQt6Gui.a C$:/Qt/6.7.2/mingw_64/lib/libQt6Core.a C$:/Qt/6.7.2/mingw_64/lib/libQt6EntryPoint.a || GolybkovChat_autogen GolybkovChat_autogen_timestamp_deps libws2.a libwstd.a
   FLAGS = -DQT_QML_DEBUG -g
   LINK_FLAGS = -mwindows
   LINK_LIBRARIES = C:/Qt/6.7.2/mingw_64/lib/libQt6Widgets.a  libws2.a  libwstd.a  -lws2_32  C:/Qt/6.7.2/mingw_64/lib/libQt6Gui.a  C:/Qt/6.7.2/mingw_64/lib/libQt6Core.a  -lmpr  -luserenv  -lmingw32  C:/Qt/6.7.2/mingw_64/lib/libQt6EntryPoint.a  -lshell32  -ld3d11  -ldxgi  -ldxguid  -ld3d12  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32

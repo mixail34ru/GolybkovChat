@@ -1,4 +1,4 @@
-C:/Users/Michael/Documents/QtProjects/GolybkovChat/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/GolybkovChat_autogen/75UR3EJMK3/moc_TPackDataGroupBox.cpp: C:/Users/Michael/Documents/QtProjects/GolybkovChat/include/view/TPackDataGroupBox.h \
+C:/Users/Michael/Documents/QtProjects/GolybkovChat/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/GolybkovChat_autogen/75UR3EJMK3/moc_TRecvModeGroupBox.cpp: C:/Users/Michael/Documents/QtProjects/GolybkovChat/include/view/TRecvModeGroupBox.h \
   C:/Users/Michael/Documents/QtProjects/GolybkovChat/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/GolybkovChat_autogen/moc_predefs.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/q20functional.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/q20memory.h \
@@ -111,6 +111,7 @@ C:/Users/Michael/Documents/QtProjects/GolybkovChat/build/Desktop_Qt_6_7_2_MinGW_
   C:/Qt/6.7.2/mingw_64/include/QtCore/qtversionchecks.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qtypeinfo.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qtypes.h \
+  C:/Qt/6.7.2/mingw_64/include/QtCore/qurl.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qutf8stringview.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qvariant.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/qvarlengtharray.h \
@@ -130,12 +131,17 @@ C:/Users/Michael/Documents/QtProjects/GolybkovChat/build/Desktop_Qt_6_7_2_MinGW_
   C:/Qt/6.7.2/mingw_64/include/QtGui/qkeysequence.h \
   C:/Qt/6.7.2/mingw_64/include/QtGui/qpaintdevice.h \
   C:/Qt/6.7.2/mingw_64/include/QtGui/qpalette.h \
+  C:/Qt/6.7.2/mingw_64/include/QtGui/qpen.h \
   C:/Qt/6.7.2/mingw_64/include/QtGui/qpixelformat.h \
   C:/Qt/6.7.2/mingw_64/include/QtGui/qpixmap.h \
   C:/Qt/6.7.2/mingw_64/include/QtGui/qpolygon.h \
   C:/Qt/6.7.2/mingw_64/include/QtGui/qregion.h \
   C:/Qt/6.7.2/mingw_64/include/QtGui/qrgb.h \
   C:/Qt/6.7.2/mingw_64/include/QtGui/qrgba64.h \
+  C:/Qt/6.7.2/mingw_64/include/QtGui/qtextcursor.h \
+  C:/Qt/6.7.2/mingw_64/include/QtGui/qtextdocument.h \
+  C:/Qt/6.7.2/mingw_64/include/QtGui/qtextformat.h \
+  C:/Qt/6.7.2/mingw_64/include/QtGui/qtextoption.h \
   C:/Qt/6.7.2/mingw_64/include/QtGui/qtgui-config.h \
   C:/Qt/6.7.2/mingw_64/include/QtGui/qtguiexports.h \
   C:/Qt/6.7.2/mingw_64/include/QtGui/qtguiglobal.h \
@@ -143,8 +149,13 @@ C:/Users/Michael/Documents/QtProjects/GolybkovChat/build/Desktop_Qt_6_7_2_MinGW_
   C:/Qt/6.7.2/mingw_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.7.2/mingw_64/include/QtGui/qwindowdefs_win.h \
   C:/Qt/6.7.2/mingw_64/include/QtWidgets/QGroupBox \
+  C:/Qt/6.7.2/mingw_64/include/QtWidgets/QLineEdit \
+  C:/Qt/6.7.2/mingw_64/include/QtWidgets/QPushButton \
+  C:/Qt/6.7.2/mingw_64/include/QtWidgets/qabstractbutton.h \
   C:/Qt/6.7.2/mingw_64/include/QtWidgets/qframe.h \
   C:/Qt/6.7.2/mingw_64/include/QtWidgets/qgroupbox.h \
+  C:/Qt/6.7.2/mingw_64/include/QtWidgets/qlineedit.h \
+  C:/Qt/6.7.2/mingw_64/include/QtWidgets/qpushbutton.h \
   C:/Qt/6.7.2/mingw_64/include/QtWidgets/qsizepolicy.h \
   C:/Qt/6.7.2/mingw_64/include/QtWidgets/qtwidgets-config.h \
   C:/Qt/6.7.2/mingw_64/include/QtWidgets/qtwidgetsexports.h \
@@ -349,4 +360,4 @@ C:/Users/Michael/Documents/QtProjects/GolybkovChat/build/Desktop_Qt_6_7_2_MinGW_
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/time.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/vadefs.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h \
-  C:/Users/Michael/Documents/QtProjects/GolybkovChat/include/model/TPackageFormat.h
+  C:/Users/Michael/Documents/QtProjects/GolybkovChat/include/view/TUShortLineEdit.h

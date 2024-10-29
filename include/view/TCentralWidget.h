@@ -22,8 +22,9 @@ public:
     ~TCentralWidget();
 
 signals:
-    void send_activated(SendInfo info);
-    void send_timer_activated(uint timeout, SendInfo info);
+    void sendActivated(ViewSendInfo info);
+    void sendTimerActivated(uint timeout, ViewSendInfo info);
+    void receivePackageActivated(uint16_t port);
 
 }; //class TCentralWidget
 //-------------------------------------------------------------------

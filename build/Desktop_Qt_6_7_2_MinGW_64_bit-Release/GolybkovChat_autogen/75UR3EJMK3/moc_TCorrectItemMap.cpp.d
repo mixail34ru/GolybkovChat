@@ -1,8 +1,6 @@
-C:/Users/Michael/Documents/QtProjects/GolybkovChat/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/GolybkovChat_autogen/Q6AU6LSD6J/moc_TModelStateInterface.cpp: C:/Users/Michael/Documents/QtProjects/GolybkovChat/include/model/TModelStateInterface.h \
-  C:/Users/Michael/Documents/QtProjects/GolybkovChat/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/GolybkovChat_autogen/moc_predefs.h \
-  C:/Qt/6.7.2/mingw_64/include/QtCore/QMetaType \
+C:/Users/Michael/Documents/QtProjects/GolybkovChat/build/Desktop_Qt_6_7_2_MinGW_64_bit-Release/GolybkovChat_autogen/75UR3EJMK3/moc_TCorrectItemMap.cpp: C:/Users/Michael/Documents/QtProjects/GolybkovChat/include/view/TCorrectItemMap.h \
+  C:/Users/Michael/Documents/QtProjects/GolybkovChat/build/Desktop_Qt_6_7_2_MinGW_64_bit-Release/GolybkovChat_autogen/moc_predefs.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/QObject \
-  C:/Qt/6.7.2/mingw_64/include/QtCore/QString \
   C:/Qt/6.7.2/mingw_64/include/QtCore/q20functional.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/q20memory.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/q20type_traits.h \
@@ -298,5 +296,4 @@ C:/Users/Michael/Documents/QtProjects/GolybkovChat/build/Desktop_Qt_6_7_2_MinGW_
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/sys/types.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/time.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/vadefs.h \
-  C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h \
-  C:/Users/Michael/Documents/QtProjects/GolybkovChat/include/model/TPackageFormat.h
+  C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h

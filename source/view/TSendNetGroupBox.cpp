@@ -60,7 +60,7 @@ TSendNetGroupBox::~TSendNetGroupBox() {
 
 QString DropZero(const QString& text) {
     static QRegularExpression regexp("(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})");
-    static QRegularExpressionMatch match = regexp.match(text);
+    QRegularExpressionMatch match = regexp.match(text);
 
     if (match.hasMatch()) {
         QStringList list = match.capturedTexts();

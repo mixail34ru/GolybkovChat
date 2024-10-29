@@ -48,6 +48,8 @@ TController::TController(int &argc, char **argv)
     );
 
     _main_wnd->show();
+    auto temp = new QWidget();
+    temp->show();
 }//------------------------------------------------------------------
 
 

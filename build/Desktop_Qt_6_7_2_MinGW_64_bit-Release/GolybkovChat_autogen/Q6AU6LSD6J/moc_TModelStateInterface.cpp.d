@@ -1,5 +1,5 @@
-C:/Users/Michael/Documents/QtProjects/GolybkovChat/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/GolybkovChat_autogen/Q6AU6LSD6J/moc_TModelStateInterface.cpp: C:/Users/Michael/Documents/QtProjects/GolybkovChat/include/model/TModelStateInterface.h \
-  C:/Users/Michael/Documents/QtProjects/GolybkovChat/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/GolybkovChat_autogen/moc_predefs.h \
+C:/Users/Michael/Documents/QtProjects/GolybkovChat/build/Desktop_Qt_6_7_2_MinGW_64_bit-Release/GolybkovChat_autogen/Q6AU6LSD6J/moc_TModelStateInterface.cpp: C:/Users/Michael/Documents/QtProjects/GolybkovChat/include/model/TModelStateInterface.h \
+  C:/Users/Michael/Documents/QtProjects/GolybkovChat/build/Desktop_Qt_6_7_2_MinGW_64_bit-Release/GolybkovChat_autogen/moc_predefs.h \
   C:/Qt/6.7.2/mingw_64/include/QtCore/QMetaType \
   C:/Qt/6.7.2/mingw_64/include/QtCore/QObject \
   C:/Qt/6.7.2/mingw_64/include/QtCore/QString \

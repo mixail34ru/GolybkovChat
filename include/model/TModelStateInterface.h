@@ -1,7 +1,8 @@
 #ifndef TMODELSTATEINTERFACE_H
 #define TMODELSTATEINTERFACE_H
 
-#include "TServer.h"
+//#include "TServer.h"
+#include <TPackageFormat.h>
 #include <QObject>
 
 class TClient;

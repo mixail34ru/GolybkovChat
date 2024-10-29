@@ -1,0 +1,15 @@
+C:/Users/Michael/Documents/QtProjects/GolybkovChat/build/Desktop_Qt_6_7_2_MinGW_64_bit-Release/CMakeFiles/ws2.dir
+C:/Users/Michael/Documents/QtProjects/GolybkovChat/build/Desktop_Qt_6_7_2_MinGW_64_bit-Release/CMakeFiles/wstd.dir
+C:/Users/Michael/Documents/QtProjects/GolybkovChat/build/Desktop_Qt_6_7_2_MinGW_64_bit-Release/CMakeFiles/GolybkovChat.dir
+C:/Users/Michael/Documents/QtProjects/GolybkovChat/build/Desktop_Qt_6_7_2_MinGW_64_bit-Release/CMakeFiles/edit_cache.dir
+C:/Users/Michael/Documents/QtProjects/GolybkovChat/build/Desktop_Qt_6_7_2_MinGW_64_bit-Release/CMakeFiles/rebuild_cache.dir
+C:/Users/Michael/Documents/QtProjects/GolybkovChat/build/Desktop_Qt_6_7_2_MinGW_64_bit-Release/CMakeFiles/list_install_components.dir
+C:/Users/Michael/Documents/QtProjects/GolybkovChat/build/Desktop_Qt_6_7_2_MinGW_64_bit-Release/CMakeFiles/install.dir
+C:/Users/Michael/Documents/QtProjects/GolybkovChat/build/Desktop_Qt_6_7_2_MinGW_64_bit-Release/CMakeFiles/install/local.dir
+C:/Users/Michael/Documents/QtProjects/GolybkovChat/build/Desktop_Qt_6_7_2_MinGW_64_bit-Release/CMakeFiles/install/strip.dir
+C:/Users/Michael/Documents/QtProjects/GolybkovChat/build/Desktop_Qt_6_7_2_MinGW_64_bit-Release/CMakeFiles/ws2_autogen_timestamp_deps.dir
+C:/Users/Michael/Documents/QtProjects/GolybkovChat/build/Desktop_Qt_6_7_2_MinGW_64_bit-Release/CMakeFiles/ws2_autogen.dir
+C:/Users/Michael/Documents/QtProjects/GolybkovChat/build/Desktop_Qt_6_7_2_MinGW_64_bit-Release/CMakeFiles/wstd_autogen_timestamp_deps.dir
+C:/Users/Michael/Documents/QtProjects/GolybkovChat/build/Desktop_Qt_6_7_2_MinGW_64_bit-Release/CMakeFiles/wstd_autogen.dir
+C:/Users/Michael/Documents/QtProjects/GolybkovChat/build/Desktop_Qt_6_7_2_MinGW_64_bit-Release/CMakeFiles/GolybkovChat_autogen_timestamp_deps.dir
+C:/Users/Michael/Documents/QtProjects/GolybkovChat/build/Desktop_Qt_6_7_2_MinGW_64_bit-Release/CMakeFiles/GolybkovChat_autogen.dir

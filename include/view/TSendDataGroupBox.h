@@ -10,9 +10,13 @@
 
 #include <optional>
 
+class TCorrectItemMap;
+
 class TSendDataGroupBox : public QGroupBox
 {
     Q_OBJECT
+
+    TCorrectItemMap* _correct_map;
 
     QFormLayout* _package_frm_lt;
     QComboBox* _type_data_cmb_bx;
@@ -26,15 +30,17 @@ public:
     TSendDataGroupBox(QWidget* parent = nullptr);
     ~TSendDataGroupBox();
 
-    std::optional<Package> get_package();
+    std::optional<ViewSendPackage> get_package();
+
+    void SetEnableDataField(bool flag);
 
 private:
-    template<typename D, typename R>
-    R get_combo_box_var(const QComboBox* cmbbx) {
+    template<typename D>
+    D get_combo_box_var(const QComboBox* cmbbx) {
         auto data = cmbbx->itemData(cmbbx->currentIndex());
         if (!data.isNull()) {
             if (data.canConvert<D>()) {
-                return static_cast<R>(data.value<D>());
+                return data.value<D>();
             }
         }
 
@@ -42,7 +48,15 @@ private:
     }
 
 private slots:
+    void CorrectSignalEmitent(bool flag);
     void currentTypeDataChanged(int index);
+    void Validate_id_ln_edit(const QString& text);
+    void Validate_parameter_ln_edit(const QString& text);
+    void Validate_matrix_ln_edit(const QString& text);
+    void Validate_mask_ln_edit(const QString& text);
+
+signals:
+    void EnteredUncorrectParams(QObject* obj, bool flag);
 
 }; //class TSendDataGroupBox
 //-------------------------------------------------------------------

@@ -6,14 +6,10 @@
 #ifndef SAFE_PTR_H
 #define SAFE_PTR_H
 
-#if _M_CEE  // If using C++/CLR compiling flag
-#include "../std/mutex.h"
-#else //_M_CEE
 #include <mutex>
-#endif //_M_CEE
-
 #include <memory>
 #include <vector>
+#include <thread>
 
 namespace wstd {
 
@@ -59,7 +55,7 @@ class safe_ptr {
 
 	friend struct link_safe_ptrs;
 	template<size_t, typename, size_t, size_t> friend class lock_timed_any;
-	template<class mutex_type> friend class lock_guard_t;
+    template<class mutex_type> friend class std::lock_guard;
 
 public:
 	template<typename... Args>
@@ -77,10 +73,10 @@ public:
 struct link_safe_ptrs {
 	template<typename T1, typename... Args>
 	link_safe_ptrs(T1& first_ptr, Args&... args) {
-		lock_guard_t<T1> lock(first_ptr);
+        std::lock_guard<T1> lock(first_ptr);
 		typedef typename T1::mtx_t mutex_t;
 		std::shared_ptr<mutex_t> old_mtxs[] = { args.mtx_ptr ... }; // to unlock before mutex destroyed
-		std::shared_ptr<std::lock_guard<mutex_t> locks[] = { std::make_shared<std::lock_guard<mutex_t>>(*args.mtx_ptr) ... };
+        std::shared_ptr<std::lock_guard<mutex_t>> locks[] = { std::make_shared<std::lock_guard<mutex_t>>(*args.mtx_ptr) ... };
 		std::shared_ptr<mutex_t> mtxs[] = { args.mtx_ptr = first_ptr.mtx_ptr ... };
 	}
 }; //struct link_safe_ptrs

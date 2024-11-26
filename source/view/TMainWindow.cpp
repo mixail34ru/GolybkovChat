@@ -7,12 +7,16 @@ TMainWindow::TMainWindow(TModelStateInterface* model, QWidget *parent)
 
     _central_wgt = new TCentralWidget(model, this);
     connect(
-        _central_wgt, &TCentralWidget::send_activated,
-        this, &TMainWindow::send_package_activated
+        _central_wgt, &TCentralWidget::sendActivated,
+        this, &TMainWindow::sendActivated
     );
     connect(
-        _central_wgt, &TCentralWidget::send_timer_activated,
-        this, &TMainWindow::send_timer_package_activated
+        _central_wgt, &TCentralWidget::sendTimerActivated,
+        this, &TMainWindow::sendTimerActivated
+    );
+    connect(
+        _central_wgt, SIGNAL(receivePackageActivated(uint16_t, uint16_t)),
+        this, SIGNAL(receiveActivated(uint16_t, uint16_t))
     );
 
     /* Настройка параметров главного окна */

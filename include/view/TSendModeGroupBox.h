@@ -10,10 +10,15 @@
 #include <functional>
 
 class TModelStateInterface;
+class TCorrectItemMap;
 
 class TSendModeGroupBox : public QGroupBox
 {
     Q_OBJECT
+
+    std::function<bool(void)> CheckTimerSendingStatus;
+
+    TCorrectItemMap* _correct_map;
 
     QFormLayout* _send_frm_lt;
     QComboBox* _mode_cmb_bx;
@@ -21,20 +26,21 @@ class TSendModeGroupBox : public QGroupBox
     QPushButton* _send_timer_btn;
     QPushButton* _send_btn;
 
-    std::function<bool(void)> CheckSendingStatus;
-
 public:
     TSendModeGroupBox(TModelStateInterface* model, QWidget* parent = nullptr);
     ~TSendModeGroupBox();
 
+    void SetEnableButtons(bool flag);
+
 private slots:
-    void SetCurrentMode(int index);
-    void SetStatus_send_timer_btn(bool);
-    void SetStatus_send_btn(bool);
+    void setCurrentMode(int index);
+    void setStatus_send_timer_btn(bool flag);
+    void setStatus_send_btn(bool flag);
+    void check_timeout_ln_edit(const QString& text);
 
 signals:
-    void send_activated();
-    void send_timer_activated(uint timeout);
+    void sendActivated();
+    void sendTimerActivated(uint timeout);
 
 }; //class TSendModeGroupBox
 //-------------------------------------------------------------------

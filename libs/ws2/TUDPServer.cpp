@@ -9,8 +9,8 @@ TUDPServer::TUDPServer(
 	handler_exception_t handler_except
 ) : TUDPBase<TUDPServer>(size_parsel)
 {
-	try { 
-		SetPortAndStart(port, size_parsel, handler_func, handler_except);
+    try {
+        SetPortAndStart(port, size_parsel, handler_func, handler_except);
 	}
 	catch (std::exception& except) { throw except; }
 }//------------------------------------------------------------------

@@ -24,27 +24,40 @@ set(LIB_WS2 ${LIBS}/ws2)
 include_directories(${LIB_WS2})
 file(GLOB LIB_WS2_SOURCE ${LIB_WS2}/*cpp)
 file(GLOB LIB_WS2_HEADERS ${LIB_WS2}/*h)
-add_library(ws2 ${LIB_WS2_SOURCE} ${LIB_WS2_HEADERS})
+#add_library(ws2 ${LIB_WS2_SOURCE} ${LIB_WS2_HEADERS})
 
 # Подключение библиотеки wstd
 set(LIB_WSTD ${LIBS}/wstd)
 include_directories(${LIB_WSTD})
 file(GLOB LIB_WSTD_SOURCE ${LIB_WSTD}/*cpp)
 file(GLOB LIB_WSTD_HEADERS ${LIB_WSTD}/*h)
-add_library(wstd ${LIB_WSTD_SOURCE} ${LIB_WSTD_HEADERS})
+#add_library(wstd ${LIB_WSTD_SOURCE} ${LIB_WSTD_HEADERS})
 
 set(PROJECT_SOURCES
   ${CORE_SOURCE} ${CORE_HEADERS}
-  #${LIB_WS2_SOURCE} ${LIB_WS2_HEADERS}
-  #${LIB_WSTD_SOURCE} ${LIB_WSTD_HEADERS}\
-  ${ws2}
-  ${wstd}
+  ${LIB_WS2_SOURCE} ${LIB_WS2_HEADERS}
+  ${LIB_WSTD_SOURCE} ${LIB_WSTD_HEADERS}
+  #${ws2}
+  #${wstd}
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(GolybkovChat
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
+        #include/view/TURangeLineEdit.h
+        #source/view/TURangeLineEdit.cpp
+        #include/model/TReceiverDataStorage.h
+        #source/model/TReceiverDataStorage.cpp
+        #include/model/TServer.h
+        #source/model/TServer.cpp
+        #include/view/TUShortLineEdit.h
+        #source/view/TUShortLineEdit.cpp
+        #include/view/TRecvModeGroupBox.h
+        #source/view/TRecvModeGroupBox.cpp
+        #include/view/TCorrectItemMap.h
+        #include/view/TIPValidator.h
+        #source/view/TIPValidator.cpp
         #include/model/TModelStateInterface.h
         #source/model/TModelStateInterface.cpp
         #include/model/TClient.h
@@ -85,7 +98,7 @@ else()
     endif()
 endif()
 
-target_link_libraries(GolybkovChat PRIVATE Qt${QT_VERSION_MAJOR}::Widgets ws2 wstd ws2_32.lib)
+target_link_libraries(GolybkovChat PRIVATE Qt${QT_VERSION_MAJOR}::Widgets ws2_32.lib)
 
 #target_link_libraries(${CMAKE_PROJECT_NAME} ws2_32)
 

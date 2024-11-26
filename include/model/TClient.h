@@ -34,15 +34,15 @@ public:
 
     void StopSendingMessage();
 
-    bool IsSending() const;
+    bool IsTimerSending() const;
 
 private:
     ws2::TUDPClient _client;
     std::unique_ptr<wstd::timer> _timer;
 
 signals:
-    void StatusSendingTimerChanged(bool);
-    void StatusSendingChanged(bool);
+    void statusSendingTimerChanged(bool);
+    void statusSendingChanged(bool);
 
 }; //class TClient
 //-------------------------------------------------------------------

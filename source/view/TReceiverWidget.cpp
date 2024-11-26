@@ -1,5 +1,7 @@
 #include "TReceiverWidget.h"
 
+#include "TModelStateInterface.h"
+
 #include <QAbstractTableModel>
 #include <QTableView>
 
@@ -14,42 +16,33 @@
 #include <QLineEdit>
 #include <QPushButton>
 
-TReceiverWidget::TReceiverWidget(QWidget* parent)
+#include "TTableModel.h"
+#include "TTableView.h"
+
+
+TReceiverWidget::TReceiverWidget(TModelStateInterface* model, QWidget* parent)
     : QWidget(parent)
 {
-    /* backend */
-
-    //QAbstractTableModel* table_model = new QAbstractTableModel(this);
-
-    /* frontend */
-
     QGridLayout* grd_lt = new QGridLayout();
 
-    /* Port */
+    _mode_grp_bx = new TRecvModeGroupBox(model, this);
+    connect(
+        _mode_grp_bx, SIGNAL(receivePackageActivated(uint16_t, uint16_t)),
+        this, SIGNAL(receivePackageActivated(uint16_t, uint16_t))
+    );
 
-    QHBoxLayout* port_hlt = new QHBoxLayout();
+    TTableModel* table_model = new TTableModel(model, this);
+    TTableView* table = new TTableView(table_model, this);
 
-    QLabel* port_lbl = new QLabel(tr("Port:"));
-    port_hlt->addWidget(port_lbl);
-
-    QLineEdit* port_txtdt = new QLineEdit(tr("666"));
-    port_hlt->addWidget(port_txtdt);
-
-    QPushButton* listen_btn = new QPushButton(tr("Запустить прослушку"));
-    port_hlt->addWidget(listen_btn);
-
-    grd_lt->addLayout(port_hlt, 0, 0);
-
-    /* Table */
-
-    QTableView* table = new QTableView();
-
-    QBoxLayout* layout = new QBoxLayout(QBoxLayout::Direction());
+    QVBoxLayout* layout = new QVBoxLayout();
+    layout->addWidget(_mode_grp_bx);
     layout->addWidget(table);
 
     grd_lt->addLayout(layout, 1, 0);
 
     this->setLayout(grd_lt);
-}
+}//------------------------------------------------------------------
 
-TReceiverWidget::~TReceiverWidget() {}
+
+TReceiverWidget::~TReceiverWidget() {
+}//------------------------------------------------------------------

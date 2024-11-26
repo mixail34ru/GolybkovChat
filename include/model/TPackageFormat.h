@@ -6,6 +6,8 @@
 #include <QString>
 #include <QMetaType>
 
+#include <chrono>
+
 enum class TypeData : int8_t {
     INPUT_DOUBLE  = -1,  //!< Занести в свою базу и использовать как значение параметрического сигнала
     INPUT_INT32   = -3,  //!< Занести в свою базу и использовать как значение дискретного слова
@@ -73,6 +75,27 @@ struct Package {
 //-------------------------------------------------------------------
 
 
+struct ReceivePackage {
+    std::chrono::high_resolution_clock::time_point timestamp;
+    Package package;
+}; //struct ReceivePackage
+//-------------------------------------------------------------------
+
+
+struct ViewSendPackage {
+    TypeData type_data;
+    TypeSygnal type_signal;
+    uint16_t id;
+
+    union Payload {
+        double parameter;
+        int32_t word;
+        int64_t llword;
+    } payload;
+}; //struct ViewSendPackage
+//-------------------------------------------------------------------
+
+
 struct NetAddress {
     uint16_t port;
     std::string ip;
@@ -80,8 +103,8 @@ struct NetAddress {
 //-------------------------------------------------------------------
 
 
-struct SendInfo {
-    Package package;
+struct ViewSendInfo {
+    ViewSendPackage package;
     NetAddress address;
 }; //struct SendInfo
 //-------------------------------------------------------------------

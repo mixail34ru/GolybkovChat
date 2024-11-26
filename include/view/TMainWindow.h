@@ -18,8 +18,9 @@ public:
     ~TMainWindow();
 
 signals:
-    void send_package_activated(SendInfo info);
-    void send_timer_package_activated(uint timeout, SendInfo info);
+    void sendActivated(ViewSendInfo info);
+    void sendTimerActivated(uint timeout, ViewSendInfo info);
+    void receiveActivated(uint16_t max_pack, uint16_t port);
 
 }; //class TMainWindow
 //-------------------------------------------------------------------

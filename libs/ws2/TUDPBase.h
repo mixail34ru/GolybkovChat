@@ -104,7 +104,7 @@ public:
 	}//------------------------------------------------------------------
 
 
-	SocketAddr_in CreateAddess(const char* host, uint16_t port) {
+    static SocketAddr_in CreateAddess(const char* host, uint16_t port) {
 		SocketAddr_in address;
 		address.sin_family = AF_INET;
 		address.sin_port = htons(port);
@@ -125,7 +125,7 @@ public:
 	}//------------------------------------------------------------------
 
 
-	SocketAddr_in CreateAnyAddess(uint16_t port) {
+    static SocketAddr_in CreateAnyAddess(uint16_t port) {
 		SocketAddr_in address;
 		address.sin_family = AF_INET;
 		address.sin_addr.s_addr = ADDR_ANY;

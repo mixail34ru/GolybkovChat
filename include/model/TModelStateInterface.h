@@ -1,25 +1,40 @@
 #ifndef TMODELSTATEINTERFACE_H
 #define TMODELSTATEINTERFACE_H
 
+#include <TPackageFormat.h>
 #include <QObject>
 
 class TClient;
+class TServer;
 
 class TModelStateInterface : public QObject
 {
     Q_OBJECT
 
-    const TClient* _client;
+    TClient* _client;
+    TServer* _server;
 
 public:
-    TModelStateInterface(const TClient* client, QObject* parent = nullptr);
+    TModelStateInterface(
+        TClient* client,
+        TServer* server,
+        QObject* parent = nullptr
+    );
     ~TModelStateInterface();
 
-    bool IsSending() const;
+    bool IsTimerSending() const;
+    bool isReceiving() const;
+
+    size_t storageSize() const;
+    ReceivePackage storageItem(const size_t index);
 
 signals:
-    void StatusSendingTimerChanged(bool);
-    void StatusSendingChanged(bool);
+    void statusSendingTimerChanged(bool);
+    void statusSendingChanged(bool);
+
+    void statusReceivingChanged(bool);
+    void storageDataChanged();
+    void storageClear();
 
 }; //class TModelStateInterface
 //-------------------------------------------------------------------

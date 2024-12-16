@@ -50,9 +50,10 @@ TSenderWidget::TSenderWidget(TModelStateInterface* model, QWidget* parent)
     _mode_grp_bx = new TSendModeGroupBox(model, this);
     _correct_map->EmplaceItem(_mode_grp_bx, true);
     connect(_mode_grp_bx, &TSendModeGroupBox::sendActivated,
-        [this] () {
+        [this] (uint num_pack) {
             try {
                 ViewSendInfo info {
+                    num_pack,
                     _pack_data_grp_bx->get_package().value(),
                     _net_grp_bx->get_address().value()
                 };
@@ -63,9 +64,10 @@ TSenderWidget::TSenderWidget(TModelStateInterface* model, QWidget* parent)
     );
 
     connect(_mode_grp_bx, &TSendModeGroupBox::sendTimerActivated,
-        [this](uint timeout) {
+        [this](uint timeout, uint num_pack) {
             try {
                 ViewSendInfo info {
+                    num_pack,
                     _pack_data_grp_bx->get_package().value(),
                     _net_grp_bx->get_address().value()
                 };

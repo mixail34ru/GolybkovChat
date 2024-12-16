@@ -2,6 +2,7 @@
 
 #include "TClient.h"
 #include "TServer.h"
+#include "TSaveVecDataStorage.h"
 
 TModelStateInterface::TModelStateInterface(
     TClient* client, TServer* server, QObject* parent)
@@ -45,10 +46,55 @@ bool TModelStateInterface::isReceiving() const {
 
 
 size_t TModelStateInterface::storageSize() const {
-    return _server->getStorage().size();
+    int full_size = 0;
+    for( int i = 0; i < _server->getStorage().size(); i++)
+    {
+        full_size +=  _server->getStorage().at(i).parsel.size();
+    }
+    return full_size;
 }//------------------------------------------------------------------
 
 
-ReceivePackage TModelStateInterface::storageItem(const size_t index) {
-    return _server->getStorage().at(index);
+Package TModelStateInterface::storageItem(const size_t index) {
+    //try {
+        int recvpack_size = _server->getStorage().size();
+        int min_index = 0;
+        int max_index = 0;
+        for (int i = 0; i < recvpack_size; i++){
+            max_index = min_index + _server->getStorage().at(i).parsel.size();
+            if (index < max_index){
+                return _server->getStorage().at(i).parsel.at(index - min_index);
+            }
+            else
+                min_index += _server->getStorage().at(i).parsel.size();
+        }
+   /* }
+    catch (std::out_of_range err) {
+        int i = 0;
+    }
+    catch (...) {
+        int i = 0;
+    }*/
+}//------------------------------------------------------------------
+
+
+ReceivePackage TModelStateInterface::timeItem(const size_t index){
+   // try {
+        int recvpack_size = _server->getStorage().size();
+        int min_index = 0;
+        int max_index = 0;
+        for (int i = 0; i < recvpack_size; i++){
+            max_index = min_index + _server->getStorage().at(i).parsel.size();
+            if (index < max_index)
+                return _server->getStorage().at(i);
+            else
+                min_index += _server->getStorage().at(i).parsel.size();
+        }
+    /*}
+    catch (std::out_of_range err) {
+        int i = 0;
+    }
+    catch (...) {
+        int i = 0;
+    }*/
 }//------------------------------------------------------------------

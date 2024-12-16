@@ -1,6 +1,6 @@
 {
 	"AUTOGEN_COMMAND_LINE_LENGTH_MAX" : 32000,
-	"BUILD_DIR" : "C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/build/Desktop_Qt_MSVC2022_64bit-Debug/GolybkovChat_autogen",
+	"BUILD_DIR" : "C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/build/Desktop_Qt_MSVC2022_64bit-Debug/wstd_autogen",
 	"CMAKE_BINARY_DIR" : "C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/build/Desktop_Qt_MSVC2022_64bit-Debug",
 	"CMAKE_CURRENT_BINARY_DIR" : "C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/build/Desktop_Qt_MSVC2022_64bit-Debug",
 	"CMAKE_CURRENT_SOURCE_DIR" : "C:/Users/Michael/Documents/Projects/Qt/GolybkovChat",
@@ -397,140 +397,45 @@
 	],
 	"CMAKE_SOURCE_DIR" : "C:/Users/Michael/Documents/Projects/Qt/GolybkovChat",
 	"CROSS_CONFIG" : false,
-	"DEP_FILE" : "C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/build/Desktop_Qt_MSVC2022_64bit-Debug/GolybkovChat_autogen/deps",
-	"DEP_FILE_RULE_NAME" : "GolybkovChat_autogen/timestamp",
+	"DEP_FILE" : "C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/build/Desktop_Qt_MSVC2022_64bit-Debug/wstd_autogen/deps",
+	"DEP_FILE_RULE_NAME" : "wstd_autogen/timestamp",
 	"HEADERS" : 
 	[
 		[
-			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/controller/TController.h",
+			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/libs/wstd/ntdll_function.h",
 			"MU",
-			"KEB5ZR3DWC/moc_TController.cpp",
+			"AG4ICCVOQN/moc_ntdll_function.cpp",
 			null
 		],
 		[
-			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/model/TClient.h",
+			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/libs/wstd/safe_ptr.h",
 			"MU",
-			"Q6AU6LSD6J/moc_TClient.cpp",
+			"AG4ICCVOQN/moc_safe_ptr.cpp",
 			null
 		],
 		[
-			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/model/TModelStateInterface.h",
+			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/libs/wstd/string_custom_func.h",
 			"MU",
-			"Q6AU6LSD6J/moc_TModelStateInterface.cpp",
+			"AG4ICCVOQN/moc_string_custom_func.cpp",
 			null
 		],
 		[
-			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/model/TPackageFormat.h",
+			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/libs/wstd/thread_pool.h",
 			"MU",
-			"Q6AU6LSD6J/moc_TPackageFormat.cpp",
+			"AG4ICCVOQN/moc_thread_pool.cpp",
 			null
 		],
 		[
-			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/model/TSaveVecDataStorage.h",
+			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/libs/wstd/timer.h",
 			"MU",
-			"Q6AU6LSD6J/moc_TSaveVecDataStorage.cpp",
-			null
-		],
-		[
-			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/model/TServer.h",
-			"MU",
-			"Q6AU6LSD6J/moc_TServer.cpp",
-			null
-		],
-		[
-			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/TCentralWidget.h",
-			"MU",
-			"75UR3EJMK3/moc_TCentralWidget.cpp",
-			null
-		],
-		[
-			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/TCorrectItemMap.h",
-			"MU",
-			"75UR3EJMK3/moc_TCorrectItemMap.cpp",
-			null
-		],
-		[
-			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/TMainWindow.h",
-			"MU",
-			"75UR3EJMK3/moc_TMainWindow.cpp",
-			null
-		],
-		[
-			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/TReceiverWidget.h",
-			"MU",
-			"75UR3EJMK3/moc_TReceiverWidget.cpp",
-			null
-		],
-		[
-			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/TRecvModeGroupBox.h",
-			"MU",
-			"75UR3EJMK3/moc_TRecvModeGroupBox.cpp",
-			null
-		],
-		[
-			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/TSendDataGroupBox.h",
-			"MU",
-			"75UR3EJMK3/moc_TSendDataGroupBox.cpp",
-			null
-		],
-		[
-			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/TSendModeGroupBox.h",
-			"MU",
-			"75UR3EJMK3/moc_TSendModeGroupBox.cpp",
-			null
-		],
-		[
-			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/TSendNetGroupBox.h",
-			"MU",
-			"75UR3EJMK3/moc_TSendNetGroupBox.cpp",
-			null
-		],
-		[
-			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/TSenderWidget.h",
-			"MU",
-			"75UR3EJMK3/moc_TSenderWidget.cpp",
-			null
-		],
-		[
-			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/TTableModel.h",
-			"MU",
-			"75UR3EJMK3/moc_TTableModel.cpp",
-			null
-		],
-		[
-			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/TTableView.h",
-			"MU",
-			"75UR3EJMK3/moc_TTableView.cpp",
-			null
-		],
-		[
-			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/TURangeLineEdit.h",
-			"MU",
-			"75UR3EJMK3/moc_TURangeLineEdit.cpp",
-			null
-		],
-		[
-			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/TUShortLineEdit.h",
-			"MU",
-			"75UR3EJMK3/moc_TUShortLineEdit.cpp",
+			"AG4ICCVOQN/moc_timer.cpp",
 			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
-	"INCLUDE_DIR" : "C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/build/Desktop_Qt_MSVC2022_64bit-Debug/GolybkovChat_autogen/include",
-	"MOC_COMPILATION_FILE" : "C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/build/Desktop_Qt_MSVC2022_64bit-Debug/GolybkovChat_autogen/mocs_compilation.cpp",
-	"MOC_DEFINITIONS" : 
-	[
-		"QT_CORE_LIB",
-		"QT_GUI_LIB",
-		"QT_WIDGETS_LIB",
-		"UNICODE",
-		"WIN32",
-		"WIN64",
-		"_ENABLE_EXTENDED_ALIGNED_STORAGE",
-		"_UNICODE",
-		"_WIN64"
-	],
+	"INCLUDE_DIR" : "C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/build/Desktop_Qt_MSVC2022_64bit-Debug/wstd_autogen/include",
+	"MOC_COMPILATION_FILE" : "C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/build/Desktop_Qt_MSVC2022_64bit-Debug/wstd_autogen/mocs_compilation.cpp",
+	"MOC_DEFINITIONS" : [ "WIN32" ],
 	"MOC_DEPEND_FILTERS" : 
 	[
 		[
@@ -545,12 +450,7 @@
 		"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view",
 		"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/model",
 		"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/libs/ws2",
-		"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/libs/wstd",
-		"C:/Qt/6.8.0/msvc2022_64/include/QtCore",
-		"C:/Qt/6.8.0/msvc2022_64/include",
-		"C:/Qt/6.8.0/msvc2022_64/mkspecs/win32-msvc",
-		"C:/Qt/6.8.0/msvc2022_64/include/QtWidgets",
-		"C:/Qt/6.8.0/msvc2022_64/include/QtGui"
+		"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/libs/wstd"
 	],
 	"MOC_MACRO_NAMES" : 
 	[
@@ -568,101 +468,20 @@
 	"MOC_RELAXED_MODE" : false,
 	"MOC_SKIP" : 
 	[
-		"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/build/Desktop_Qt_MSVC2022_64bit-Debug/ws2_autogen/mocs_compilation.cpp",
-		"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/build/Desktop_Qt_MSVC2022_64bit-Debug/wstd_autogen/mocs_compilation.cpp"
+		"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/build/Desktop_Qt_MSVC2022_64bit-Debug/ws2_autogen/mocs_compilation.cpp"
 	],
 	"MULTI_CONFIG" : false,
 	"PARALLEL" : 4,
-	"PARSE_CACHE_FILE" : "C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/build/Desktop_Qt_MSVC2022_64bit-Debug/CMakeFiles/GolybkovChat_autogen.dir/ParseCache.txt",
+	"PARSE_CACHE_FILE" : "C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/build/Desktop_Qt_MSVC2022_64bit-Debug/CMakeFiles/wstd_autogen.dir/ParseCache.txt",
 	"QT_MOC_EXECUTABLE" : "C:/Qt/6.8.0/msvc2022_64/bin/moc.exe",
 	"QT_UIC_EXECUTABLE" : "C:/Qt/6.8.0/msvc2022_64/bin/uic.exe",
 	"QT_VERSION_MAJOR" : 6,
 	"QT_VERSION_MINOR" : 8,
-	"SETTINGS_FILE" : "C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/build/Desktop_Qt_MSVC2022_64bit-Debug/CMakeFiles/GolybkovChat_autogen.dir/AutogenUsed.txt",
+	"SETTINGS_FILE" : "C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/build/Desktop_Qt_MSVC2022_64bit-Debug/CMakeFiles/wstd_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
 		[
-			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/source/controller/TController.cpp",
-			"MU",
-			null
-		],
-		[
-			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/source/main.cpp",
-			"MU",
-			null
-		],
-		[
-			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/source/model/TClient.cpp",
-			"MU",
-			null
-		],
-		[
-			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/source/model/TModelStateInterface.cpp",
-			"MU",
-			null
-		],
-		[
-			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/source/model/TServer.cpp",
-			"MU",
-			null
-		],
-		[
-			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/source/view/TCentralWidget.cpp",
-			"MU",
-			null
-		],
-		[
-			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/source/view/TMainWindow.cpp",
-			"MU",
-			null
-		],
-		[
-			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/source/view/TReceiverWidget.cpp",
-			"MU",
-			null
-		],
-		[
-			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/source/view/TRecvModeGroupBox.cpp",
-			"MU",
-			null
-		],
-		[
-			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/source/view/TSendDataGroupBox.cpp",
-			"MU",
-			null
-		],
-		[
-			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/source/view/TSendModeGroupBox.cpp",
-			"MU",
-			null
-		],
-		[
-			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/source/view/TSendNetGroupBox.cpp",
-			"MU",
-			null
-		],
-		[
-			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/source/view/TSenderWidget.cpp",
-			"MU",
-			null
-		],
-		[
-			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/source/view/TTableModel.cpp",
-			"MU",
-			null
-		],
-		[
-			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/source/view/TTableView.cpp",
-			"MU",
-			null
-		],
-		[
-			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/source/view/TURangeLineEdit.cpp",
-			"MU",
-			null
-		],
-		[
-			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/source/view/TUShortLineEdit.cpp",
+			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/libs/wstd/timer.cpp",
 			"MU",
 			null
 		]
@@ -671,8 +490,7 @@
 	"UIC_SEARCH_PATHS" : [],
 	"UIC_SKIP" : 
 	[
-		"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/build/Desktop_Qt_MSVC2022_64bit-Debug/ws2_autogen/mocs_compilation.cpp",
-		"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/build/Desktop_Qt_MSVC2022_64bit-Debug/wstd_autogen/mocs_compilation.cpp"
+		"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/build/Desktop_Qt_MSVC2022_64bit-Debug/ws2_autogen/mocs_compilation.cpp"
 	],
 	"UIC_UI_FILES" : [],
 	"USE_BETTER_GRAPH" : true,

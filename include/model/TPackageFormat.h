@@ -77,7 +77,8 @@ struct Package {
 
 struct ReceivePackage {
     std::chrono::high_resolution_clock::time_point timestamp;
-    Package package;
+    std::vector<Package> parsel;
+    //Package package;
 }; //struct ReceivePackage
 //-------------------------------------------------------------------
 
@@ -104,7 +105,9 @@ struct NetAddress {
 
 
 struct ViewSendInfo {
+    uint count;
     ViewSendPackage package;
+    //std::vector<ViewSendPackage> parsel;
     NetAddress address;
 }; //struct SendInfo
 //-------------------------------------------------------------------

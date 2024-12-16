@@ -21,7 +21,7 @@ TSendNetGroupBox::TSendNetGroupBox(QWidget* parent)
 
     /* IPv4 адрес */
 
-    _ip_ln_edit = new QLineEdit("192.168.16.59", this);
+    _ip_ln_edit = new QLineEdit("192.168.16.96", this);
     _correct_map->EmplaceItem(_ip_ln_edit, true);
     _ip_ln_edit->setValidator(
         new QRegularExpressionValidator(ip_regexp, this)

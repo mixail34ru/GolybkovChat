@@ -13,6 +13,13 @@ TSendModeGroupBox::TSendModeGroupBox(TModelStateInterface* model, QWidget* paren
     CheckTimerSendingStatus
         = [model]()->bool const { return model->IsTimerSending(); };
 
+    _pack_ln_edit = new QLineEdit("1", this);
+    _pack_ln_edit->setValidator(new QIntValidator(1, USHRT_MAX, _pack_ln_edit));
+    connect(
+        _pack_ln_edit, SIGNAL(textChanged(QString)),
+        this, SLOT(check_pack_ln_edit(QString))
+        );
+
     /* Варианты режимов */
 
     _mode_cmb_bx = new QComboBox(this);
@@ -23,6 +30,7 @@ TSendModeGroupBox::TSendModeGroupBox(TModelStateInterface* model, QWidget* paren
         _mode_cmb_bx, SIGNAL(currentIndexChanged(int)),
         this, SLOT(setCurrentMode(int))
     );
+    _correct_map->EmplaceItem(_pack_ln_edit, true);
 
     /* Одиночное сообщение */
 
@@ -30,7 +38,8 @@ TSendModeGroupBox::TSendModeGroupBox(TModelStateInterface* model, QWidget* paren
     connect(_send_btn, &QPushButton::clicked,
         [this] () {
             _send_btn->setEnabled(false);
-            emit sendActivated();
+            _pack_ln_edit->setEnabled(false);
+            emit sendActivated(_pack_ln_edit->text().toUInt());
         }
     );
     connect(
@@ -54,8 +63,9 @@ TSendModeGroupBox::TSendModeGroupBox(TModelStateInterface* model, QWidget* paren
         [this] () {
             try {
                 _send_timer_btn->setEnabled(false);
+                _pack_ln_edit->setEnabled(false);
                 _timeout_ln_edit->setEnabled(false);
-                emit sendTimerActivated(_timeout_ln_edit->text().toUInt());
+                emit sendTimerActivated(_timeout_ln_edit->text().toUInt(), _pack_ln_edit->text().toUInt());
             } catch (...) {}
         }
     );
@@ -64,11 +74,13 @@ TSendModeGroupBox::TSendModeGroupBox(TModelStateInterface* model, QWidget* paren
         this, SLOT(setStatus_send_timer_btn(bool))
     );
 
+
     /* Настройка параметров виджета */
 
     _send_frm_lt = new QFormLayout(this);
     _send_frm_lt->addRow("Режим:", _mode_cmb_bx);
     _send_frm_lt->addRow("Интервал, мс:", _timeout_ln_edit);
+    _send_frm_lt->addRow("Кол-во пакетов:", _pack_ln_edit);
     _send_frm_lt->addRow(_send_timer_btn);
     _send_frm_lt->addRow(_send_btn);
 
@@ -88,7 +100,7 @@ void TSendModeGroupBox::setCurrentMode(int index) {
         if (CheckTimerSendingStatus()) {
             try {
                 _send_timer_btn->setEnabled(false);
-                emit sendTimerActivated(_timeout_ln_edit->text().toUInt());
+                emit sendTimerActivated(_timeout_ln_edit->text().toUInt(), _pack_ln_edit->text().toUInt());
             } catch (...) {}
         }
 
@@ -121,7 +133,8 @@ void TSendModeGroupBox::setStatus_send_timer_btn(bool flag) {
     }
     else {
        _send_timer_btn->setText("Начать отправку");
-        _timeout_ln_edit->setEnabled(true);
+       _timeout_ln_edit->setEnabled(true);
+       _pack_ln_edit->setEnabled(true);
     }
 
     _send_timer_btn->setEnabled(true); 
@@ -129,6 +142,7 @@ void TSendModeGroupBox::setStatus_send_timer_btn(bool flag) {
 
 
 void TSendModeGroupBox::setStatus_send_btn(bool flag) {
+    _pack_ln_edit->setEnabled(true);
     _send_btn->setEnabled(true);
 }//------------------------------------------------------------------
 
@@ -136,8 +150,27 @@ void TSendModeGroupBox::setStatus_send_btn(bool flag) {
 void TSendModeGroupBox::SetEnableButtons(bool flag) {
     _send_btn->setEnabled(flag);
     if (!CheckTimerSendingStatus())
-        _send_timer_btn->setEnabled(flag && _correct_map->GetItemStatus(_timeout_ln_edit));
+        _send_timer_btn->setEnabled(flag && _correct_map->GetItemStatus(_timeout_ln_edit)&&_correct_map->GetItemStatus(_pack_ln_edit));
 }//------------------------------------------------------------------
+
+
+void TSendModeGroupBox::check_pack_ln_edit(const QString& text){
+    unsigned int num = text.toUInt();
+    if(num > 0 && num <= 300)
+    {
+        _pack_ln_edit->setStyleSheet("QLineEdit { color: black }");
+        _correct_map->SetItemStatus(_pack_ln_edit, true);
+
+        _send_btn->setEnabled(true);
+    }
+    else
+    {
+        _pack_ln_edit->setStyleSheet("QLineEdit { color: red }");
+        _correct_map->SetItemStatus(_pack_ln_edit, false);
+
+        _send_btn->setEnabled(false);
+    }
+}
 
 
 void TSendModeGroupBox::check_timeout_ln_edit(const QString& text) {

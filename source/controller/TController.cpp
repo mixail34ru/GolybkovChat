@@ -55,13 +55,17 @@ TController::~TController() {
 
 
 void TController::send_package(ViewSendInfo info) {
-    Package package = ViewInfoToPackageConverter(info);
+    //Package package = ViewInfoToPackageConverter(info);
+    std::vector<Package> vec_pack;
+    for(int i = 0; i < info.count; i++){
+        vec_pack.push_back(ViewInfoToPackageConverter(info));
+    }
 
     _client.SendMessage(
         info.address.ip,
         info.address.port,
-        reinterpret_cast<void*>(&package),
-        sizeof(package)
+        reinterpret_cast<void*>(vec_pack.data()), //(&package),
+        sizeof(Package)*vec_pack.size()
     );
 
     debugSendInfo(info);
@@ -74,13 +78,17 @@ void TController::send_timer_package(uint timeout, ViewSendInfo info) {
             _client.StopSendingMessage();
         }
         else {
-            Package package = ViewInfoToPackageConverter(info);
+            std::vector<Package> vec_pack;
+            for(int i = 0; i < info.count; i++){
+                vec_pack.push_back(ViewInfoToPackageConverter(info));
+            }
+           // Package package = ViewInfoToPackageConverter(info);
             _client.StartSendingMessage(
                 timeout,
                 info.address.ip,
                 info.address.port,
-                reinterpret_cast<void*>(&package),
-                sizeof(package),
+                reinterpret_cast<void*>(vec_pack.data()),   //(&package),
+                sizeof(Package)*vec_pack.size(),
                 ThreadExceptionHandler<TClient>(
                     _pool, [this](){ _client.StopSendingMessage(); }
                 )
@@ -114,6 +122,7 @@ Package TController::ViewInfoToPackageConverter(const ViewSendInfo& vinfo) {
         static_cast<int8_t>(vinfo.package.type_signal),
         vinfo.package.id,
         vinfo.package.payload.parameter
+
     };
 }//------------------------------------------------------------------
 
@@ -125,10 +134,23 @@ void TController::debugSendInfo(const ViewSendInfo& info) const {
              << "\tID: " << info.package.id
              << "\tPayload.parameter: " << info.package.payload.parameter
              << "\tPayload.word: " << info.package.payload.word
-             << "\tPayload.llword: " << info.package.payload.llword
+             << "\tPayload.llword: " <<info.package.payload.llword
              << "\tIP: " << info.address.ip
              << "\tPort: " << info.address.port;
 }//------------------------------------------------------------------
 
+/*
+    for (auto& it : info.parsel)
+    {
+    qDebug() << "SendInfo: "
+                 << "TypeData: " << static_cast<int8_t>(it.type_data) //(info.package.type_data)
+             << "\tTypeSignal: " << static_cast<int8_t>(it.type_signal)  //(info.package.type_signal)
+             << "\tID: " <<  (it.id) //info.package.id
+             << "\tPayload.parameter: " << (it.payload.parameter)  //info.package.payload.parameter
+             << "\tPayload.word: " << (it.payload.word) //info.package.payload.word
+             << "\tPayload.llword: " << (it.payload.llword) //info.package.payload.llword
+             << "\tIP: " << info.address.ip
+             << "\tPort: " << info.address.port;
+    }*/
 
 

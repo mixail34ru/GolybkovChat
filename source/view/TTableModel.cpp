@@ -36,7 +36,9 @@ int TTableModel::columnCount(const QModelIndex & parent) const
 
 int TTableModel::rowCount(const QModelIndex & parent) const
 {
-    return _model->storageSize();
+    return _count_row;
+    //int i = _model->storageSize();
+    //return _model->storageSize();
 }//------------------------------------------------------------------
 
 
@@ -70,14 +72,21 @@ QVariant TTableModel::data(const QModelIndex & index, int role) const {
             return QVariant();
         }
 
-        switch(col){
-        case 0: return timestampString(_model->storageItem(row).timestamp);
-        case 1: return _model->storageItem(row).package.type_data;
-        case 2: return _model->storageItem(row).package.type_signal;
-        case 3: return _model->storageItem(row).package.id;
-        case 4: return _model->storageItem(row).package.payload.parameter;
-        default: return QVariant();
-        }
+
+            switch(col){
+            case 0:
+                return timestampString(_model->timeItem(row).timestamp);
+            case 1:
+                return _model->storageItem(row).type_data;
+            case 2:
+                return _model->storageItem(row).type_signal;
+            case 3:
+                return _model->storageItem(row).id;
+            case 4:
+                return _model->storageItem(row).payload.parameter;
+            default: return QVariant();
+            }
+
     }
 
     return QVariant();
@@ -121,13 +130,18 @@ QModelIndex TTableModel::parent(const QModelIndex & index) const
 
 
 void TTableModel::addDataRow() {
-    beginInsertRows(QModelIndex(), 0, 0);
-    endInsertRows();
+    if ( _model->storageSize() > this->rowCount())
+    {
+        beginInsertRows(QModelIndex(), this->rowCount(), _model->storageSize() - 1 );
+        _count_row = _model->storageSize();
+        endInsertRows();
+    }
 }//------------------------------------------------------------------
 
 
 void TTableModel::clearTable() {
     beginResetModel();
+    _count_row = 0;
     endResetModel();
 }//------------------------------------------------------------------
 

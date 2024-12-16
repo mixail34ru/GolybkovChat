@@ -483,6 +483,8 @@ C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/model/TModelStateInt
  mdp:C:/Qt/6.8.0/msvc2022_64/include/QtCore/qyieldcpu.h
  mdp:C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/model/TModelStateInterface.h
  mdp:C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/model/TPackageFormat.h
+ mdp:C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/model/TSaveVecDataStorage.h
+ mdp:C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/libs/wstd/safe_ptr.h
 C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/model/TClient.h
  mmc:Q_OBJECT
  mdp:C:/Qt/6.8.0/msvc2022_64/include/QtCore/QObject
@@ -827,7 +829,6 @@ C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/controller/TControll
  mdp:C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/libs/wstd/thread_pool.h
  mdp:C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/libs/wstd/timer.h
 C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/model/TPackageFormat.h
-C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/libs/ws2/ws2define.h
 C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/model/TSaveVecDataStorage.h
 C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/TMainWindow.h
  mmc:Q_OBJECT
@@ -1459,7 +1460,6 @@ C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/TCentralWidget.
  mdp:C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/TURangeLineEdit.h
  mdp:C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/TUShortLineEdit.h
 C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/source/view/TUShortLineEdit.cpp
-C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/libs/ws2/TUDPServer.h
 C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/TRecvModeGroupBox.h
  mmc:Q_OBJECT
  mdp:C:/Qt/6.8.0/msvc2022_64/include/QtCore/q20functional.h
@@ -2132,7 +2132,6 @@ C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/TSendModeGroupB
  mdp:C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/qwidget.h
  mdp:C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/TSendModeGroupBox.h
 C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/source/view/TCentralWidget.cpp
-C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/libs/wstd/string_custom_func.h
 C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/TSendNetGroupBox.h
  mmc:Q_OBJECT
  mdp:C:/Qt/6.8.0/msvc2022_64/include/QtCore/QMetaType
@@ -2473,7 +2472,6 @@ C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/TTableView.h
  mdp:C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/qtwidgetsglobal.h
  mdp:C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/qwidget.h
  mdp:C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/TTableView.h
-C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/libs/ws2/TUDPServer.cpp
 C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/TURangeLineEdit.h
  mmc:Q_OBJECT
  mdp:C:/Qt/6.8.0/msvc2022_64/include/QtCore/q20functional.h
@@ -2798,25 +2796,15 @@ C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/TUShortLineEdit
  mdp:C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/qtwidgetsglobal.h
  mdp:C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/qwidget.h
  mdp:C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/TUShortLineEdit.h
-C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/source/model/TClient.cpp
-C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/libs/ws2/TUDPBase.h
-C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/libs/ws2/TUDPClient.h
-C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/libs/ws2/WSADescriptionErr.h
-C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/libs/wstd/ntdll_function.h
-C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/source/view/TSendModeGroupBox.cpp
-C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/libs/wstd/safe_ptr.h
-C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/libs/wstd/thread_pool.h
-C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/libs/wstd/timer.h
-C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/libs/ws2/TUDPClient.cpp
-C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/libs/ws2/WSADescriptionErr.cpp
-C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/libs/wstd/timer.cpp
 C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/source/view/TTableView.cpp
 C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/source/controller/TController.cpp
+C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/source/model/TClient.cpp
 C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/source/view/TTableModel.cpp
 C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/source/model/TModelStateInterface.cpp
 C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/source/model/TServer.cpp
 C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/source/view/TReceiverWidget.cpp
 C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/source/view/TRecvModeGroupBox.cpp
 C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/source/view/TSendDataGroupBox.cpp
+C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/source/view/TSendModeGroupBox.cpp
 C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/source/view/TSenderWidget.cpp
 C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/source/view/TURangeLineEdit.cpp

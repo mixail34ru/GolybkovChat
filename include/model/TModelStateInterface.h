@@ -4,6 +4,8 @@
 #include <TPackageFormat.h>
 #include <QObject>
 
+#include "TSaveVecDataStorage.h"
+
 class TClient;
 class TServer;
 
@@ -26,7 +28,8 @@ public:
     bool isReceiving() const;
 
     size_t storageSize() const;
-    ReceivePackage storageItem(const size_t index);
+    Package storageItem(const size_t index);
+    ReceivePackage timeItem(const size_t index);
 
 signals:
     void statusSendingTimerChanged(bool);

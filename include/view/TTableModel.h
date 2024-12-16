@@ -11,6 +11,8 @@ class TTableModel : public QAbstractTableModel
 
     TModelStateInterface* _model;
 
+    int _count_row = 0;
+
 public:
     explicit TTableModel(TModelStateInterface* model, QObject *parent = nullptr);
     ~TTableModel();

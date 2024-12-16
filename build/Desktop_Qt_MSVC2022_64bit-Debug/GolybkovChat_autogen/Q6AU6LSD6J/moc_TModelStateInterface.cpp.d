@@ -101,4 +101,6 @@ C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/build/Desktop_Qt_MSVC2022_64
   C:/Qt/6.8.0/msvc2022_64/include/QtCore/qversiontagging.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtCore/qxptype_traits.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtCore/qyieldcpu.h \
-  C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/model/TPackageFormat.h
+  C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/model/TPackageFormat.h \
+  C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/model/TSaveVecDataStorage.h \
+  C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/libs/wstd/safe_ptr.h

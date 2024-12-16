@@ -34,6 +34,7 @@ public:
     bool isReceiving() const;
 
     TSaveVecDataStorage<ReceivePackage>& getStorage();
+    size_t parselSize() const;
 
 signals:
     void statusReceivingChanged(bool);

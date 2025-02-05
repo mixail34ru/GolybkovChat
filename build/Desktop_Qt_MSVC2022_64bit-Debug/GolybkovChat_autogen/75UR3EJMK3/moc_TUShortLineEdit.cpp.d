@@ -1,4 +1,6 @@
 C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/build/Desktop_Qt_MSVC2022_64bit-Debug/GolybkovChat_autogen/75UR3EJMK3/moc_TUShortLineEdit.cpp: C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/TUShortLineEdit.h \
+  C:/Qt/6.8.0/msvc2022_64/include/QtCore/QObject \
+  C:/Qt/6.8.0/msvc2022_64/include/QtCore/QString \
   C:/Qt/6.8.0/msvc2022_64/include/QtCore/q20functional.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtCore/q20iterator.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtCore/q20memory.h \
@@ -50,6 +52,7 @@ C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/build/Desktop_Qt_MSVC2022_64
   C:/Qt/6.8.0/msvc2022_64/include/QtCore/qlatin1stringview.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtCore/qline.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtCore/qlist.h \
+  C:/Qt/6.8.0/msvc2022_64/include/QtCore/qlocale.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtCore/qlogging.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtCore/qmalloc.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtCore/qmap.h \
@@ -70,6 +73,7 @@ C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/build/Desktop_Qt_MSVC2022_64
   C:/Qt/6.8.0/msvc2022_64/include/QtCore/qprocessordetection.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtCore/qrect.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtCore/qrefcount.h \
+  C:/Qt/6.8.0/msvc2022_64/include/QtCore/qregularexpression.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtCore/qscopedpointer.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtCore/qscopeguard.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtCore/qset.h \
@@ -120,6 +124,7 @@ C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/build/Desktop_Qt_MSVC2022_64
   C:/Qt/6.8.0/msvc2022_64/include/QtCore/qversiontagging.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtCore/qxptype_traits.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtCore/qyieldcpu.h \
+  C:/Qt/6.8.0/msvc2022_64/include/QtGui/QValidator \
   C:/Qt/6.8.0/msvc2022_64/include/QtGui/qaction.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtGui/qbitmap.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtGui/qbrush.h \
@@ -148,6 +153,7 @@ C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/build/Desktop_Qt_MSVC2022_64
   C:/Qt/6.8.0/msvc2022_64/include/QtGui/qtguiexports.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtGui/qtguiglobal.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtGui/qtransform.h \
+  C:/Qt/6.8.0/msvc2022_64/include/QtGui/qvalidator.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtGui/qwindowdefs_win.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/QLineEdit \
@@ -157,4 +163,5 @@ C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/build/Desktop_Qt_MSVC2022_64
   C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/qtwidgets-config.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/qtwidgetsexports.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/qtwidgetsglobal.h \
-  C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/qwidget.h
+  C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/qwidget.h \
+  C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/ICorrectLine.h

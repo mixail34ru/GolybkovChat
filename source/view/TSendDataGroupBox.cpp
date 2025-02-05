@@ -1,4 +1,7 @@
 #include "TSendDataGroupBox.h"
+#include "TUShortValidator.h"
+#include "TDoubleValidator.h"
+#include "TIntValidator.h"
 
 #include "TPackageFormat.h"
 #include "TCorrectItemMap.h"
@@ -6,15 +9,14 @@
 #include <QRegularExpressionValidator>
 
 #include <climits>
-#include <cmath>
 
 TSendDataGroupBox::TSendDataGroupBox(QWidget* parent)
     : QGroupBox(parent)
 {
     _correct_map = new TCorrectItemMap(this);
     connect(
-        _correct_map, SIGNAL(CorrectStatusChanged(bool)),
-        this, SLOT(CorrectSignalEmitent(bool))
+        _correct_map, &TCorrectItemMap::CorrectStatusChanged,
+        [this] (auto arg) { emit EnteredUncorrectParams(this, arg); }
     );
 
     /* Тип данных */
@@ -37,41 +39,52 @@ TSendDataGroupBox::TSendDataGroupBox(QWidget* parent)
 
     /* Номер параметра */
 
-    _id_ln_edit = new QLineEdit("1", this);
-    _correct_map->EmplaceItem(_id_ln_edit, true);
-    _id_ln_edit->setValidator(
-        new QIntValidator(0, USHRT_MAX, _id_ln_edit)
+    _id_ln_edit = new TCustomLineEdit(new TUShortValidator(this), "1", this);
+    connect(
+        _id_ln_edit, &TCustomLineEdit::EnteredCorrectParams,
+        [this](auto arg) { _correct_map->SetItemStatus(_id_ln_edit, arg);}
     );
     connect(
-        _id_ln_edit, SIGNAL(textChanged(QString)),
-        this, SLOT(Validate_id_ln_edit(QString))
-    );
+        _id_ln_edit, &QLineEdit::editingFinished,
+        [this]() { _id_ln_edit->delete_Null();}
+        );
+
 
     /* Значение параметра */
 
-    _parameter_ln_edit = new QLineEdit("1", this);
-    _parameter_ln_edit->setValidator(new QDoubleValidator(_parameter_ln_edit));
+    _parameter_ln_edit = new TCustomLineEdit(new TDoubleValidator(this), "1", this);
     connect(
-        _parameter_ln_edit, SIGNAL(textChanged(QString)),
-        this, SLOT(Validate_parameter_ln_edit(QString))
+        _parameter_ln_edit, &TCustomLineEdit::EnteredCorrectParams,
+        [this](auto arg) { _correct_map->SetItemStatus(_parameter_ln_edit, arg);}
     );
-    _correct_map->EmplaceItem(_parameter_ln_edit, true);
+    connect(
+        _parameter_ln_edit, &QLineEdit::editingFinished,
+        [this]() { _parameter_ln_edit->delete_Null();}
+    );
 
-    _matrix_ln_edit = new QLineEdit("1", this);
-    _matrix_ln_edit->setValidator(new QIntValidator(_matrix_ln_edit));
-    connect(
-        _matrix_ln_edit, SIGNAL(textChanged(QString)),
-        this, SLOT(Validate_matrix_ln_edit(QString))
-    );
-    _correct_map->EmplaceItem(_matrix_ln_edit, true);
+    /* Матрица */
 
-    _mask_ln_edit = new QLineEdit("1", this);
-    _mask_ln_edit->setValidator(new QIntValidator(_mask_ln_edit));
+    _matrix_ln_edit = new TCustomLineEdit(new TIntValidator(1, this), "1", this);
     connect(
-        _mask_ln_edit, SIGNAL(textChanged(QString)),
-        this, SLOT(Validate_mask_ln_edit(QString))
+        _matrix_ln_edit, &TCustomLineEdit::EnteredCorrectParams,
+        [this](auto arg) { _correct_map->SetItemStatus(_matrix_ln_edit, arg);}
     );
-    _correct_map->EmplaceItem(_mask_ln_edit, true);
+    connect(
+        _matrix_ln_edit, &QLineEdit::editingFinished,
+        [this]() { _matrix_ln_edit->delete_Null();}
+        );
+
+    /* Маска */
+
+    _mask_ln_edit = new TCustomLineEdit(new TIntValidator(2, this), "1", this);
+    connect(
+        _mask_ln_edit, &TCustomLineEdit::EnteredCorrectParams,
+        [this](auto arg) {_correct_map->SetItemStatus(_mask_ln_edit, arg);}
+    );
+    connect(
+        _mask_ln_edit, &QLineEdit::editingFinished,
+        [this]() { _mask_ln_edit->delete_Null();}
+        );
 
     /* Настройка параметров виджета */
 
@@ -118,10 +131,8 @@ std::optional<ViewSendPackage> TSendDataGroupBox::get_package() {
         return pack;
     }
     catch (...) {
-
+        return std::nullopt;
     }
-
-    return std::nullopt;
 }//------------------------------------------------------------------
 
 
@@ -135,45 +146,36 @@ void TSendDataGroupBox::SetEnableDataField(bool flag) {
 }//------------------------------------------------------------------
 
 
-void TSendDataGroupBox::CorrectSignalEmitent(bool flag) {
-    auto data = _type_data_cmb_bx->currentData();
-    if (!data.isNull()) {
-        if (data.canConvert<TypeData>()){
-            auto type = data.value<TypeData>();
-
-            if (type == TypeData::INPUT_DOUBLE || type == TypeData::OUTPUT_DOUBLE) {
-                emit EnteredUncorrectParams(this, _correct_map->GetItemStatus(_parameter_ln_edit));
-            }
-            else if (type == TypeData::INPUT_INT32 || type == TypeData::OUTPUT_INT32) {
-                emit EnteredUncorrectParams(this, _correct_map->GetItemStatus(_matrix_ln_edit));
-            }
-            else {
-                emit EnteredUncorrectParams(this,
-                    _correct_map->GetItemStatus(_matrix_ln_edit) && _correct_map->GetItemStatus(_mask_ln_edit)
-                 );
-            }
-        }
-    }
-}//------------------------------------------------------------------
-
-
 void TSendDataGroupBox::currentTypeDataChanged(int index) {
     auto data = _type_data_cmb_bx->itemData(index);
     if (!data.isNull()) {
         if (data.canConvert<TypeData>()) {
             auto type = data.value<TypeData>();
 
+            _correct_map->Clear();
+            _correct_map->EmplaceItem(_id_ln_edit, _id_ln_edit->getCorrect());
+
             if (type == TypeData::INPUT_DOUBLE || type == TypeData::OUTPUT_DOUBLE) {
+                // Реинициализирую карту
+                _correct_map->EmplaceItem(_parameter_ln_edit, _parameter_ln_edit->getCorrect());
+
                 _package_frm_lt->setRowVisible(_parameter_ln_edit, true);
                 _package_frm_lt->setRowVisible(_matrix_ln_edit, false);
                 _package_frm_lt->setRowVisible(_mask_ln_edit, false);
             }
             else if (type == TypeData::INPUT_INT32 || type == TypeData::OUTPUT_INT32){
+                // Реинициализирую карту
+                _correct_map->EmplaceItem(_matrix_ln_edit, _matrix_ln_edit->getCorrect());
+
                 _package_frm_lt->setRowVisible(_parameter_ln_edit, false);
                 _package_frm_lt->setRowVisible(_matrix_ln_edit, true);
                 _package_frm_lt->setRowVisible(_mask_ln_edit, false);
             }
             else {
+                // Реинициализирую карту
+                _correct_map->EmplaceItem(_matrix_ln_edit, _matrix_ln_edit->getCorrect());
+                _correct_map->EmplaceItem(_mask_ln_edit, _mask_ln_edit->getCorrect());
+
                 _package_frm_lt->setRowVisible(_parameter_ln_edit, false);
                 _package_frm_lt->setRowVisible(_matrix_ln_edit, true);
                 _package_frm_lt->setRowVisible(_mask_ln_edit, true);
@@ -181,61 +183,5 @@ void TSendDataGroupBox::currentTypeDataChanged(int index) {
         }
     }
 
-    CorrectSignalEmitent(true);
-}//------------------------------------------------------------------
-
-
-void TSendDataGroupBox::Validate_id_ln_edit(const QString& text) {
-    uint32_t num = text.toUInt();
-    if (num >= 0 && num <= USHRT_MAX) {
-        _id_ln_edit->setStyleSheet("QLineEdit { color: black }");
-        _correct_map->SetItemStatus(_id_ln_edit, true);
-
-    }
-    else {
-        _id_ln_edit->setStyleSheet("QLineEdit { color: red }");
-        _correct_map->SetItemStatus(_id_ln_edit, false);
-    }
-}//------------------------------------------------------------------
-
-
-void TSendDataGroupBox::Validate_parameter_ln_edit(const QString& text) {
-    QString str = text;
-    str.replace(QChar(',') , QChar('.'));
-
-    double num = str.toDouble();
-    if (!std::isinf(num)) {
-        _parameter_ln_edit->setStyleSheet("QLineEdit { color: black }");
-        _correct_map->SetItemStatus(_parameter_ln_edit, true);
-    }
-    else {
-        _parameter_ln_edit->setStyleSheet("QLineEdit { color: red }");
-        _correct_map->SetItemStatus(_parameter_ln_edit, false);
-    }
-}//------------------------------------------------------------------
-
-
-void TSendDataGroupBox::Validate_matrix_ln_edit(const QString& text) {
-    long long num = text.toLongLong();
-    if ((num >= INT32_MIN) && (num <= INT32_MAX)) {
-        _matrix_ln_edit->setStyleSheet("QLineEdit { color: black }");
-        _correct_map->SetItemStatus(_matrix_ln_edit, true);
-    }
-    else {
-        _matrix_ln_edit->setStyleSheet("QLineEdit { color: red }");
-        _correct_map->SetItemStatus(_matrix_ln_edit, false);
-    }
-}//------------------------------------------------------------------
-
-
-void TSendDataGroupBox::Validate_mask_ln_edit(const QString& text) {
-    long long num = text.toLongLong();
-    if (num >= INT_MIN && num <= INT_MAX) {
-        _mask_ln_edit->setStyleSheet("QLineEdit { color: black }");
-        _correct_map->SetItemStatus(_mask_ln_edit, true);
-    }
-    else {
-        _mask_ln_edit->setStyleSheet("QLineEdit { color: red }");
-        _correct_map->SetItemStatus(_mask_ln_edit, false);
-    }
+    emit EnteredUncorrectParams(this, _correct_map->Status());
 }//------------------------------------------------------------------

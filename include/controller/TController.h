@@ -1,7 +1,8 @@
 #ifndef TCONTROLLER_H
 #define TCONTROLLER_H
 
-#include "TMainWindow.h"
+//#include "TMainWindow.h"
+#include "TView.h"
 
 #include "TClient.h"
 #include "TServer.h"
@@ -23,7 +24,7 @@ class TController : public QApplication
     TServer* _server;
     TModelStateInterface* _interface;
 
-    std::unique_ptr<TMainWindow> _main_wnd;
+    std::unique_ptr<TView> _view;
 
 public:
     TController(int &argc, char **argv);

@@ -49,6 +49,11 @@ TSenderWidget::TSenderWidget(TModelStateInterface* model, QWidget* parent)
 
     _mode_grp_bx = new TSendModeGroupBox(model, this);
     _correct_map->EmplaceItem(_mode_grp_bx, true);
+    connect(
+        _mode_grp_bx, &TSendModeGroupBox::EnteredUncorrectParams,
+        this, &TSenderWidget::UpdateWidgetCorrectState
+        );
+
     connect(_mode_grp_bx, &TSendModeGroupBox::sendActivated,
         [this] (uint num_pack) {
             try {
@@ -99,10 +104,12 @@ void TSenderWidget::SwitchFieldEdit(bool flag) {
     if (CheckTimerSendingStatus()) {
         _pack_data_grp_bx->SetEnableDataField(false);
         _net_grp_bx->SetEnableDataField(false);
+        _mode_grp_bx->SetEnableButtons(false);
     }
     else {
         _pack_data_grp_bx->SetEnableDataField(!flag);
         _net_grp_bx->SetEnableDataField(!flag);
+        _mode_grp_bx->SetEnableButtons(!flag);
     }
 }//------------------------------------------------------------------
 

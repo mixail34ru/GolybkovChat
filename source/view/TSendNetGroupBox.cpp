@@ -1,46 +1,41 @@
 #include "TSendNetGroupBox.h"
+#include "TUShortValidator.h"
+#include "TIPValidator.h"
 
 #include "TCorrectItemMap.h"
 
 #include <QFormLayout>
 #include <QRegularExpressionValidator>
 
-
-QString ipRange = "(?:[0-1]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])";
-QRegularExpression ip_regexp("^" + ipRange + "\\." + ipRange + "\\." + ipRange + "\\." + ipRange + "$");
-
-
 TSendNetGroupBox::TSendNetGroupBox(QWidget* parent)
     : QGroupBox(parent)
 {
     _correct_map = new TCorrectItemMap(this);
     connect(
-        _correct_map, SIGNAL(CorrectStatusChanged(bool)),
-        this, SLOT(CorrectSignalEmitent(bool))
+        _correct_map, &TCorrectItemMap::CorrectStatusChanged,
+        [this] (auto arg) { emit EnteredUncorrectParams(this, arg); }
     );
 
     /* IPv4 адрес */
 
-    _ip_ln_edit = new QLineEdit("192.168.16.96", this);
+    _ip_ln_edit = new TCustomLineEdit(new TIPValidator(this), "192.168.16.96", this);
     _correct_map->EmplaceItem(_ip_ln_edit, true);
-    _ip_ln_edit->setValidator(
-        new QRegularExpressionValidator(ip_regexp, this)
-    );
     connect(
-        _ip_ln_edit, SIGNAL(textChanged(QString)),
-        this, SLOT(Validate_ip_ln_edit(QString))
+        _ip_ln_edit, &TCustomLineEdit::EnteredCorrectParams,
+        [this](auto arg) { _correct_map->SetItemStatus(_ip_ln_edit, arg);}
     );
 
     /* Порт */
 
-    _port_ln_edit = new QLineEdit("666", this);
+    _port_ln_edit = new TCustomLineEdit(new TUShortValidator(this), "666", this);
     _correct_map->EmplaceItem(_port_ln_edit, true);
-    _port_ln_edit->setValidator(
-        new QIntValidator(0, USHRT_MAX, _port_ln_edit)
+    connect(
+        _port_ln_edit, &TCustomLineEdit::EnteredCorrectParams,
+        [this](auto arg) { _correct_map->SetItemStatus(_port_ln_edit, arg);}
     );
     connect(
-        _port_ln_edit, SIGNAL(textChanged(QString)),
-        this, SLOT(Validate_port_ln_edit(QString))
+        _port_ln_edit, &QLineEdit::editingFinished,
+        [this]() { _port_ln_edit->delete_Null();}
     );
 
     /* Настройка параметров виджета */
@@ -99,38 +94,4 @@ std::optional<NetAddress> TSendNetGroupBox::get_address() {
 void TSendNetGroupBox::SetEnableDataField(bool flag) {
     _ip_ln_edit->setEnabled(flag);
     _port_ln_edit->setEnabled(flag);
-}//------------------------------------------------------------------
-
-
-/* private slots: */
-
-void TSendNetGroupBox::CorrectSignalEmitent(bool flag) {
-    emit EnteredUncorrectParams(this, flag);
-}//------------------------------------------------------------------
-
-
-void TSendNetGroupBox::Validate_ip_ln_edit(const QString& text) {
-    QRegularExpressionMatch match = ip_regexp.match(text);
-    if (match.hasMatch()) {
-        _ip_ln_edit->setStyleSheet("QLineEdit { color: black }");
-        _correct_map->SetItemStatus(_ip_ln_edit, true);
-    }
-    else {
-        _ip_ln_edit->setStyleSheet("QLineEdit { color: red }");
-        _correct_map->SetItemStatus(_ip_ln_edit, false);
-    }
-}//------------------------------------------------------------------
-
-
-void TSendNetGroupBox::Validate_port_ln_edit(const QString& text) {
-    uint32_t num = text.toUInt();
-    if (num >= 0 && num <= USHRT_MAX) {
-        _port_ln_edit->setStyleSheet("QLineEdit { color: black }");
-        _correct_map->SetItemStatus(_port_ln_edit, true);
-
-    }
-    else {
-        _port_ln_edit->setStyleSheet("QLineEdit { color: red }");
-        _correct_map->SetItemStatus(_port_ln_edit, false);
-    }
 }//------------------------------------------------------------------

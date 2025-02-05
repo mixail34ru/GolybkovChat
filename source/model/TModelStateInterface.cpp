@@ -28,6 +28,11 @@ TModelStateInterface::TModelStateInterface(
         server, SIGNAL(storageClear()),
         this, SIGNAL(storageClear())
     );
+
+    connect(
+        this, SIGNAL(tableClear()),
+        server, SLOT(tableClear())
+        );
 }//------------------------------------------------------------------
 
 
@@ -56,7 +61,6 @@ size_t TModelStateInterface::storageSize() const {
 
 
 Package TModelStateInterface::storageItem(const size_t index) {
-    //try {
         int recvpack_size = _server->getStorage().size();
         int min_index = 0;
         int max_index = 0;
@@ -68,18 +72,10 @@ Package TModelStateInterface::storageItem(const size_t index) {
             else
                 min_index += _server->getStorage().at(i).parsel.size();
         }
-   /* }
-    catch (std::out_of_range err) {
-        int i = 0;
-    }
-    catch (...) {
-        int i = 0;
-    }*/
 }//------------------------------------------------------------------
 
 
 ReceivePackage TModelStateInterface::timeItem(const size_t index){
-   // try {
         int recvpack_size = _server->getStorage().size();
         int min_index = 0;
         int max_index = 0;
@@ -90,11 +86,4 @@ ReceivePackage TModelStateInterface::timeItem(const size_t index){
             else
                 min_index += _server->getStorage().at(i).parsel.size();
         }
-    /*}
-    catch (std::out_of_range err) {
-        int i = 0;
-    }
-    catch (...) {
-        int i = 0;
-    }*/
 }//------------------------------------------------------------------

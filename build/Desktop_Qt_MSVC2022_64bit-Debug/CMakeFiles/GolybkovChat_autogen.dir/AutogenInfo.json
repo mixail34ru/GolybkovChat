@@ -9,61 +9,9 @@
 	[
 		"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/CMakeLists.txt",
 		"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/build/Desktop_Qt_MSVC2022_64bit-Debug/.qtc/package-manager/auto-setup.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/CMakeDetermineSystem.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/CMakeSystem.cmake.in",
 		"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/build/Desktop_Qt_MSVC2022_64bit-Debug/CMakeFiles/3.31.1/CMakeSystem.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/CMakeNinjaFindMake.cmake",
 		"C:/DevSoft/CMake/share/cmake-3.31/Modules/CMakeSystemSpecificInitialize.cmake",
 		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Platform/Windows-Initialize.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/CMakeDetermineCXXCompiler.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/CMakeDetermineCompiler.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Platform/Windows-Determine-CXX.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerId.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/CMakeCompilerIdDetection.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Compiler/ADSP-DetermineCompiler.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Compiler/ARMCC-DetermineCompiler.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Compiler/ARMClang-DetermineCompiler.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Compiler/AppleClang-DetermineCompiler.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Compiler/Clang-DetermineCompilerInternal.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Compiler/Borland-DetermineCompiler.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Compiler/Clang-DetermineCompiler.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Compiler/Clang-DetermineCompilerInternal.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Compiler/Cray-DetermineCompiler.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Compiler/CrayClang-DetermineCompiler.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Compiler/Embarcadero-DetermineCompiler.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Compiler/Fujitsu-DetermineCompiler.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Compiler/GHS-DetermineCompiler.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Compiler/HP-CXX-DetermineCompiler.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Compiler/IAR-DetermineCompiler.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Compiler/Intel-DetermineCompiler.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Compiler/MSVC-DetermineCompiler.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Compiler/NVHPC-DetermineCompiler.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Compiler/NVIDIA-DetermineCompiler.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Compiler/OrangeC-DetermineCompiler.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Compiler/PGI-DetermineCompiler.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Compiler/PathScale-DetermineCompiler.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Compiler/SCO-DetermineCompiler.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Compiler/TI-DetermineCompiler.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Compiler/TIClang-DetermineCompiler.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Compiler/Tasking-DetermineCompiler.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Compiler/Watcom-DetermineCompiler.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Compiler/XL-CXX-DetermineCompiler.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/CMakeFindBinUtils.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/CMakeCXXCompiler.cmake.in",
 		"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/build/Desktop_Qt_MSVC2022_64bit-Debug/CMakeFiles/3.31.1/CMakeCXXCompiler.cmake",
 		"C:/DevSoft/CMake/share/cmake-3.31/Modules/CMakeSystemSpecificInformation.cmake",
 		"C:/DevSoft/CMake/share/cmake-3.31/Modules/CMakeGenericSystem.cmake",
@@ -77,26 +25,9 @@
 		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Compiler/CMakeCommonCompilerMacros.cmake",
 		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Platform/Windows-MSVC-CXX.cmake",
 		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Platform/Windows-MSVC.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/CMakeDetermineRCCompiler.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/CMakeRCCompiler.cmake.in",
 		"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/build/Desktop_Qt_MSVC2022_64bit-Debug/CMakeFiles/3.31.1/CMakeRCCompiler.cmake",
 		"C:/DevSoft/CMake/share/cmake-3.31/Modules/CMakeRCInformation.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/CMakeTestRCCompiler.cmake",
 		"C:/DevSoft/CMake/share/cmake-3.31/Modules/CMakeCommonLanguageInclude.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/CMakeTestCXXCompiler.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/CMakeTestCompilerCommon.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Internal/CMakeDetermineLinkerId.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/CMakeParseImplicitIncludeInfo.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/CMakeParseImplicitLinkInfo.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/CMakeParseLibraryArchitecture.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/CMakeTestCompilerCommon.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/CMakeCXXCompilerABI.cpp",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerSupport.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Internal/FeatureTesting.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Compiler/MSVC-CXX-CXXImportStd.cmake",
-		"C:/DevSoft/CMake/share/cmake-3.31/Modules/CMakeCXXCompiler.cmake.in",
-		"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/build/Desktop_Qt_MSVC2022_64bit-Debug/CMakeFiles/3.31.1/CMakeCXXCompiler.cmake",
 		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Internal/CMakeCXXLinkerInformation.cmake",
 		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Internal/CMakeCommonLinkerInformation.cmake",
 		"C:/DevSoft/CMake/share/cmake-3.31/Modules/Platform/Linker/Windows-MSVC-CXX.cmake",
@@ -438,6 +369,12 @@
 			null
 		],
 		[
+			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/ICorrectLine.h",
+			"MU",
+			"75UR3EJMK3/moc_ICorrectLine.cpp",
+			null
+		],
+		[
 			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/TCentralWidget.h",
 			"MU",
 			"75UR3EJMK3/moc_TCentralWidget.cpp",
@@ -447,6 +384,30 @@
 			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/TCorrectItemMap.h",
 			"MU",
 			"75UR3EJMK3/moc_TCorrectItemMap.cpp",
+			null
+		],
+		[
+			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/TCustomLineEdit.h",
+			"MU",
+			"75UR3EJMK3/moc_TCustomLineEdit.cpp",
+			null
+		],
+		[
+			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/TDoubleValidator.h",
+			"MU",
+			"75UR3EJMK3/moc_TDoubleValidator.cpp",
+			null
+		],
+		[
+			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/TIPValidator.h",
+			"MU",
+			"75UR3EJMK3/moc_TIPValidator.cpp",
+			null
+		],
+		[
+			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/TIntValidator.h",
+			"MU",
+			"75UR3EJMK3/moc_TIntValidator.cpp",
 			null
 		],
 		[
@@ -513,6 +474,18 @@
 			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/TUShortLineEdit.h",
 			"MU",
 			"75UR3EJMK3/moc_TUShortLineEdit.cpp",
+			null
+		],
+		[
+			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/TUShortValidator.h",
+			"MU",
+			"75UR3EJMK3/moc_TUShortValidator.cpp",
+			null
+		],
+		[
+			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/TView.h",
+			"MU",
+			"75UR3EJMK3/moc_TView.cpp",
 			null
 		]
 	],
@@ -612,6 +585,26 @@
 			null
 		],
 		[
+			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/source/view/TCustomLineEdit.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/source/view/TDoubleValidator.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/source/view/TIPValidator.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/source/view/TIntValidator.cpp",
+			"MU",
+			null
+		],
+		[
 			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/source/view/TMainWindow.cpp",
 			"MU",
 			null
@@ -663,6 +656,16 @@
 		],
 		[
 			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/source/view/TUShortLineEdit.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/source/view/TUShortValidator.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/source/view/TView.cpp",
 			"MU",
 			null
 		]

@@ -35,6 +35,8 @@ public:
 
     TSaveVecDataStorage<ReceivePackage>& getStorage();
     size_t parselSize() const;
+private slots:
+    void tableClear();
 
 signals:
     void statusReceivingChanged(bool);

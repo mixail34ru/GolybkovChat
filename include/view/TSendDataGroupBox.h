@@ -3,10 +3,13 @@
 
 #include "TPackageFormat.h"
 
+#include "TCustomLineEdit.h"
+
 #include <QGroupBox>
 #include <QFormLayout>
 #include <QComboBox>
 #include <QLineEdit>
+#include <QPushButton>
 
 #include <optional>
 
@@ -21,10 +24,11 @@ class TSendDataGroupBox : public QGroupBox
     QFormLayout* _package_frm_lt;
     QComboBox* _type_data_cmb_bx;
     QComboBox* _type_signal_cmb_bx;
-    QLineEdit* _id_ln_edit;
-    QLineEdit* _parameter_ln_edit;
-    QLineEdit* _matrix_ln_edit;
-    QLineEdit* _mask_ln_edit;
+
+    TCustomLineEdit* _id_ln_edit;
+    TCustomLineEdit* _parameter_ln_edit;
+    TCustomLineEdit* _matrix_ln_edit;
+    TCustomLineEdit* _mask_ln_edit;
 
 public:
     TSendDataGroupBox(QWidget* parent = nullptr);
@@ -44,16 +48,11 @@ private:
             }
         }
 
-        throw;
+        throw; //!< TODO
     }
 
 private slots:
-    void CorrectSignalEmitent(bool flag);
     void currentTypeDataChanged(int index);
-    void Validate_id_ln_edit(const QString& text);
-    void Validate_parameter_ln_edit(const QString& text);
-    void Validate_matrix_ln_edit(const QString& text);
-    void Validate_mask_ln_edit(const QString& text);
 
 signals:
     void EnteredUncorrectParams(QObject* obj, bool flag);

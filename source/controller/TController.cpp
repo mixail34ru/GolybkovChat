@@ -32,21 +32,21 @@ TController::TController(int &argc, char **argv)
 
     _server = new TServer(this);
 
-    _main_wnd = std::make_unique<TMainWindow>(new TModelStateInterface(&_client, _server));
+    _view = std::make_unique<TView>(new TModelStateInterface(&_client, _server));
     connect(
-        _main_wnd.get(), &TMainWindow::sendActivated,
+        _view.get(), &TView::sendActivated,
         this, &TController::send_package
     );
     connect(
-        _main_wnd.get(), &TMainWindow::sendTimerActivated,
+        _view.get(), &TView::sendTimerActivated,
         this, &TController::send_timer_package
     );
     connect(
-        _main_wnd.get(), &TMainWindow::receiveActivated,
+        _view.get(), &TView::receiveActivated,
         this, &TController::startReceivePackage
     );
 
-    _main_wnd->show();
+    _view->run();
 }//------------------------------------------------------------------
 
 

@@ -1,5 +1,6 @@
 C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/build/Desktop_Qt_MSVC2022_64bit-Debug/GolybkovChat_autogen/75UR3EJMK3/moc_TSendDataGroupBox.cpp: C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/TSendDataGroupBox.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtCore/QMetaType \
+  C:/Qt/6.8.0/msvc2022_64/include/QtCore/QObject \
   C:/Qt/6.8.0/msvc2022_64/include/QtCore/QString \
   C:/Qt/6.8.0/msvc2022_64/include/QtCore/q20functional.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtCore/q20iterator.h \
@@ -125,6 +126,7 @@ C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/build/Desktop_Qt_MSVC2022_64
   C:/Qt/6.8.0/msvc2022_64/include/QtCore/qversiontagging.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtCore/qxptype_traits.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtCore/qyieldcpu.h \
+  C:/Qt/6.8.0/msvc2022_64/include/QtGui/QValidator \
   C:/Qt/6.8.0/msvc2022_64/include/QtGui/qaction.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtGui/qbitmap.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtGui/qbrush.h \
@@ -161,6 +163,8 @@ C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/build/Desktop_Qt_MSVC2022_64
   C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/QGroupBox \
   C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/QLayout \
   C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/QLineEdit \
+  C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/QPushButton \
+  C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/qabstractbutton.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/qabstractitemdelegate.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/qabstractslider.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/qabstractspinbox.h \
@@ -173,6 +177,7 @@ C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/build/Desktop_Qt_MSVC2022_64
   C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/qlayout.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/qlayoutitem.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/qlineedit.h \
+  C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/qpushbutton.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/qrubberband.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/qsizepolicy.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/qslider.h \
@@ -184,4 +189,6 @@ C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/build/Desktop_Qt_MSVC2022_64
   C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/qtwidgetsexports.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/qtwidgetsglobal.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/qwidget.h \
-  C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/model/TPackageFormat.h
+  C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/model/TPackageFormat.h \
+  C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/ICorrectLine.h \
+  C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/TCustomLineEdit.h

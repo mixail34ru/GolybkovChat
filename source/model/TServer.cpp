@@ -95,3 +95,9 @@ TSaveVecDataStorage<ReceivePackage>& TServer::getStorage(){
 size_t TServer::parselSize() const {
     return ReceivePackage().parsel.size();
 }//------------------------------------------------------------------
+
+void TServer::tableClear()
+{
+    _storage.clear();
+    emit storageClear();
+}

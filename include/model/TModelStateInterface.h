@@ -38,6 +38,7 @@ signals:
     void statusReceivingChanged(bool);
     void storageDataChanged();
     void storageClear();
+    void tableClear();
 
 }; //class TModelStateInterface
 //-------------------------------------------------------------------

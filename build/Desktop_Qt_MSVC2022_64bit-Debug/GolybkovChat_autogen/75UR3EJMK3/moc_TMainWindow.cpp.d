@@ -1,5 +1,6 @@
 C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/build/Desktop_Qt_MSVC2022_64bit-Debug/GolybkovChat_autogen/75UR3EJMK3/moc_TMainWindow.cpp: C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/TMainWindow.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtCore/QMetaType \
+  C:/Qt/6.8.0/msvc2022_64/include/QtCore/QObject \
   C:/Qt/6.8.0/msvc2022_64/include/QtCore/QString \
   C:/Qt/6.8.0/msvc2022_64/include/QtCore/q20functional.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtCore/q20iterator.h \
@@ -126,6 +127,7 @@ C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/build/Desktop_Qt_MSVC2022_64
   C:/Qt/6.8.0/msvc2022_64/include/QtCore/qversiontagging.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtCore/qxptype_traits.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtCore/qyieldcpu.h \
+  C:/Qt/6.8.0/msvc2022_64/include/QtGui/QValidator \
   C:/Qt/6.8.0/msvc2022_64/include/QtGui/qaction.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtGui/qbitmap.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtGui/qbrush.h \
@@ -195,7 +197,9 @@ C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/build/Desktop_Qt_MSVC2022_64
   C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/qtwidgetsglobal.h \
   C:/Qt/6.8.0/msvc2022_64/include/QtWidgets/qwidget.h \
   C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/model/TPackageFormat.h \
+  C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/ICorrectLine.h \
   C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/TCentralWidget.h \
+  C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/TCustomLineEdit.h \
   C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/TReceiverWidget.h \
   C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/TRecvModeGroupBox.h \
   C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/TSendDataGroupBox.h \

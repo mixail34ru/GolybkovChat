@@ -3,6 +3,7 @@
 
 #include "TUShortLineEdit.h"
 #include "TURangeLineEdit.h"
+#include "TCustomLineEdit.h"
 
 #include <QGroupBox>
 #include <QPushButton>
@@ -15,9 +16,10 @@ class TRecvModeGroupBox : public QGroupBox
     Q_OBJECT
 
     QFormLayout* _receive_frm_lt;
-    TURangeLineEdit* _range_ln_edit;
-    TUShortLineEdit* _port_ln_edit;
+    TCustomLineEdit* _range_ln_edit;
+    TCustomLineEdit* _port_ln_edit;
     QPushButton* _recv_btn;
+    QPushButton* _clear_btn;
 
 public:
     TRecvModeGroupBox(TModelStateInterface* model, QWidget* parent = nullptr);
@@ -29,6 +31,7 @@ private slots:
 
 signals:
     void receivePackageActivated(uint16_t max_pack, uint16_t port);
+    //void storageClear();
 
 }; //class TRecvModeGroupBox
 //-------------------------------------------------------------------

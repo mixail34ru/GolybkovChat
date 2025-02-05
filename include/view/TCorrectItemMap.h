@@ -47,12 +47,12 @@ public:
         }
     }
 
-    bool GetItemStatus(QObject* obj) {
+    bool GetItemStatus(QObject* obj) const {
         auto it = _map.find(obj);
         if (it != _map.end())
             return it->second;
 
-        return false; //!< TODO exception out_of_range
+        return true; //!< TODO exception out_of_range
     }
 
 private:

@@ -2,6 +2,7 @@
 #define TUSHORTLINEEDIT_H
 
 #include <QLineEdit>
+#include "ICorrectLine.h"
 
 class TUShortLineEdit : public QLineEdit
 {
@@ -10,6 +11,7 @@ class TUShortLineEdit : public QLineEdit
     bool _is_correct;
 
     void constructor();
+    ICorrectLine* _checker;
 
 public:
     TUShortLineEdit(QWidget* parent = nullptr);

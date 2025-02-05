@@ -1,4 +1,5 @@
 #include "TUShortLineEdit.h"
+#include "TUShortValidator.h"
 
 #include <QIntValidator>
 
@@ -36,6 +37,35 @@ bool TUShortLineEdit::isCorrect() const {
 
 
 void TUShortLineEdit::checkLineCorrect(const QString &text) {
+    //_checker = new TUShortValidator(this);
+    /*_is_correct = _checker->checkLineCorrect(text);
+
+    if (_is_correct == true)
+    {
+        this->setStyleSheet("QLineEdit { color: black }");
+        emit EnteredCorrectParams(_is_correct);
+    }
+    else
+    {
+        this->setStyleSheet("QLineEdit { color: red }");
+        emit EnteredCorrectParams(_is_correct);
+    }
+
+    _is_correct = _checker->checkLineCorrect(text);
+
+    if (_checker->checkLineCorrect(text) == true)
+    {
+        this->setStyleSheet("QLineEdit { color: black }");
+        emit EnteredCorrectParams(_checker->isCorrect());
+    }
+    else
+    {
+        this->setStyleSheet("QLineEdit { color: red }");
+        emit EnteredCorrectParams(_is_correct);
+    }
+*/
+
+
     unsigned int num = text.toUInt();
     if (num >= 0 && num <= USHRT_MAX) {
         this->setStyleSheet("QLineEdit { color: black }");

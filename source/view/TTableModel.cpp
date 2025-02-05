@@ -37,8 +37,6 @@ int TTableModel::columnCount(const QModelIndex & parent) const
 int TTableModel::rowCount(const QModelIndex & parent) const
 {
     return _count_row;
-    //int i = _model->storageSize();
-    //return _model->storageSize();
 }//------------------------------------------------------------------
 
 

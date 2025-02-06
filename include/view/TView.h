@@ -2,9 +2,7 @@
 #define TVIEW_H
 
 #include "TPackageFormat.h"
-
 #include <QObject>
-#include <memory>
 
 class TModelStateInterface;
 
@@ -12,27 +10,26 @@ class TView : public QObject
 {
     Q_OBJECT
 
+    class TViewPrivate;
+
 public:
-    TView(TModelStateInterface *model, QObject *parent = nullptr);
-
-    TView(const TView& rhs) = delete;
-    TView& operator=(const TView& rhs) = delete;
-
-    TView(TView&& rhs) noexcept = delete;
-    TView& operator=(TView&& rhs) noexcept = delete;
-
-    ~TView();
+    explicit TView(TModelStateInterface *model, QObject *parent = nullptr);
+    virtual ~TView();
 
     void run();
+    void show_parcel_edit();
 
 signals:
     void sendActivated(ViewSendInfo info);
     void sendTimerActivated(uint timeout, ViewSendInfo info);
     void receiveActivated(uint16_t max_pack, uint16_t port);
 
+protected:
+    TView(TViewPrivate &dd, QObject *parent);
+    TViewPrivate * const d_ptr;
+
 private:
-    struct Impl;
-    std::unique_ptr<Impl> pImpl;
+    Q_DECLARE_PRIVATE(TView)
 
 }; //class TView
 //-------------------------------------------------------------------

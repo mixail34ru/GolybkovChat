@@ -487,6 +487,12 @@
 			"MU",
 			"75UR3EJMK3/moc_TView.cpp",
 			null
+		],
+		[
+			"C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/TView_p.h",
+			"MU",
+			"75UR3EJMK3/moc_TView_p.cpp",
+			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],

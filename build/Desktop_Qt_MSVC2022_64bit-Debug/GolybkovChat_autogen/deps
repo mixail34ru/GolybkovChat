@@ -476,6 +476,7 @@ GolybkovChat_autogen/timestamp: \
 	C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/TUShortLineEdit.h \
 	C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/TUShortValidator.h \
 	C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/TView.h \
+	C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/TView_p.h \
 	C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/libs/ws2/TUDPBase.h \
 	C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/libs/ws2/TUDPClient.h \
 	C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/libs/ws2/TUDPServer.h \

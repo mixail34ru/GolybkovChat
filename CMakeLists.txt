@@ -13,9 +13,9 @@ find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
 file(GLOB CORE_SOURCE source/*.cpp source/controller/*.cpp source/view/*.cpp source/model/*.cpp)
-file(GLOB CORE_HEADERS include/*.h include/controller/*.h include/view/*.h include/model/*.h)
+file(GLOB CORE_HEADERS include/*.h include/controller/*.h include/view/private/*.h include/view/*.h include/model/*.h)
 
-include_directories(include include/controller include/view include/model)
+include_directories(include include/controller include/view/private include/view include/model)
 
 set(LIBS libs)
 

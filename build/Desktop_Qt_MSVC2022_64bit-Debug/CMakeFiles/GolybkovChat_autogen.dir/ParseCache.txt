@@ -3708,3 +3708,4 @@ C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/TCustomLineEdit
  mdp:C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/TCustomLineEdit.h
 C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/source/view/TIntValidator.cpp
 C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/source/view/TView.cpp
+C:/Users/Michael/Documents/Projects/Qt/GolybkovChat/include/view/TView_p.h

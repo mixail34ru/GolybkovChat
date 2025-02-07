@@ -16,6 +16,14 @@ TCentralWidget::TCentralWidget(TModelStateInterface* model, QWidget* parent)
         _sender_wgt, &TSenderWidget::sendTimerActivated,
         this, &TCentralWidget::sendTimerActivated
     );
+    connect(
+        _sender_wgt, &TSenderWidget::addPackageActivated,
+        this, &TCentralWidget::addPackageActivated
+    );
+    connect(
+        _sender_wgt, &TSenderWidget::showParcelEditActivated,
+        this, &TCentralWidget::showParcelEditActivated
+        );
 
     /* Приём пакета */
 

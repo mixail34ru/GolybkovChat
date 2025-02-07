@@ -23,6 +23,7 @@ class TSenderWidget : public QWidget
     TCorrectItemMap* _correct_map;
 
     TSendDataGroupBox* _pack_data_grp_bx;
+    QPushButton* _parcel_edit_btn;
     TSendNetGroupBox* _net_grp_bx;
     TSendModeGroupBox* _mode_grp_bx;
 
@@ -38,6 +39,8 @@ private slots:
 signals:
     void sendActivated(ViewSendInfo info);
     void sendTimerActivated(uint timeout, ViewSendInfo info);
+    void addPackageActivated(ViewSendPackage pack);
+    void showParcelEditActivated();
 
 }; //class TSenderWidget
 //-------------------------------------------------------------------

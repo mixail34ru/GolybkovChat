@@ -3,8 +3,6 @@
 
 #include "TParcelWindow.h"
 
-//#include "TSendDataGroupBox.h"
-
 class TParcelWindow::TParcelWindowPrivate
 {
     Q_DECLARE_PUBLIC(TParcelWindow)
@@ -14,8 +12,6 @@ public:
 
     TParcelWindowPrivate();
     virtual ~TParcelWindowPrivate();
-
-    //TSendDataGroupBox* _send_data_gb;
 
 };//class TParcelWindow::TParcelWindowPrivate
 //-------------------------------------------------------------------

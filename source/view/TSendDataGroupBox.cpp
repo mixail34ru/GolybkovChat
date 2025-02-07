@@ -47,7 +47,7 @@ TSendDataGroupBox::TSendDataGroupBox(QWidget* parent)
     connect(
         _id_ln_edit, &QLineEdit::editingFinished,
         [this]() { _id_ln_edit->delete_Null();}
-        );
+    );
 
 
     /* Значение параметра */
@@ -72,7 +72,7 @@ TSendDataGroupBox::TSendDataGroupBox(QWidget* parent)
     connect(
         _matrix_ln_edit, &QLineEdit::editingFinished,
         [this]() { _matrix_ln_edit->delete_Null();}
-        );
+    );
 
     /* Маска */
 
@@ -84,11 +84,20 @@ TSendDataGroupBox::TSendDataGroupBox(QWidget* parent)
     connect(
         _mask_ln_edit, &QLineEdit::editingFinished,
         [this]() { _mask_ln_edit->delete_Null();}
-        );
+    );
+
+    /* Добавление пакета в посылку */
+
+    _add_pack = new QPushButton("Добавить пакет", this);
+    _add_pack->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Maximum);
+    connect(
+        _add_pack, &QPushButton::clicked,
+        [this] () { emit addPackageActivated(this->get_package().value());}
+    );
 
     /* Настройка параметров виджета */
 
-    _package_frm_lt = new QFormLayout(this);
+    _package_frm_lt = new QFormLayout();
     _package_frm_lt->addRow("Тип данных:", _type_data_cmb_bx);
     _package_frm_lt->addRow("Тип сигнала:", _type_signal_cmb_bx);
     _package_frm_lt->addRow("ID параметра:", _id_ln_edit);
@@ -96,10 +105,15 @@ TSendDataGroupBox::TSendDataGroupBox(QWidget* parent)
     _package_frm_lt->addRow("Матрица:", _matrix_ln_edit);
     _package_frm_lt->addRow("Маска:", _mask_ln_edit);
 
+    _form_lt = new QVBoxLayout();
+    _form_lt->addLayout(_package_frm_lt);
+    _form_lt->addWidget(_add_pack);
+    _form_lt->addStretch(1);
+
     currentTypeDataChanged(_type_data_cmb_bx->currentIndex());
 
-    this->setTitle("Содержимое отправляемого пакета");
-    this->setLayout(_package_frm_lt);
+    this->setTitle("Содержимое добавляемого пакета");
+    this->setLayout(_form_lt);
 }//------------------------------------------------------------------
 
 

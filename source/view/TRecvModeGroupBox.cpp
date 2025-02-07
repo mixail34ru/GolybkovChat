@@ -35,7 +35,9 @@ TRecvModeGroupBox::TRecvModeGroupBox(TModelStateInterface* model, QWidget* paren
     connect(_recv_btn, &QPushButton::clicked,
         [this](bool flag) {
             setEnabled_recv_btn(false);
-            emit receivePackageActivated(_range_ln_edit->text().toUShort(), _port_ln_edit->text().toUShort());
+            emit receivePackageActivated(
+                _range_ln_edit->text().toUShort(), _port_ln_edit->text().toUShort()
+            );
         }
     );
 
@@ -52,19 +54,19 @@ TRecvModeGroupBox::TRecvModeGroupBox(TModelStateInterface* model, QWidget* paren
 
     /* Настройка параметров виджета */
 
-    _recv_btn->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Minimum);
-    _clear_btn->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Minimum);
+    _receive_frm_lt = new QFormLayout();
+    _receive_frm_lt->addRow("Порт:", _port_ln_edit);
+    _receive_frm_lt->addRow("Макс. кол-во пакетов:", _range_ln_edit);
 
-    _receive_frm_lt = new QFormLayout(this);
-    _receive_frm_lt->addRow("Порт", _port_ln_edit);
-    _receive_frm_lt->addRow("Макс. кол-во пакетов", _range_ln_edit);
+    _button_frm_lt = new QVBoxLayout();
+    _button_frm_lt->addWidget(_recv_btn);
+    _button_frm_lt->addWidget(_clear_btn);
 
     form_hlt->addLayout(_receive_frm_lt);
-    form_hlt->addWidget(_recv_btn);
-    form_hlt->addWidget(_clear_btn);
+    form_hlt->addLayout(_button_frm_lt);
 
     this->setTitle("Режим прослушивания");
-    this->setLayout(_receive_frm_lt);
+    this->setLayout(form_hlt);
 
 }//------------------------------------------------------------------
 

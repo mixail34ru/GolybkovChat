@@ -116,6 +116,11 @@ void TController::startReceivePackage(uint16_t max_pack, uint16_t port) {
 }//------------------------------------------------------------------
 
 
+void TController::addPackageToParcel(ViewSendPackage pack) {
+
+}//------------------------------------------------------------------
+
+
 Package TController::ViewInfoToPackageConverter(const ViewSendInfo& vinfo) {
     return Package {
         static_cast<int8_t>(vinfo.package.type_data),

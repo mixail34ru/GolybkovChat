@@ -15,9 +15,12 @@ class TRecvModeGroupBox : public QGroupBox
 {
     Q_OBJECT
 
+    QVBoxLayout* _button_frm_lt;
     QFormLayout* _receive_frm_lt;
+
     TCustomLineEdit* _range_ln_edit;
     TCustomLineEdit* _port_ln_edit;
+
     QPushButton* _recv_btn;
     QPushButton* _clear_btn;
 

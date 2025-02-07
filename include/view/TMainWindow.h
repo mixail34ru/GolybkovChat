@@ -21,6 +21,8 @@ signals:
     void sendActivated(ViewSendInfo info);
     void sendTimerActivated(uint timeout, ViewSendInfo info);
     void receiveActivated(uint16_t max_pack, uint16_t port);
+    void addPackageActivated(ViewSendPackage pack);
+    void showParcelEditActivated();
 
 }; //class TMainWindow
 //-------------------------------------------------------------------

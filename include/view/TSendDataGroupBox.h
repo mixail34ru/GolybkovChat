@@ -21,6 +21,8 @@ class TSendDataGroupBox : public QGroupBox
 
     TCorrectItemMap* _correct_map;
 
+    QVBoxLayout* _form_lt;
+    QHBoxLayout* _button_frm_lt;
     QFormLayout* _package_frm_lt;
     QComboBox* _type_data_cmb_bx;
     QComboBox* _type_signal_cmb_bx;
@@ -29,6 +31,9 @@ class TSendDataGroupBox : public QGroupBox
     TCustomLineEdit* _parameter_ln_edit;
     TCustomLineEdit* _matrix_ln_edit;
     TCustomLineEdit* _mask_ln_edit;
+
+    QPushButton* _add_pack;
+    QPushButton* _change_pack;
 
 public:
     TSendDataGroupBox(QWidget* parent = nullptr);
@@ -56,6 +61,7 @@ private slots:
 
 signals:
     void EnteredUncorrectParams(QObject* obj, bool flag);
+    void addPackageActivated(ViewSendPackage pack);
 
 }; //class TSendDataGroupBox
 //-------------------------------------------------------------------

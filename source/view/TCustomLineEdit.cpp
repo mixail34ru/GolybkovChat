@@ -45,10 +45,10 @@ void TCustomLineEdit::checkLineCorrect(const QString &text) {
 bool TCustomLineEdit::getCorrect() const
 {
     return _checker->isCorrect();
-}//------------------------------------------------------------------
+}
 
 void TCustomLineEdit::delete_Null()
 {
     QString str = this->text();
     this->setText(_checker->delete_Null(str));
-}
+}//------------------------------------------------------------------

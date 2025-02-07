@@ -29,6 +29,17 @@ TView::TViewPrivate::TViewPrivate(TModelStateInterface *model) {
             Q_Q(TView);
             emit(q->receiveActivated(arg...));
         });
+    connect(
+        _main_wnd,  &TMainWindow::addPackageActivated,
+        [this](auto... arg){
+            Q_Q(TView);
+            emit(q->addPackageActivated(arg...));
+        });
+    connect(
+        _main_wnd,  &TMainWindow::showParcelEditActivated,
+        [this](){
+            show_parcel_edit();
+        });
 }//------------------------------------------------------------------
 
 
@@ -38,8 +49,6 @@ TView::TViewPrivate::~TViewPrivate() {
 
 void TView::TViewPrivate::run() {
     _main_wnd->show();
-
-    show_parcel_edit();
 }//------------------------------------------------------------------
 
 

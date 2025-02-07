@@ -22,7 +22,7 @@ class TController : public QApplication
 
     TClient _client;
     TServer* _server;
-    TModelStateInterface* _interface;
+    //TModelStateInterface* _interface;
 
     std::unique_ptr<TView> _view;
 
@@ -35,6 +35,8 @@ private slots:
     void send_timer_package(uint timeout, ViewSendInfo info);
 
     void startReceivePackage(uint16_t max_pack, uint16_t port);
+
+    void addPackageToParcel(ViewSendPackage pack);
 
 private:
     Package ViewInfoToPackageConverter(const ViewSendInfo& vinfo);

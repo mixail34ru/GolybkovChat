@@ -25,15 +25,28 @@ TSenderWidget::TSenderWidget(TModelStateInterface* model, QWidget* parent)
 
     QVBoxLayout* vertical_lt = new QVBoxLayout(this);
 
-    /* Информация в отправляемом пакете */
+    /* Содержимое добавляемого в посылку пакета */
 
     _pack_data_grp_bx = new TSendDataGroupBox(this);
     connect(
         _pack_data_grp_bx, &TSendDataGroupBox::EnteredUncorrectParams,
         this, &TSenderWidget::UpdateWidgetCorrectState
     );
+    connect(
+        _pack_data_grp_bx, &TSendDataGroupBox::addPackageActivated,
+        this, &TSenderWidget::addPackageActivated
+    );
     _correct_map->EmplaceItem(_pack_data_grp_bx, true);
     vertical_lt->addWidget(_pack_data_grp_bx);
+
+    /* Кнопка отображения содержимого посылки */
+
+    _parcel_edit_btn = new QPushButton("Редактировать посылку", this);
+    connect(
+        _parcel_edit_btn, &QPushButton::clicked,
+        this, &TSenderWidget::showParcelEditActivated
+    );
+    vertical_lt->addWidget(_parcel_edit_btn);
 
     /* Информация о получателе */
 

@@ -3,13 +3,8 @@
 #include <QDebug>
 
 TServer::TServer(QObject* parent) : QObject(parent) {
-<<<<<<< HEAD
     _storage->dataChanged = [this]() { emit storageChanged(); };
     _storage->dataCleared = [this]() { emit storageCleared(); };
-=======
-    _storage.dataChanged = [this]() { emit storageDataChanged(); };
-    _storage.dataCleared = [this]() { emit storageClear(); };
->>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884
 }//------------------------------------------------------------------
 
 
@@ -17,7 +12,6 @@ TServer::~TServer() {
 }//------------------------------------------------------------------
 
 
-<<<<<<< HEAD
 void TServer::startReceiving(
     uint16_t max_pack, uint16_t port, handler_exception_t hndl_except)
 {
@@ -32,24 +26,11 @@ void TServer::startReceiving(
                 port,
                 parsel_size,
                 [this, max_pack, pack, parsel_size](
-=======
-void TServer::startReceiving(uint16_t port, handler_exception_t hndl_except) {
-    try {
-        if (!_udp_server) {
-            _storage.clear();
-            std::shared_ptr<Package> pack(new Package());
-
-            _udp_server = std::make_unique<ws2::TUDPServer>(
-                port,
-                sizeof(Package),
-                [this, pack](
->>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884
                     ws2::DataBuffer buff,
                     ws2::SocketAddr_in& addr,
                     ws2::SockLen_t addr_len,
                     ws2::TUDPServer* server)
                 {
-<<<<<<< HEAD
                     memcpy(pack.get(), buff.data(), parsel_size);
 
                     std::vector<Package> vec;
@@ -84,16 +65,6 @@ void TServer::startReceiving(uint16_t port, handler_exception_t hndl_except) {
                                  << "\tMax number of packages: " << max_pack;
                     }
 
-=======
-                    memcpy(pack.get(), buff.data(), sizeof(Package));
-                    _storage.push_back(*(pack.get()));
-
-                    qDebug() << "ReceiveInfo: "
-                             << "TypeData: " << pack->type_data
-                             << "\tTypeSignal: " << pack->type_signal
-                             << "\tID: " << pack->id
-                             << "\tPayload.parameter: " << pack->payload.parameter;
->>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884
                 },
                 [this, hndl_except](std::exception_ptr eptr, ws2::TUDPServer* server) {
                     hndl_except(eptr, this);
@@ -119,7 +90,6 @@ bool TServer::isReceiving() const {
 }//------------------------------------------------------------------
 
 
-<<<<<<< HEAD
 wstd::safe_ptr<TVecStorage<ReceivePackage>>& TServer::getStorage() {
     return _storage;
 }//------------------------------------------------------------------
@@ -133,8 +103,3 @@ size_t TServer::parselSize() const {
 void TServer::storageClear() noexcept {
     _storage->clear();
 }//------------------------------------------------------------------
-=======
-TSaveVecDataStorage<Package>& TServer::getStorage(){
-    return _storage;
-}//------------------------------------------------------------------
->>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884

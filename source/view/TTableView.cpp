@@ -3,11 +3,7 @@
 #include <QHeaderView>
 
 TTableView::TTableView(QAbstractTableModel* model, QWidget* parent)
-<<<<<<< HEAD
     : QTableView(parent)
-=======
-    :QTableView(parent)
->>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884
 {
     this->setModel(model);
 
@@ -21,16 +17,8 @@ TTableView::TTableView(QAbstractTableModel* model, QWidget* parent)
     this->horizontalHeader()->setHighlightSections(true);
     this->horizontalHeader()->setSectionResizeMode(QHeaderView::Interactive);        // пользователь может изменять ширину столбца
     this->horizontalHeader()->setStretchLastSection(true);                           // последний элемент занимает все свободное пространство
-<<<<<<< HEAD
 }//------------------------------------------------------------------
 
 
 TTableView::~TTableView() {
 }//------------------------------------------------------------------
-=======
-}
-
-TTableView::~TTableView()
-{
-}
->>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884

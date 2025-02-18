@@ -35,32 +35,20 @@ TModelStateInterface::TModelStateInterface(
         client, SIGNAL(statusSendingChanged(bool)),
         this, SIGNAL(statusSendingChanged(bool))
     );
-<<<<<<< HEAD
 
     /* server */
 
-=======
->>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884
     connect(
         server, SIGNAL(statusReceivingChanged(bool)),
         this, SIGNAL(statusReceivingChanged(bool))
     );
     connect(
-<<<<<<< HEAD
         server, SIGNAL(storageChanged()),
         this, SIGNAL(recvStorageChanged())
     );
     connect(
         server, SIGNAL(storageCleared()),
         this, SIGNAL(recvStorageCleared())
-=======
-        server, SIGNAL(storageDataChanged()),
-        this, SIGNAL(storageDataChanged())
-    );
-    connect(
-        server, SIGNAL(storageClear()),
-        this, SIGNAL(storageClear())
->>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884
     );
 }//------------------------------------------------------------------
 
@@ -69,7 +57,6 @@ TModelStateInterface::~TModelStateInterface() {
 }//------------------------------------------------------------------
 
 
-<<<<<<< HEAD
 const QVector<ViewSendPackage>&
 TModelStateInterface::getSendStorage() const noexcept {
     return _client->getStorage();
@@ -97,8 +84,6 @@ TModelStateInterface::getSendStorage() const noexcept {
 // }//------------------------------------------------------------------
 
 
-=======
->>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884
 bool TModelStateInterface::IsTimerSending() const {
     return _client->IsTimerSending();
 }//------------------------------------------------------------------
@@ -110,21 +95,16 @@ bool TModelStateInterface::isReceiving() const {
 
 
 size_t TModelStateInterface::storageSize() const {
-<<<<<<< HEAD
     int full_size = 0;
     for( int i = 0; i < _server->getStorage()->size(); i++)
     {
         full_size +=  _server->getStorage()->at(i).parsel.size();
     }
     return full_size;
-=======
-    return _server->getStorage().size();
->>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884
 }//------------------------------------------------------------------
 
 
 Package TModelStateInterface::storageItem(const size_t index) {
-<<<<<<< HEAD
         int recvpack_size = _server->getStorage()->size();
         int min_index = 0;
         int max_index = 0;
@@ -150,7 +130,4 @@ ReceivePackage TModelStateInterface::timeItem(const size_t index){
             else
                 min_index += _server->getStorage()->at(i).parsel.size();
         }
-=======
-    return _server->getStorage().at(index);
->>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884
 }//------------------------------------------------------------------

@@ -16,13 +16,8 @@ class TSendNetGroupBox : public QGroupBox
 
     TCorrectItemMap* _correct_map;
 
-<<<<<<< HEAD
     TCustomLineEdit* _ip_ln_edit;
     TCustomLineEdit* _port_ln_edit;
-=======
-    QLineEdit* _ip_ln_edit;
-    QLineEdit* _port_ln_edit;
->>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884
 
 public:
     TSendNetGroupBox(QWidget* parent = nullptr);
@@ -32,14 +27,6 @@ public:
 
     void SetEnableDataField(bool flag);
 
-<<<<<<< HEAD
-=======
-private slots:
-    void CorrectSignalEmitent(bool flag);
-    void Validate_ip_ln_edit(const QString& text);
-    void Validate_port_ln_edit(const QString& text);
-
->>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884
 signals:
     void EnteredUncorrectParams(QObject* obj, bool flag);
 

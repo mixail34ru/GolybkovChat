@@ -1,10 +1,7 @@
 #include "TReceiverWidget.h"
 
 #include "TModelStateInterface.h"
-<<<<<<< HEAD
 #include "TRecvModeGroupBox.h"
-=======
->>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884
 
 #include <QAbstractTableModel>
 #include <QTableView>
@@ -31,17 +28,12 @@ TReceiverWidget::TReceiverWidget(TModelStateInterface* model, QWidget* parent)
 
     _mode_grp_bx = new TRecvModeGroupBox(model, this);
     connect(
-<<<<<<< HEAD
         _mode_grp_bx, &TRecvModeGroupBox::receivePackageActivated,
         this, &TReceiverWidget::receivePackageActivated
     );
     connect(
         _mode_grp_bx, &TRecvModeGroupBox::clearReceiveStorageActivated,
         this, &TReceiverWidget::clearReceiveStorageActivated
-=======
-        _mode_grp_bx, SIGNAL(receivePackageActivated(uint16_t)),
-        this, SIGNAL(receivePackageActivated(uint16_t))
->>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884
     );
 
     TTableModel* table_model = new TTableModel(model, this);

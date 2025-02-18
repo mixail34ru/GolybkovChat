@@ -19,7 +19,6 @@ public:
     ~TMainWindow();
 
 signals:
-<<<<<<< HEAD
     void showParcelEditActivated();
     void addSendPackageActivated(ViewSendPackage pack);
 
@@ -31,11 +30,6 @@ signals:
 
 private:
     TCentralWidget* _central_wgt;
-=======
-    void sendActivated(ViewSendInfo info);
-    void sendTimerActivated(uint timeout, ViewSendInfo info);
-    void receiveActivated(uint16_t port);
->>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884
 
 }; //class TMainWindow
 //-------------------------------------------------------------------

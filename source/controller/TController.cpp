@@ -37,7 +37,6 @@ TController::TController(int &argc, char **argv)
 {
     _pool = std::make_unique<wstd::thread_pool>(2);
 
-<<<<<<< HEAD
     _client = new TClient(this);
     _server = new TServer(this);
     _model = new TModelStateInterface(_client, _server, this);
@@ -73,28 +72,6 @@ TController::TController(int &argc, char **argv)
     );
 
     _view->run();
-=======
-    _server = new TServer(this);
-
-
-    _main_wnd = std::make_unique<TMainWindow>(new TModelStateInterface(&_client, _server));
-    connect(
-        _main_wnd.get(), &TMainWindow::sendActivated,
-        this, &TController::send_package
-    );
-    connect(
-        _main_wnd.get(), &TMainWindow::sendTimerActivated,
-        this, &TController::send_timer_package
-    );
-    connect(
-        _main_wnd.get(), &TMainWindow::receiveActivated,
-        this, &TController::startReceivePackage
-    );
-
-    _main_wnd->show();
-    auto temp = new QWidget();
-    temp->show();
->>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884
 }//------------------------------------------------------------------
 
 
@@ -102,7 +79,6 @@ TController::~TController() {
 }//------------------------------------------------------------------
 
 
-<<<<<<< HEAD
 void TController::addSendPackage(ViewSendPackage pack) {
     _client->appendToStorage(pack);
     //_client->addPackToStorage(pack);
@@ -132,16 +108,6 @@ void TController::send_package(ViewSendInfo info) {
         info.address.port,
         reinterpret_cast<void*>(vec_pack.data()), //(&package),
         sizeof(Package)*vec_pack.size()
-=======
-void TController::send_package(ViewSendInfo info) {
-    Package package = ViewInfoToPackageConverter(info);
-
-    _client.SendMessage(
-        info.address.ip,
-        info.address.port,
-        reinterpret_cast<void*>(&package),
-        sizeof(package)
->>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884
     );
 
     debugSendInfo(info);
@@ -150,7 +116,6 @@ void TController::send_package(ViewSendInfo info) {
 
 void TController::send_timer_package(uint timeout, ViewSendInfo info) {
     _pool->add_job([=, &info](){
-<<<<<<< HEAD
         if (_client->IsTimerSending()) {
             _client->StopSendingMessage();
         }
@@ -166,19 +131,6 @@ void TController::send_timer_package(uint timeout, ViewSendInfo info) {
                 info.address.port,
                 reinterpret_cast<void*>(vec_pack.data()),   //(&package),
                 sizeof(Package)*vec_pack.size(),
-=======
-        if (_client.IsTimerSending()) {
-            _client.StopSendingMessage();
-        }
-        else {
-            Package package = ViewInfoToPackageConverter(info);
-            _client.StartSendingMessage(
-                timeout,
-                info.address.ip,
-                info.address.port,
-                reinterpret_cast<void*>(&package),
-                sizeof(package),
->>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884
                 ThreadExceptionHandler<TClient>(
                     _pool, [this](){ _client->StopSendingMessage(); }
                 )
@@ -190,20 +142,13 @@ void TController::send_timer_package(uint timeout, ViewSendInfo info) {
 }//------------------------------------------------------------------
 
 
-<<<<<<< HEAD
 void TController::startReceivePackage(uint16_t max_pack, uint16_t port) {
-=======
-void TController::startReceivePackage(uint16_t port) {
->>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884
     if (_server->isReceiving()) {
         _server->stopReceiving();
     }
     else {
         _server->startReceiving(
-<<<<<<< HEAD
             max_pack,
-=======
->>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884
             port,
             ThreadExceptionHandler<TServer>(
                 _pool, [this]() { _server->stopReceiving(); }
@@ -213,24 +158,18 @@ void TController::startReceivePackage(uint16_t port) {
 }//------------------------------------------------------------------
 
 
-<<<<<<< HEAD
 void TController::clearReceiverStorage() {
     _server->storageClear();
 }//------------------------------------------------------------------
 
 
-=======
->>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884
 Package TController::ViewInfoToPackageConverter(const ViewSendInfo& vinfo) {
     return Package {
         static_cast<int8_t>(vinfo.package.type_data),
         static_cast<int8_t>(vinfo.package.type_signal),
         vinfo.package.id,
         vinfo.package.payload.parameter
-<<<<<<< HEAD
 
-=======
->>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884
     };
 }//------------------------------------------------------------------
 

@@ -42,6 +42,7 @@ public:
     void StopSendingMessage();
     bool IsTimerSending() const;
 
+<<<<<<< HEAD
     // const TVecStorage<ViewSendPackage>& getStorage() const noexcept;
     // size_t sizeStorage() const noexcept;
     // ViewSendPackage getItemStorage(const size_t& index);
@@ -53,6 +54,9 @@ public:
     void appendToStorage(const ViewSendPackage& value);
     void removeFromStorage(int i, int count = 1);
     void clearStorage();
+=======
+    bool IsTimerSending() const;
+>>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884
 
 private:
     QVector<ViewSendPackage> _storage;
@@ -64,6 +68,7 @@ private:
 signals:
     void statusSendingTimerChanged(bool);
     void statusSendingChanged(bool);
+<<<<<<< HEAD
 
     //void storageChanged();
     //void storageCleared();
@@ -71,6 +76,8 @@ signals:
     void storageInserted(int, int);
     void storageErased(int, int);
     void storageCleared();
+=======
+>>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884
 
 }; //class TClient
 //-------------------------------------------------------------------

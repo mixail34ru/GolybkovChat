@@ -4,11 +4,19 @@
 TTableModel::TTableModel(TModelStateInterface* model, QObject *parent)
     : QAbstractTableModel(parent), _model(model)
 {
+<<<<<<< HEAD
     connect(_model, &TModelStateInterface::recvStorageChanged,
             this, &TTableModel::addDataRow);
 
     connect(_model, &TModelStateInterface::recvStorageCleared,
             this, &TTableModel::clearTable);
+=======
+    connect(_model, SIGNAL(storageDataChanged()),
+            this, SLOT(addDataRow()));
+
+    connect(_model, SIGNAL(storageClear()),
+            this, SLOT(clearTable()));
+>>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884
 
    headersFormer();
 }//------------------------------------------------------------------
@@ -27,12 +35,18 @@ bool TTableModel::hasIndex(
 }//------------------------------------------------------------------
 
 
+<<<<<<< HEAD
 int TTableModel::columnCount(const QModelIndex & parent) const {
+=======
+int TTableModel::columnCount(const QModelIndex & parent) const
+{
+>>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884
     Q_UNUSED(parent);
     return headers.size();
 }//------------------------------------------------------------------
 
 
+<<<<<<< HEAD
 int TTableModel::rowCount(const QModelIndex & parent) const {
     return _count_row;
 }//------------------------------------------------------------------
@@ -56,6 +70,16 @@ QString timestampString(std::chrono::high_resolution_clock::time_point timestamp
 
 
 QVariant TTableModel::data(const QModelIndex & index, int role) const {
+=======
+int TTableModel::rowCount(const QModelIndex & parent) const
+{
+    return _model->storageSize();
+}//------------------------------------------------------------------
+
+
+QVariant TTableModel::data(const QModelIndex & index, int role) const
+{
+>>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884
     if (!index.isValid()) return QVariant();
 
     if (role == Qt::DisplayRole)
@@ -68,6 +92,7 @@ QVariant TTableModel::data(const QModelIndex & index, int role) const {
             return QVariant();
         }
 
+<<<<<<< HEAD
 
             switch(col){
             case 0:
@@ -83,6 +108,15 @@ QVariant TTableModel::data(const QModelIndex & index, int role) const {
             default: return QVariant();
             }
 
+=======
+        switch(col){
+        case 0: return _model->storageItem(row).type_data;
+        case 1: return _model->storageItem(row).type_signal;
+        case 2: return _model->storageItem(row).id;
+        case 3: return _model->storageItem(row).payload.parameter;
+        default: return QVariant();
+        }
+>>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884
     }
 
     return QVariant();
@@ -126,18 +160,26 @@ QModelIndex TTableModel::parent(const QModelIndex & index) const
 
 
 void TTableModel::addDataRow() {
+<<<<<<< HEAD
     if ( _model->storageSize() > this->rowCount())
     {
         beginInsertRows(QModelIndex(), this->rowCount(), _model->storageSize() - 1 );
         _count_row = _model->storageSize();
         endInsertRows();
     }
+=======
+    beginInsertRows(QModelIndex(), 0, 0);
+    endInsertRows();
+>>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884
 }//------------------------------------------------------------------
 
 
 void TTableModel::clearTable() {
     beginResetModel();
+<<<<<<< HEAD
     _count_row = 0;
+=======
+>>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884
     endResetModel();
 }//------------------------------------------------------------------
 
@@ -145,6 +187,10 @@ void TTableModel::clearTable() {
 
 void TTableModel::headersFormer(){
     headers = {
+<<<<<<< HEAD
         "Время получения", "Тип данных", "Тип сигнала", "Номер параметра", "Payload"
+=======
+        "Тип данных", "Тип сигнала", "Номер параметра", "Payload"
+>>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884
     };
 }//------------------------------------------------------------------

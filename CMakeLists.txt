@@ -45,6 +45,41 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(GolybkovChat
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
+<<<<<<< HEAD
+=======
+        #include/model/TReceiverDataStorage.h
+        #source/model/TReceiverDataStorage.cpp
+        #include/model/TServer.h
+        #source/model/TServer.cpp
+        #include/view/TUShortLineEdit.h
+        #source/view/TUShortLineEdit.cpp
+        #include/view/TRecvModeGroupBox.h
+        #source/view/TRecvModeGroupBox.cpp
+        #include/view/TCorrectItemMap.h
+        #include/view/TIPValidator.h
+        #source/view/TIPValidator.cpp
+        #include/model/TModelStateInterface.h
+        #source/model/TModelStateInterface.cpp
+        #include/model/TClient.h
+        #source/model/TClient.cpp
+        #include/controller/TController.h
+        #source/controller/TController.cpp
+        #include/view/TSendModeGroupBox.h
+        #source/view/TSendModeGroupBox.cpp
+        #include/view/TSendNetGroupBox.h
+        #source/view/TSendNetGroupBox.cpp
+        #include/view/TPackDataGroupBox.h
+        #source/view/TPackDataGroupBox.cpp
+        #include/view/TReceiverWidget.h
+        #source/view/TReceiverWidget.cpp
+        #include/view/TSenderWidget.h
+        #include/view/TMainWindow.h
+        #source/view/TMainWindow.cpp
+        #include/view/TCentralWidget.h
+        #source/view/TCentralWidget.cpp
+        #source/view/TSenderWidget.cpp
+        #include/model/TPackageFormat.h
+>>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET GolybkovChat APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

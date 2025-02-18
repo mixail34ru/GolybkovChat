@@ -11,6 +11,7 @@ TSendModeGroupBox::TSendModeGroupBox(TModelStateInterface* model, QWidget* paren
     : QGroupBox(parent)
 {
     _correct_map = new TCorrectItemMap(this);
+<<<<<<< HEAD
     connect(
         _correct_map, &TCorrectItemMap::CorrectStatusChanged,
         [this] (auto arg) { emit EnteredUncorrectParams(this, arg); }
@@ -31,6 +32,11 @@ TSendModeGroupBox::TSendModeGroupBox(TModelStateInterface* model, QWidget* paren
         _pack_ln_edit, &QLineEdit::editingFinished,
         [this]() { _pack_ln_edit->delete_Null();}
     );
+=======
+
+    CheckTimerSendingStatus
+        = [model]()->bool const { return model->IsTimerSending(); };
+>>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884
 
     /* Варианты режимов */
 
@@ -49,8 +55,12 @@ TSendModeGroupBox::TSendModeGroupBox(TModelStateInterface* model, QWidget* paren
     connect(_send_btn, &QPushButton::clicked,
         [this] () {
             _send_btn->setEnabled(false);
+<<<<<<< HEAD
             _pack_ln_edit->setEnabled(false);
             emit sendActivated(_pack_ln_edit->text().toUInt());
+=======
+            emit sendActivated();
+>>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884
         }
     );
     connect(
@@ -60,6 +70,7 @@ TSendModeGroupBox::TSendModeGroupBox(TModelStateInterface* model, QWidget* paren
 
     /* Периодическая отправка */
 
+<<<<<<< HEAD
     _timeout_ln_edit = new TCustomLineEdit(new TIntValidator(0, this), "1000", this);
     _timeout_ln_edit->setFocusPolicy(Qt::ClickFocus);
     connect(
@@ -70,15 +81,30 @@ TSendModeGroupBox::TSendModeGroupBox(TModelStateInterface* model, QWidget* paren
         _timeout_ln_edit, &QLineEdit::editingFinished,
         [this]() { _timeout_ln_edit->delete_Null();}
     );
+=======
+    _timeout_ln_edit = new QLineEdit("1000", this);
+    _timeout_ln_edit->setValidator(new QIntValidator(1, INT_MAX, _timeout_ln_edit));
+    connect(
+        _timeout_ln_edit, SIGNAL(textChanged(QString)),
+        this, SLOT(check_timeout_ln_edit(QString))
+    );
+
+    _correct_map->EmplaceItem(_timeout_ln_edit, true);
+>>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884
 
     _send_timer_btn = new QPushButton("Начать отправку", this);
     connect(_send_timer_btn, &QPushButton::clicked,
         [this] () {
             try {
                 _send_timer_btn->setEnabled(false);
+<<<<<<< HEAD
                 _pack_ln_edit->setEnabled(false);
                 _timeout_ln_edit->setEnabled(false);
                 emit sendTimerActivated(_timeout_ln_edit->text().toUInt(), _pack_ln_edit->text().toUInt());
+=======
+                _timeout_ln_edit->setEnabled(false);
+                emit sendTimerActivated(_timeout_ln_edit->text().toUInt());
+>>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884
             } catch (...) {}
         }
     );
@@ -113,7 +139,11 @@ void TSendModeGroupBox::setCurrentMode(int index) {
         if (CheckTimerSendingStatus()) {
             try {
                 _send_timer_btn->setEnabled(false);
+<<<<<<< HEAD
                 emit sendTimerActivated(_timeout_ln_edit->text().toUInt(), _pack_ln_edit->text().toUInt());
+=======
+                emit sendTimerActivated(_timeout_ln_edit->text().toUInt());
+>>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884
             } catch (...) {}
         }
 
@@ -156,16 +186,26 @@ void TSendModeGroupBox::setStatus_send_timer_btn(bool flag) {
     }
     else {
        _send_timer_btn->setText("Начать отправку");
+<<<<<<< HEAD
        _timeout_ln_edit->setEnabled(true);
        _pack_ln_edit->setEnabled(true);
     }
     _send_btn->setEnabled(true);
     _send_timer_btn->setEnabled(true);
+=======
+        _timeout_ln_edit->setEnabled(true);
+    }
+
+    _send_timer_btn->setEnabled(true); 
+>>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884
 }//------------------------------------------------------------------
 
 
 void TSendModeGroupBox::setStatus_send_btn(bool flag) {
+<<<<<<< HEAD
     _pack_ln_edit->setEnabled(_timeout_ln_edit->isEnabled());
+=======
+>>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884
     _send_btn->setEnabled(true);
     _send_timer_btn->setEnabled(true);
 }//------------------------------------------------------------------
@@ -174,4 +214,28 @@ void TSendModeGroupBox::setStatus_send_btn(bool flag) {
 void TSendModeGroupBox::SetEnableButtons(bool flag) {
     _send_btn->setEnabled(flag);
     _send_timer_btn->setEnabled(flag);
+}//------------------------------------------------------------------
+
+
+void TSendModeGroupBox::SetEnableButtons(bool flag) {
+    _send_btn->setEnabled(flag);
+    if (!CheckTimerSendingStatus())
+        _send_timer_btn->setEnabled(flag && _correct_map->GetItemStatus(_timeout_ln_edit));
+}//------------------------------------------------------------------
+
+
+void TSendModeGroupBox::check_timeout_ln_edit(const QString& text) {
+    unsigned long num = text.toULong();
+    if (num > 0 && num <= INT_MAX) {
+        _timeout_ln_edit->setStyleSheet("QLineEdit { color: black }");
+        _correct_map->SetItemStatus(_timeout_ln_edit, true);
+
+        _send_timer_btn->setEnabled(true);
+    }
+    else {
+        _timeout_ln_edit->setStyleSheet("QLineEdit { color: red }");
+        _correct_map->SetItemStatus(_timeout_ln_edit, false);
+
+        _send_timer_btn->setEnabled(false);
+    }
 }//------------------------------------------------------------------

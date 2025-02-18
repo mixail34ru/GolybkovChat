@@ -41,11 +41,19 @@ private slots:
     void setCurrentMode(int index);
     void setStatus_send_timer_btn(bool flag);
     void setStatus_send_btn(bool flag);
+<<<<<<< HEAD
 
 signals:
     void sendActivated(uint num_pack);
     void sendTimerActivated(uint timeout, uint num_pack);
     void EnteredUncorrectParams(QObject* obj, bool flag);
+=======
+    void check_timeout_ln_edit(const QString& text);
+
+signals:
+    void sendActivated();
+    void sendTimerActivated(uint timeout);
+>>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884
 
 }; //class TSendModeGroupBox
 //-------------------------------------------------------------------

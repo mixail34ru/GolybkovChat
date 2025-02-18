@@ -21,8 +21,11 @@ class TSendDataGroupBox : public QGroupBox
 
     TCorrectItemMap* _correct_map;
 
+<<<<<<< HEAD
     QVBoxLayout* _form_lt;
     QHBoxLayout* _button_frm_lt;
+=======
+>>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884
     QFormLayout* _package_frm_lt;
     QComboBox* _type_data_cmb_bx;
     QComboBox* _type_signal_cmb_bx;
@@ -57,7 +60,15 @@ private:
     }
 
 private slots:
+    void CorrectSignalEmitent(bool flag);
     void currentTypeDataChanged(int index);
+    void Validate_id_ln_edit(const QString& text);
+    void Validate_parameter_ln_edit(const QString& text);
+    void Validate_matrix_ln_edit(const QString& text);
+    void Validate_mask_ln_edit(const QString& text);
+
+signals:
+    void EnteredUncorrectParams(QObject* obj, bool flag);
 
 signals:
     void EnteredUncorrectParams(QObject* obj, bool flag);

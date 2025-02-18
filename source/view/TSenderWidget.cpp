@@ -3,10 +3,13 @@
 #include "TModelStateInterface.h"
 #include "TCorrectItemMap.h"
 
+<<<<<<< HEAD
 #include "TSendDataGroupBox.h"
 #include "TSendNetGroupBox.h"
 #include "TSendModeGroupBox.h"
 
+=======
+>>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884
 #include <QVBoxLayout>
 
 TSenderWidget::TSenderWidget(TModelStateInterface* model, QWidget* parent)
@@ -36,10 +39,13 @@ TSenderWidget::TSenderWidget(TModelStateInterface* model, QWidget* parent)
         _pack_data_grp_bx, &TSendDataGroupBox::EnteredUncorrectParams,
         this, &TSenderWidget::UpdateWidgetCorrectState
     );
+<<<<<<< HEAD
     connect(
         _pack_data_grp_bx, &TSendDataGroupBox::addPackageActivated,
         this, &TSenderWidget::addSendPackageActivated
     );
+=======
+>>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884
     _correct_map->EmplaceItem(_pack_data_grp_bx, true);
     vertical_lt->addWidget(_pack_data_grp_bx);
 
@@ -66,6 +72,7 @@ TSenderWidget::TSenderWidget(TModelStateInterface* model, QWidget* parent)
 
     _mode_grp_bx = new TSendModeGroupBox(model, this);
     _correct_map->EmplaceItem(_mode_grp_bx, true);
+<<<<<<< HEAD
     connect(
         _mode_grp_bx, &TSendModeGroupBox::EnteredUncorrectParams,
         this, &TSenderWidget::UpdateWidgetCorrectState
@@ -76,6 +83,12 @@ TSenderWidget::TSenderWidget(TModelStateInterface* model, QWidget* parent)
             try {
                 ViewSendInfo info {
                     num_pack,
+=======
+    connect(_mode_grp_bx, &TSendModeGroupBox::sendActivated,
+        [this] () {
+            try {
+                ViewSendInfo info {
+>>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884
                     _pack_data_grp_bx->get_package().value(),
                     _net_grp_bx->get_address().value()
                 };
@@ -86,10 +99,16 @@ TSenderWidget::TSenderWidget(TModelStateInterface* model, QWidget* parent)
     );
 
     connect(_mode_grp_bx, &TSendModeGroupBox::sendTimerActivated,
+<<<<<<< HEAD
         [this](uint timeout, uint num_pack) {
             try {
                 ViewSendInfo info {
                     num_pack,
+=======
+        [this](uint timeout) {
+            try {
+                ViewSendInfo info {
+>>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884
                     _pack_data_grp_bx->get_package().value(),
                     _net_grp_bx->get_address().value()
                 };
@@ -121,12 +140,18 @@ void TSenderWidget::SwitchFieldEdit(bool flag) {
     if (CheckTimerSendingStatus()) {
         _pack_data_grp_bx->SetEnableDataField(false);
         _net_grp_bx->SetEnableDataField(false);
+<<<<<<< HEAD
         _mode_grp_bx->SetEnableButtons(false);
+=======
+>>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884
     }
     else {
         _pack_data_grp_bx->SetEnableDataField(!flag);
         _net_grp_bx->SetEnableDataField(!flag);
+<<<<<<< HEAD
         _mode_grp_bx->SetEnableButtons(!flag);
+=======
+>>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884
     }
 }//------------------------------------------------------------------
 

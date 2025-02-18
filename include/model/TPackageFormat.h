@@ -75,6 +75,7 @@ struct Package {
 //-------------------------------------------------------------------
 
 
+<<<<<<< HEAD
 struct ReceivePackage {
     std::chrono::high_resolution_clock::time_point timestamp;
     std::vector<Package> parsel;
@@ -82,6 +83,8 @@ struct ReceivePackage {
 //-------------------------------------------------------------------
 
 
+=======
+>>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884
 struct ViewSendPackage {
     TypeData type_data;
     TypeSygnal type_signal;
@@ -104,7 +107,10 @@ struct NetAddress {
 
 
 struct ViewSendInfo {
+<<<<<<< HEAD
     uint count;
+=======
+>>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884
     ViewSendPackage package;
     NetAddress address;
 }; //struct SendInfo

@@ -47,12 +47,20 @@ public:
         }
     }
 
+<<<<<<< HEAD
     bool GetItemStatus(QObject* obj) const {
+=======
+    bool GetItemStatus(QObject* obj) {
+>>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884
         auto it = _map.find(obj);
         if (it != _map.end())
             return it->second;
 
+<<<<<<< HEAD
         return true; //!< TODO exception out_of_range
+=======
+        return false; //!< TODO exception out_of_range
+>>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884
     }
 
 private:

@@ -3,7 +3,10 @@
 
 #include <QAbstractTableModel>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884
 class TModelStateInterface;
 
 class TTableModel : public QAbstractTableModel
@@ -12,8 +15,11 @@ class TTableModel : public QAbstractTableModel
 
     TModelStateInterface* _model;
 
+<<<<<<< HEAD
     int _count_row = 0;
 
+=======
+>>>>>>> 43864b7da22d6974d3306a3a1e5ea6875b8c1884
 public:
     explicit TTableModel(TModelStateInterface* model, QObject *parent = nullptr);
     ~TTableModel();

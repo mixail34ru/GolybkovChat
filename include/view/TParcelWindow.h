@@ -1,21 +1,32 @@
 #ifndef TPARCELWINDOW_H
 #define TPARCELWINDOW_H
 
+#include "TPackageFormat.h"
+
 #include <QWidget>
+#include <QScopedPointer>
+
+
+class TModelStateInterface;
+class TParcelWindowPrivate;
 
 class TParcelWindow : public QWidget
 {
     Q_OBJECT
 
-    class TParcelWindowPrivate;
-
 public:
-    explicit TParcelWindow(QWidget* parent = nullptr);
+    explicit TParcelWindow(
+        TModelStateInterface* model, QWidget* parent = nullptr);
     virtual ~TParcelWindow();
 
+signals:
+    void addSendPackageActivated(ViewSendPackage pack);
+    void delSendPackageActivated(int index);
+    void clearSendStorageActivated();
+
 protected:
-    TParcelWindow(TParcelWindowPrivate &dd, QWidget *parent);
-    TParcelWindowPrivate * const d_ptr;
+    TParcelWindow(TParcelWindowPrivate &dd);
+    QScopedPointer<TParcelWindowPrivate> d_ptr;
 
 private:
     Q_DECLARE_PRIVATE(TParcelWindow)

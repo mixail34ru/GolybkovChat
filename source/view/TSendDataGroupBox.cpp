@@ -16,7 +16,10 @@ TSendDataGroupBox::TSendDataGroupBox(QWidget* parent)
     _correct_map = new TCorrectItemMap(this);
     connect(
         _correct_map, &TCorrectItemMap::CorrectStatusChanged,
-        [this] (auto arg) { emit EnteredUncorrectParams(this, arg); }
+        [this] (auto arg) {
+            _add_pack->setEnabled(arg);
+            emit EnteredUncorrectParams(this, arg);
+        }
     );
 
     /* Тип данных */
@@ -40,6 +43,7 @@ TSendDataGroupBox::TSendDataGroupBox(QWidget* parent)
     /* Номер параметра */
 
     _id_ln_edit = new TCustomLineEdit(new TUShortValidator(this), "1", this);
+    _id_ln_edit->setFocusPolicy(Qt::ClickFocus);
     connect(
         _id_ln_edit, &TCustomLineEdit::EnteredCorrectParams,
         [this](auto arg) { _correct_map->SetItemStatus(_id_ln_edit, arg);}
@@ -53,6 +57,7 @@ TSendDataGroupBox::TSendDataGroupBox(QWidget* parent)
     /* Значение параметра */
 
     _parameter_ln_edit = new TCustomLineEdit(new TDoubleValidator(this), "1", this);
+    _parameter_ln_edit->setFocusPolicy(Qt::ClickFocus);
     connect(
         _parameter_ln_edit, &TCustomLineEdit::EnteredCorrectParams,
         [this](auto arg) { _correct_map->SetItemStatus(_parameter_ln_edit, arg);}
@@ -65,6 +70,7 @@ TSendDataGroupBox::TSendDataGroupBox(QWidget* parent)
     /* Матрица */
 
     _matrix_ln_edit = new TCustomLineEdit(new TIntValidator(1, this), "1", this);
+    _matrix_ln_edit->setFocusPolicy(Qt::ClickFocus);
     connect(
         _matrix_ln_edit, &TCustomLineEdit::EnteredCorrectParams,
         [this](auto arg) { _correct_map->SetItemStatus(_matrix_ln_edit, arg);}
@@ -77,6 +83,7 @@ TSendDataGroupBox::TSendDataGroupBox(QWidget* parent)
     /* Маска */
 
     _mask_ln_edit = new TCustomLineEdit(new TIntValidator(2, this), "1", this);
+    _mask_ln_edit->setFocusPolicy(Qt::ClickFocus);
     connect(
         _mask_ln_edit, &TCustomLineEdit::EnteredCorrectParams,
         [this](auto arg) {_correct_map->SetItemStatus(_mask_ln_edit, arg);}
@@ -157,6 +164,7 @@ void TSendDataGroupBox::SetEnableDataField(bool flag) {
     _parameter_ln_edit->setEnabled(flag);
     _matrix_ln_edit->setEnabled(flag);
     _mask_ln_edit->setEnabled(flag);
+    _add_pack->setEnabled(flag);
 }//------------------------------------------------------------------
 
 

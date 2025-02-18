@@ -2,9 +2,9 @@
 #define TMODELSTATEINTERFACE_H
 
 #include <TPackageFormat.h>
+#include <TVecStorage.h>
 #include <QObject>
-
-#include "TSaveVecDataStorage.h"
+#include <QVector>
 
 class TClient;
 class TServer;
@@ -17,12 +17,22 @@ class TModelStateInterface : public QObject
     TServer* _server;
 
 public:
-    TModelStateInterface(
+    explicit TModelStateInterface(
         TClient* client,
         TServer* server,
         QObject* parent = nullptr
     );
-    ~TModelStateInterface();
+    virtual ~TModelStateInterface();
+
+    //const TVecStorage<ViewSendPackage>& getSendStorage() const noexcept;
+
+    //size_t sizeSendStorage() const noexcept;
+    //void erasePackFromStorage(int index);
+    //ViewSendPackage itemSendStorage(const size_t index);
+
+
+    const QVector<ViewSendPackage>& getSendStorage() const noexcept;
+
 
     bool IsTimerSending() const;
     bool isReceiving() const;
@@ -32,13 +42,20 @@ public:
     ReceivePackage timeItem(const size_t index);
 
 signals:
+    void sendStorageInserted(int, int);
+    void sendStorageErased(int, int);
+    void sendStorageCleared();
+
+    //void sendStorageChanged();
+    //void sendStorageCleared();
+
     void statusSendingTimerChanged(bool);
     void statusSendingChanged(bool);
 
     void statusReceivingChanged(bool);
-    void storageDataChanged();
-    void storageClear();
-    void tableClear();
+    void recvStorageChanged();
+    void recvStorageCleared();
+    //void tableCleared();
 
 }; //class TModelStateInterface
 //-------------------------------------------------------------------

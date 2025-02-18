@@ -3,6 +3,8 @@
 #include <QDebug>
 
 TClient::TClient(QObject* parent) : QObject(parent) {
+    //_storage.dataChanged = [this]() { emit storageChanged(); };
+    //_storage.dataCleared = [this]() { emit storageCleared(); };
 }//------------------------------------------------------------------
 
 
@@ -62,3 +64,66 @@ void TClient::StopSendingMessage() {
 bool TClient::IsTimerSending() const {
     return (_timer.get() != nullptr ? true : false);
 }//------------------------------------------------------------------
+
+
+const QVector<ViewSendPackage>& TClient::getStorage() const noexcept {
+    return _storage;
+}//------------------------------------------------------------------
+
+
+void TClient::appendToStorage(const ViewSendPackage& value) {
+    _storage.append(value);
+    emit storageInserted(_storage.size() - 1, 1);
+}//------------------------------------------------------------------
+
+
+void TClient::removeFromStorage(int i, int count) {
+    if (!_storage.empty() && i >= 0) {
+        if ( (i < _storage.size()) && (i + count < _storage.size()) ) {
+            _storage.remove(i, count);
+            emit storageErased(i, count);
+        }
+        else if (i < _storage.size()) {
+            count = _storage.size() - i;
+            _storage.remove(i, count);
+            emit storageErased(i, count);
+        }
+    }
+}//------------------------------------------------------------------
+
+
+void TClient::clearStorage() {
+    _storage.clear();
+    emit storageCleared();
+}//------------------------------------------------------------------
+
+
+
+// const TVecStorage<ViewSendPackage>& TClient::getStorage() const noexcept {
+//     return _storage;
+// }//------------------------------------------------------------------
+
+
+// size_t TClient::sizeStorage() const noexcept {
+//     return _storage.size();
+// }//------------------------------------------------------------------
+
+
+// ViewSendPackage TClient::getItemStorage(const size_t& index) {
+//     return _storage.at(index);
+// }//------------------------------------------------------------------
+
+
+// void TClient::addPackToStorage(ViewSendPackage pack) {
+//     _storage.push_back(pack);
+// }//------------------------------------------------------------------
+
+
+// void TClient::erasePackFromStorage(int index) {
+//     _storage.erase(index);
+// }//------------------------------------------------------------------
+
+
+// void TClient::clearStorage() noexcept {
+//     _storage.clear();
+// }//------------------------------------------------------------------

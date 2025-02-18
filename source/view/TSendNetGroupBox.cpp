@@ -19,6 +19,7 @@ TSendNetGroupBox::TSendNetGroupBox(QWidget* parent)
     /* IPv4 адрес */
 
     _ip_ln_edit = new TCustomLineEdit(new TIPValidator(this), "192.168.16.96", this);
+    _ip_ln_edit->setFocusPolicy(Qt::ClickFocus);
     _correct_map->EmplaceItem(_ip_ln_edit, true);
     connect(
         _ip_ln_edit, &TCustomLineEdit::EnteredCorrectParams,
@@ -28,6 +29,7 @@ TSendNetGroupBox::TSendNetGroupBox(QWidget* parent)
     /* Порт */
 
     _port_ln_edit = new TCustomLineEdit(new TUShortValidator(this), "666", this);
+    _port_ln_edit->setFocusPolicy(Qt::ClickFocus);
     _correct_map->EmplaceItem(_port_ln_edit, true);
     connect(
         _port_ln_edit, &TCustomLineEdit::EnteredCorrectParams,

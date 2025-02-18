@@ -4,8 +4,6 @@
 #include "TView.h"
 #include <QPointer>
 
-class TModelStateInterface;
-
 class TMainWindow;
 class TParcelWindow;
 
@@ -17,6 +15,8 @@ public:
 
     TViewPrivate(TModelStateInterface *model);
     virtual ~TViewPrivate();
+
+    TModelStateInterface* _model;
 
     QPointer<TMainWindow> _main_wnd;
     void run();

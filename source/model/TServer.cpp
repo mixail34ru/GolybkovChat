@@ -3,8 +3,8 @@
 #include <QDebug>
 
 TServer::TServer(QObject* parent) : QObject(parent) {
-    _storage.dataChanged = [this]() { emit storageDataChanged(); };
-    _storage.dataCleared = [this]() { emit storageClear(); };
+    _storage->dataChanged = [this]() { emit storageChanged(); };
+    _storage->dataCleared = [this]() { emit storageCleared(); };
 }//------------------------------------------------------------------
 
 
@@ -12,10 +12,12 @@ TServer::~TServer() {
 }//------------------------------------------------------------------
 
 
-void TServer::startReceiving(uint16_t max_pack, uint16_t port, handler_exception_t hndl_except) {
+void TServer::startReceiving(
+    uint16_t max_pack, uint16_t port, handler_exception_t hndl_except)
+{
     try {
         if (!_udp_server) {
-            _storage.clear();
+            _storage->clear();
             size_t parsel_size = sizeof(Package)*max_pack;
 
             std::shared_ptr<Package[]> pack {std::make_unique<Package[]>(max_pack)};
@@ -50,7 +52,7 @@ void TServer::startReceiving(uint16_t max_pack, uint16_t port, handler_exception
                             std::chrono::high_resolution_clock::now(),
                             vec
                         };
-                    _storage.push_back(recvpack);
+                    _storage->push_back(recvpack);
                     }
 
                     for (auto& it : vec)
@@ -88,16 +90,16 @@ bool TServer::isReceiving() const {
 }//------------------------------------------------------------------
 
 
-TSaveVecDataStorage<ReceivePackage>& TServer::getStorage(){
+wstd::safe_ptr<TVecStorage<ReceivePackage>>& TServer::getStorage() {
     return _storage;
 }//------------------------------------------------------------------
+
 
 size_t TServer::parselSize() const {
     return ReceivePackage().parsel.size();
 }//------------------------------------------------------------------
 
-void TServer::tableClear()
-{
-    _storage.clear();
-    emit storageClear();
-}
+
+void TServer::storageClear() noexcept {
+    _storage->clear();
+}//------------------------------------------------------------------

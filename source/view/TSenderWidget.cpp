@@ -3,6 +3,10 @@
 #include "TModelStateInterface.h"
 #include "TCorrectItemMap.h"
 
+#include "TSendDataGroupBox.h"
+#include "TSendNetGroupBox.h"
+#include "TSendModeGroupBox.h"
+
 #include <QVBoxLayout>
 
 TSenderWidget::TSenderWidget(TModelStateInterface* model, QWidget* parent)
@@ -34,7 +38,7 @@ TSenderWidget::TSenderWidget(TModelStateInterface* model, QWidget* parent)
     );
     connect(
         _pack_data_grp_bx, &TSendDataGroupBox::addPackageActivated,
-        this, &TSenderWidget::addPackageActivated
+        this, &TSenderWidget::addSendPackageActivated
     );
     _correct_map->EmplaceItem(_pack_data_grp_bx, true);
     vertical_lt->addWidget(_pack_data_grp_bx);

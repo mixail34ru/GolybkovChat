@@ -1,6 +1,6 @@
 #include "TRecvModeGroupBox.h"
+#include "TCustomLineEdit.h"
 #include "TUShortValidator.h"
-
 #include "TModelStateInterface.h"
 
 #include <QHBoxLayout>
@@ -12,6 +12,7 @@ TRecvModeGroupBox::TRecvModeGroupBox(TModelStateInterface* model, QWidget* paren
     QHBoxLayout* form_hlt = new QHBoxLayout(this);
 
     _port_ln_edit = new TCustomLineEdit(new TUShortValidator(this), "666", this);
+    _port_ln_edit->setFocusPolicy(Qt::ClickFocus);
     connect(
         _port_ln_edit, SIGNAL(EnteredCorrectParams(bool)),
         this, SLOT(setEnabled_recv_btn(bool))
@@ -19,17 +20,18 @@ TRecvModeGroupBox::TRecvModeGroupBox(TModelStateInterface* model, QWidget* paren
     connect(
         _port_ln_edit, &QLineEdit::editingFinished,
         [this]() { _port_ln_edit->delete_Null();}
-        );
+    );
 
     _range_ln_edit = new TCustomLineEdit(new TUShortValidator(1, 300, this), "1", this);
+    _range_ln_edit->setFocusPolicy(Qt::ClickFocus);
     connect(
-        _range_ln_edit, SIGNAL(EnteredCorrectParams(bool)),
-        this, SLOT(setEnabled_recv_btn(bool))
-        );
+        _range_ln_edit, &TCustomLineEdit::EnteredCorrectParams,
+        this, &TRecvModeGroupBox::setEnabled_recv_btn
+    );
     connect(
         _range_ln_edit, &QLineEdit::editingFinished,
         [this]() { _range_ln_edit->delete_Null();}
-        );
+    );
 
     _recv_btn = new QPushButton("Запустить прослушку");
     connect(_recv_btn, &QPushButton::clicked,
@@ -44,12 +46,12 @@ TRecvModeGroupBox::TRecvModeGroupBox(TModelStateInterface* model, QWidget* paren
     _clear_btn = new QPushButton("Очистить таблицу");
     connect(
         _clear_btn, &QPushButton::clicked,
-        [model]() {emit model->tableClear();}
+        this, &TRecvModeGroupBox::clearReceiveStorageActivated
     );
 
     connect(
-        model, SIGNAL(statusReceivingChanged(bool)),
-        this, SLOT(setStatusReceivingPreset(bool))
+        model, &TModelStateInterface::statusReceivingChanged,
+        this, &TRecvModeGroupBox::setStatusReceivingPreset
     );
 
     /* Настройка параметров виджета */
@@ -94,7 +96,9 @@ void TRecvModeGroupBox::setStatusReceivingPreset(bool flag) {
         _range_ln_edit->setEnabled(true);
         _recv_btn->setText("Запустить прослушку");
 
-        if (_port_ln_edit->getCorrect() && _range_ln_edit->getCorrect()) _recv_btn->setEnabled(true);
-        else                            _recv_btn->setEnabled(false);
+        if (_port_ln_edit->getCorrect() && _range_ln_edit->getCorrect())
+            _recv_btn->setEnabled(true);
+        else
+            _recv_btn->setEnabled(false);
     }
 }//------------------------------------------------------------------

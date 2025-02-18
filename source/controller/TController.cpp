@@ -1,11 +1,18 @@
 #include "TController.h"
+#include "TView.h"
+#include "TClient.h"
+#include "TServer.h"
+#include "TModelStateInterface.h"
 
 #include <QDebug>
 
 #include <functional>
 
 template<typename Owner>
-auto ThreadExceptionHandler(std::unique_ptr<wstd::thread_pool>& catcher, std::function<void()> handler) {
+auto ThreadExceptionHandler(
+    std::unique_ptr<wstd::thread_pool>& catcher,
+    std::function<void()> handler)
+{
     return [&catcher, handler](std::exception_ptr eptr, Owner* owner) {
         catcher->add_job(
             [=]() {
@@ -22,7 +29,7 @@ auto ThreadExceptionHandler(std::unique_ptr<wstd::thread_pool>& catcher, std::fu
             }
         );
     };
-}//----------------------------------------------------------------------------
+}//------------------------------------------------------------------
 
 
 TController::TController(int &argc, char **argv)
@@ -30,20 +37,38 @@ TController::TController(int &argc, char **argv)
 {
     _pool = std::make_unique<wstd::thread_pool>(2);
 
+    _client = new TClient(this);
     _server = new TServer(this);
+    _model = new TModelStateInterface(_client, _server, this);
 
-    _view = std::make_unique<TView>(new TModelStateInterface(&_client, _server));
+    _view = new TView(_model, this);
     connect(
-        _view.get(), &TView::sendActivated,
+        _view, &TView::addSendPackageActivated,
+        this, &TController::addSendPackage
+    );
+    connect(
+        _view, &TView::delSendPackageActivated,
+        this, &TController::delSendPackage
+    );
+    connect(
+        _view, &TView::clearSendStorageActivated,
+        this, &TController::clearSendStorage
+    );
+    connect(
+        _view, &TView::sendActivated,
         this, &TController::send_package
     );
     connect(
-        _view.get(), &TView::sendTimerActivated,
+        _view, &TView::sendTimerActivated,
         this, &TController::send_timer_package
     );
     connect(
-        _view.get(), &TView::receiveActivated,
+        _view, &TView::receiveActivated,
         this, &TController::startReceivePackage
+    );
+    connect(
+        _view, &TView::clearReceiveStorageActivated,
+        this, &TController::clearReceiverStorage
     );
 
     _view->run();
@@ -54,6 +79,23 @@ TController::~TController() {
 }//------------------------------------------------------------------
 
 
+void TController::addSendPackage(ViewSendPackage pack) {
+    _client->appendToStorage(pack);
+    //_client->addPackToStorage(pack);
+}//------------------------------------------------------------------
+
+
+void TController::delSendPackage(int index) {
+    _client->removeFromStorage(index);
+    //_client->erasePackFromStorage(index);
+}//------------------------------------------------------------------
+
+
+void TController::clearSendStorage() noexcept {
+    _client->clearStorage();
+}//------------------------------------------------------------------
+
+
 void TController::send_package(ViewSendInfo info) {
     //Package package = ViewInfoToPackageConverter(info);
     std::vector<Package> vec_pack;
@@ -61,7 +103,7 @@ void TController::send_package(ViewSendInfo info) {
         vec_pack.push_back(ViewInfoToPackageConverter(info));
     }
 
-    _client.SendMessage(
+    _client->SendMessage(
         info.address.ip,
         info.address.port,
         reinterpret_cast<void*>(vec_pack.data()), //(&package),
@@ -74,8 +116,8 @@ void TController::send_package(ViewSendInfo info) {
 
 void TController::send_timer_package(uint timeout, ViewSendInfo info) {
     _pool->add_job([=, &info](){
-        if (_client.IsTimerSending()) {
-            _client.StopSendingMessage();
+        if (_client->IsTimerSending()) {
+            _client->StopSendingMessage();
         }
         else {
             std::vector<Package> vec_pack;
@@ -83,14 +125,14 @@ void TController::send_timer_package(uint timeout, ViewSendInfo info) {
                 vec_pack.push_back(ViewInfoToPackageConverter(info));
             }
            // Package package = ViewInfoToPackageConverter(info);
-            _client.StartSendingMessage(
+            _client->StartSendingMessage(
                 timeout,
                 info.address.ip,
                 info.address.port,
                 reinterpret_cast<void*>(vec_pack.data()),   //(&package),
                 sizeof(Package)*vec_pack.size(),
                 ThreadExceptionHandler<TClient>(
-                    _pool, [this](){ _client.StopSendingMessage(); }
+                    _pool, [this](){ _client->StopSendingMessage(); }
                 )
             );
         }
@@ -116,8 +158,8 @@ void TController::startReceivePackage(uint16_t max_pack, uint16_t port) {
 }//------------------------------------------------------------------
 
 
-void TController::addPackageToParcel(ViewSendPackage pack) {
-
+void TController::clearReceiverStorage() {
+    _server->storageClear();
 }//------------------------------------------------------------------
 
 

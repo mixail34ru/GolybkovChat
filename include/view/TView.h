@@ -20,10 +20,15 @@ public:
     void show_parcel_edit();
 
 signals:
+    void addSendPackageActivated(ViewSendPackage pack);
+    void delSendPackageActivated(int index);
+    void clearSendStorageActivated();
+
     void sendActivated(ViewSendInfo info);
     void sendTimerActivated(uint timeout, ViewSendInfo info);
+
     void receiveActivated(uint16_t max_pack, uint16_t port);
-    void addPackageActivated(ViewSendPackage pack);
+    void clearReceiveStorageActivated();
 
 protected:
     TView(TViewPrivate &dd, QObject *parent);

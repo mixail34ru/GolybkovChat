@@ -3,21 +3,34 @@
 
 #include "TPackageFormat.h"
 
-#include "TSendDataGroupBox.h"
-#include "TSendNetGroupBox.h"
-#include "TSendModeGroupBox.h"
-
 #include <QWidget>
-
+#include <QPushButton>
 #include <functional>
 
 class TModelStateInterface;
 class TCorrectItemMap;
+class TSendDataGroupBox;
+class TSendNetGroupBox;
+class TSendModeGroupBox;
+
 
 class TSenderWidget : public QWidget
 {
     Q_OBJECT
 
+public:
+    explicit TSenderWidget(
+        TModelStateInterface* model, QWidget* parent = nullptr);
+    ~TSenderWidget();
+
+signals:
+    void showParcelEditActivated();
+    void addSendPackageActivated(ViewSendPackage pack);
+
+    void sendActivated(ViewSendInfo info);
+    void sendTimerActivated(uint timeout, ViewSendInfo info);
+
+private:
     std::function<bool(void)> CheckTimerSendingStatus;
 
     TCorrectItemMap* _correct_map;
@@ -27,20 +40,10 @@ class TSenderWidget : public QWidget
     TSendNetGroupBox* _net_grp_bx;
     TSendModeGroupBox* _mode_grp_bx;
 
-public:
-    TSenderWidget(TModelStateInterface* model, QWidget* parent = nullptr);
-    ~TSenderWidget();
-
 private slots:
     void SwitchFieldEdit(bool flag);
     void UpdateWidgetCorrectState(QObject* obj, bool flag);
     void SetEnableSending(bool flag);
-
-signals:
-    void sendActivated(ViewSendInfo info);
-    void sendTimerActivated(uint timeout, ViewSendInfo info);
-    void addPackageActivated(ViewSendPackage pack);
-    void showParcelEditActivated();
 
 }; //class TSenderWidget
 //-------------------------------------------------------------------

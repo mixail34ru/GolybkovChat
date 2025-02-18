@@ -36,7 +36,7 @@ class TSendDataGroupBox : public QGroupBox
     QPushButton* _change_pack;
 
 public:
-    TSendDataGroupBox(QWidget* parent = nullptr);
+    explicit TSendDataGroupBox(QWidget* parent = nullptr);
     ~TSendDataGroupBox();
 
     std::optional<ViewSendPackage> get_package();

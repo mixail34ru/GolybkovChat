@@ -3,17 +3,19 @@
 
 #include "TParcelWindow.h"
 
-class TParcelWindow::TParcelWindowPrivate
+
+class TParcelWindowPrivate
 {
     Q_DECLARE_PUBLIC(TParcelWindow)
 
 public:
-    TParcelWindow * q_ptr;
-
-    TParcelWindowPrivate();
+    explicit TParcelWindowPrivate(TModelStateInterface* model, TParcelWindow* qq);
     virtual ~TParcelWindowPrivate();
 
-};//class TParcelWindow::TParcelWindowPrivate
+protected:
+   TParcelWindow * const q_ptr;
+
+};//class TParcelWindowPrivate
 //-------------------------------------------------------------------
 
 #endif // TPARCELWINDOW_P_H

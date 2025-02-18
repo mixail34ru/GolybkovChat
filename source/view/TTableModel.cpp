@@ -4,11 +4,11 @@
 TTableModel::TTableModel(TModelStateInterface* model, QObject *parent)
     : QAbstractTableModel(parent), _model(model)
 {
-    connect(_model, SIGNAL(storageDataChanged()),
-            this, SLOT(addDataRow()));
+    connect(_model, &TModelStateInterface::recvStorageChanged,
+            this, &TTableModel::addDataRow);
 
-    connect(_model, SIGNAL(storageClear()),
-            this, SLOT(clearTable()));
+    connect(_model, &TModelStateInterface::recvStorageCleared,
+            this, &TTableModel::clearTable);
 
    headersFormer();
 }//------------------------------------------------------------------
@@ -27,15 +27,13 @@ bool TTableModel::hasIndex(
 }//------------------------------------------------------------------
 
 
-int TTableModel::columnCount(const QModelIndex & parent) const
-{
+int TTableModel::columnCount(const QModelIndex & parent) const {
     Q_UNUSED(parent);
     return headers.size();
 }//------------------------------------------------------------------
 
 
-int TTableModel::rowCount(const QModelIndex & parent) const
-{
+int TTableModel::rowCount(const QModelIndex & parent) const {
     return _count_row;
 }//------------------------------------------------------------------
 

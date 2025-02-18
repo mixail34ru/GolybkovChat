@@ -4,10 +4,15 @@
 #include "TUDPClient.h"
 #include "timer.h"
 
+#include "TPackageFormat.h"
+#include "TVecStorage.h"
+
 #include <QObject>
 
 #include <string>
 #include <memory>
+
+#include <QVector>
 
 class TClient : public QObject
 {
@@ -23,26 +28,49 @@ public:
     ~TClient();
 
     void SendMessage(
-        const std::string& host, uint16_t port, const void* buffer, size_t size
+        const std::string& host, uint16_t port,
+        const void* buffer, size_t size
     );
 
     void StartSendingMessage(
         uint32_t timeout,
-        const std::string& host, uint16_t port, const void* buffer, size_t size,
+        const std::string& host, uint16_t port,
+        const void* buffer, size_t size,
         handler_exception_t hndl_except = default_exception_handler
     );
 
     void StopSendingMessage();
-
     bool IsTimerSending() const;
 
+    // const TVecStorage<ViewSendPackage>& getStorage() const noexcept;
+    // size_t sizeStorage() const noexcept;
+    // ViewSendPackage getItemStorage(const size_t& index);
+    // void addPackToStorage(ViewSendPackage pack);
+    // void erasePackFromStorage(int index);
+    // void clearStorage() noexcept;
+
+    const QVector<ViewSendPackage>& getStorage() const noexcept;
+    void appendToStorage(const ViewSendPackage& value);
+    void removeFromStorage(int i, int count = 1);
+    void clearStorage();
+
 private:
+    QVector<ViewSendPackage> _storage;
+
+    //TVecStorage<ViewSendPackage> _storage;
     ws2::TUDPClient _client;
     std::unique_ptr<wstd::timer> _timer;
 
 signals:
     void statusSendingTimerChanged(bool);
     void statusSendingChanged(bool);
+
+    //void storageChanged();
+    //void storageCleared();
+
+    void storageInserted(int, int);
+    void storageErased(int, int);
+    void storageCleared();
 
 }; //class TClient
 //-------------------------------------------------------------------

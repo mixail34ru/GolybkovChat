@@ -22,6 +22,7 @@ TSendModeGroupBox::TSendModeGroupBox(TModelStateInterface* model, QWidget* paren
     /* Количество пакетов */
 
     _pack_ln_edit = new TCustomLineEdit(new TUShortValidator(1,  300, this), "1", this);
+    _pack_ln_edit->setFocusPolicy(Qt::ClickFocus);
     connect(
         _pack_ln_edit, &TCustomLineEdit::EnteredCorrectParams,
         [this](auto arg) { _correct_map->SetItemStatus(_pack_ln_edit, arg);}
@@ -60,6 +61,7 @@ TSendModeGroupBox::TSendModeGroupBox(TModelStateInterface* model, QWidget* paren
     /* Периодическая отправка */
 
     _timeout_ln_edit = new TCustomLineEdit(new TIntValidator(0, this), "1000", this);
+    _timeout_ln_edit->setFocusPolicy(Qt::ClickFocus);
     connect(
         _timeout_ln_edit, &TCustomLineEdit::EnteredCorrectParams,
         [this](auto arg) { _correct_map->SetItemStatus(_timeout_ln_edit, arg); }
@@ -163,7 +165,7 @@ void TSendModeGroupBox::setStatus_send_timer_btn(bool flag) {
 
 
 void TSendModeGroupBox::setStatus_send_btn(bool flag) {
-    _pack_ln_edit->setEnabled(true);
+    _pack_ln_edit->setEnabled(_timeout_ln_edit->isEnabled());
     _send_btn->setEnabled(true);
     _send_timer_btn->setEnabled(true);
 }//------------------------------------------------------------------

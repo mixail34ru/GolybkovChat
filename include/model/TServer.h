@@ -3,7 +3,9 @@
 
 #include "TUDPServer.h"
 #include "TPackageFormat.h"
-#include "TSaveVecDataStorage.h"
+
+#include "safe_ptr.h"
+#include "TVecStorage.h"
 
 #include <QObject>
 
@@ -12,9 +14,6 @@
 class TServer : public QObject
 {
     Q_OBJECT
-
-    TSaveVecDataStorage<ReceivePackage> _storage;
-    std::unique_ptr<ws2::TUDPServer> _udp_server;
 
 public:
     using handler_exception_t
@@ -33,15 +32,18 @@ public:
     void stopReceiving();
     bool isReceiving() const;
 
-    TSaveVecDataStorage<ReceivePackage>& getStorage();
+    wstd::safe_ptr<TVecStorage<ReceivePackage>>& getStorage();
     size_t parselSize() const;
-private slots:
-    void tableClear();
+    void storageClear() noexcept;
+
+private:
+    wstd::safe_ptr<TVecStorage<ReceivePackage>> _storage;
+    std::unique_ptr<ws2::TUDPServer> _udp_server;
 
 signals:
     void statusReceivingChanged(bool);
-    void storageDataChanged();
-    void storageClear();
+    void storageChanged();
+    void storageCleared();
 
 }; //class TServer
 //-------------------------------------------------------------------

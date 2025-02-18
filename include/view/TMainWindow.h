@@ -1,28 +1,35 @@
 #ifndef TMAINWINDOW_H
 #define TMAINWINDOW_H
 
-#include "TCentralWidget.h"
+#include "TPackageFormat.h"
 
 #include <QMainWindow>
 
+class TCentralWidget;
 class TModelStateInterface;
+
 
 class TMainWindow : public QMainWindow
 {
     Q_OBJECT
 
-    TCentralWidget* _central_wgt;
-
 public:
-    TMainWindow(TModelStateInterface* model, QWidget *parent = nullptr);
+    explicit TMainWindow(
+        TModelStateInterface* model, QWidget *parent = nullptr);
     ~TMainWindow();
 
 signals:
+    void showParcelEditActivated();
+    void addSendPackageActivated(ViewSendPackage pack);
+
     void sendActivated(ViewSendInfo info);
     void sendTimerActivated(uint timeout, ViewSendInfo info);
+
     void receiveActivated(uint16_t max_pack, uint16_t port);
-    void addPackageActivated(ViewSendPackage pack);
-    void showParcelEditActivated();
+    void clearReceiveStorageActivated();
+
+private:
+    TCentralWidget* _central_wgt;
 
 }; //class TMainWindow
 //-------------------------------------------------------------------

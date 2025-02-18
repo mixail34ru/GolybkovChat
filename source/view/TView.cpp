@@ -1,6 +1,7 @@
 #include "TView.h"
 #include "TView_p.h"
 
+#include "TModelStateInterface.h"
 #include "TMainWindow.h"
 #include "TParcelWindow.h"
 
@@ -8,8 +9,22 @@
  ***********************   TViewPrivate  ****************************
  *******************************************************************/
 
-TView::TViewPrivate::TViewPrivate(TModelStateInterface *model) {
+TView::TViewPrivate::TViewPrivate(TModelStateInterface *model)
+    : _model(model)
+{
     _main_wnd = new TMainWindow(model);
+
+    connect(
+        _main_wnd, &TMainWindow::showParcelEditActivated,
+        [this](auto... arg){
+            show_parcel_edit();
+        });
+    connect(
+        _main_wnd, &TMainWindow::addSendPackageActivated,
+        [this](auto... arg){
+            Q_Q(TView);
+            emit(q->addSendPackageActivated(arg...));
+        });
 
     connect(
         _main_wnd, &TMainWindow::sendActivated,
@@ -30,15 +45,10 @@ TView::TViewPrivate::TViewPrivate(TModelStateInterface *model) {
             emit(q->receiveActivated(arg...));
         });
     connect(
-        _main_wnd,  &TMainWindow::addPackageActivated,
-        [this](auto... arg){
+        _main_wnd, &TMainWindow::clearReceiveStorageActivated,
+        [this](auto... arg) {
             Q_Q(TView);
-            emit(q->addPackageActivated(arg...));
-        });
-    connect(
-        _main_wnd,  &TMainWindow::showParcelEditActivated,
-        [this](){
-            show_parcel_edit();
+            emit(q->clearReceiveStorageActivated(arg...));
         });
 }//------------------------------------------------------------------
 
@@ -54,7 +64,21 @@ void TView::TViewPrivate::run() {
 
 void TView::TViewPrivate::show_parcel_edit() {
     if (!_parcel_wnd) {
-        _parcel_wnd = new TParcelWindow();
+        Q_Q(TView);
+
+        _parcel_wnd = new TParcelWindow(_model);
+        connect(
+            _parcel_wnd, &TParcelWindow::addSendPackageActivated,
+            q, &TView::addSendPackageActivated
+        );
+        connect(
+            _parcel_wnd, &TParcelWindow::delSendPackageActivated,
+            q, &TView::delSendPackageActivated
+        );
+        connect(
+            _parcel_wnd, &TParcelWindow::clearSendStorageActivated,
+            q, &TView::clearSendStorageActivated
+        );
     }
 
     _parcel_wnd->show();

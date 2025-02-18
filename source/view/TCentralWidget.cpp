@@ -1,6 +1,9 @@
 #include "TCentralWidget.h"
+#include "TSenderWidget.h"
+#include "TReceiverWidget.h"
 
 #include <QHBoxLayout>
+
 
 TCentralWidget::TCentralWidget(TModelStateInterface* model, QWidget* parent)
     : QWidget(parent)
@@ -9,6 +12,14 @@ TCentralWidget::TCentralWidget(TModelStateInterface* model, QWidget* parent)
 
     _sender_wgt = new TSenderWidget(model, this);
     connect(
+        _sender_wgt, &TSenderWidget::showParcelEditActivated,
+        this, &TCentralWidget::showParcelEditActivated
+    );
+    connect(
+        _sender_wgt, &TSenderWidget::addSendPackageActivated,
+        this, &TCentralWidget::addSendPackageActivated
+    );
+    connect(
         _sender_wgt, &TSenderWidget::sendActivated,
         this, &TCentralWidget::sendActivated
     );
@@ -16,21 +27,17 @@ TCentralWidget::TCentralWidget(TModelStateInterface* model, QWidget* parent)
         _sender_wgt, &TSenderWidget::sendTimerActivated,
         this, &TCentralWidget::sendTimerActivated
     );
-    connect(
-        _sender_wgt, &TSenderWidget::addPackageActivated,
-        this, &TCentralWidget::addPackageActivated
-    );
-    connect(
-        _sender_wgt, &TSenderWidget::showParcelEditActivated,
-        this, &TCentralWidget::showParcelEditActivated
-        );
 
     /* Приём пакета */
 
     _receiver_wgt = new TReceiverWidget(model, this);
     connect(
-        _receiver_wgt, SIGNAL(receivePackageActivated(uint16_t, uint16_t)),
-        this, SIGNAL(receivePackageActivated(uint16_t, uint16_t))
+        _receiver_wgt, &TReceiverWidget::receivePackageActivated,
+        this, &TCentralWidget::receivePackageActivated
+    );
+    connect(
+        _receiver_wgt, &TReceiverWidget::clearReceiveStorageActivated,
+        this, &TCentralWidget::clearReceiveStorageActivated
     );
 
     /* Настройка параметров центрального виджета */

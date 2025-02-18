@@ -3,30 +3,35 @@
 
 #include "TPackageFormat.h"
 
-#include "TSenderWidget.h"
-#include "TReceiverWidget.h"
-
 #include <QWidget>
 
 class TModelStateInterface;
+class TSenderWidget;
+class TReceiverWidget;
+
 
 class TCentralWidget : public QWidget
 {
     Q_OBJECT
 
-    TSenderWidget* _sender_wgt;
-    TReceiverWidget* _receiver_wgt;
-
 public:
-    TCentralWidget(TModelStateInterface* model, QWidget* parent = nullptr);
+    explicit TCentralWidget(
+        TModelStateInterface* model, QWidget* parent = nullptr);
     ~TCentralWidget();
 
 signals:
+    void showParcelEditActivated();
+    void addSendPackageActivated(ViewSendPackage pack);
+
     void sendActivated(ViewSendInfo info);
     void sendTimerActivated(uint timeout, ViewSendInfo info);
+
     void receivePackageActivated(uint16_t max_pack, uint16_t port);
-    void addPackageActivated(ViewSendPackage pack);
-    void showParcelEditActivated();
+    void clearReceiveStorageActivated();
+
+private:
+    TSenderWidget* _sender_wgt;
+    TReceiverWidget* _receiver_wgt;
 
 }; //class TCentralWidget
 //-------------------------------------------------------------------

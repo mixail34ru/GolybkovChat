@@ -151,6 +151,16 @@ bool TSendParcelTableModel::removeRows(
 }//------------------------------------------------------------------
 
 
+Qt::DropActions TSendParcelTableModel::supportedDragActions() const {
+    return Qt::CopyAction | Qt::MoveAction;
+}//------------------------------------------------------------------
+
+
+Qt::DropActions TSendParcelTableModel::supportedDropActions() const {
+    return Qt::CopyAction | Qt::MoveAction;
+}//------------------------------------------------------------------
+
+
 void TSendParcelTableModel::addDataRow() {
 
 

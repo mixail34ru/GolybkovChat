@@ -74,11 +74,7 @@ TSenderWidget::TSenderWidget(TModelStateInterface* model, QWidget* parent)
     connect(_mode_grp_bx, &TSendModeGroupBox::sendActivated,
         [this] (uint num_pack) {
             try {
-                ViewSendInfo info {
-                    num_pack,
-                    _pack_data_grp_bx->get_package().value(),
-                    _net_grp_bx->get_address().value()
-                };
+                NetAddress info = _net_grp_bx->get_address().value();
 
                 emit sendActivated(info);
             } catch(const std::bad_optional_access& e) { /**/ }
@@ -88,11 +84,7 @@ TSenderWidget::TSenderWidget(TModelStateInterface* model, QWidget* parent)
     connect(_mode_grp_bx, &TSendModeGroupBox::sendTimerActivated,
         [this](uint timeout, uint num_pack) {
             try {
-                ViewSendInfo info {
-                    num_pack,
-                    _pack_data_grp_bx->get_package().value(),
-                    _net_grp_bx->get_address().value()
-                };
+                NetAddress info = _net_grp_bx->get_address().value();
 
                 emit sendTimerActivated(timeout, info);
             } catch(const std::bad_optional_access& e) { /**/ }

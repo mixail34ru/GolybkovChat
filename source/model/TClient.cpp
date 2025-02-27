@@ -3,8 +3,6 @@
 #include <QDebug>
 
 TClient::TClient(QObject* parent) : QObject(parent) {
-    //_storage.dataChanged = [this]() { emit storageChanged(); };
-    //_storage.dataCleared = [this]() { emit storageCleared(); };
 }//------------------------------------------------------------------
 
 
@@ -22,6 +20,18 @@ void TClient::SendMessage(
     emit statusSendingChanged(false);
 }//------------------------------------------------------------------
 
+
+void TClient::SendParsel(NetAddress info)
+{
+    std::vector<Package> vec;
+    for (int i = 0; i < _storage.size(); i++)
+    {
+        vec.push_back(ViewSendPackageToPackageConverter(_storage.at(i)));
+    }
+    const void* buffer = vec.data();
+    size_t size = _storage.size() * sizeof(Package);
+    SendMessage(info.ip, info.port, buffer, size);
+}
 
 void TClient::StartSendingMessage(
     uint32_t timeout,
@@ -53,6 +63,19 @@ void TClient::StartSendingMessage(
 
     emit statusSendingTimerChanged(IsTimerSending());
 }//------------------------------------------------------------------
+
+
+void TClient::SendTimerParsel(uint timeout, NetAddress info, handler_exception_t hndl_except)
+{
+    std::vector<Package> vec;
+    for (int i = 0; i < _storage.size(); i++)
+    {
+        vec.push_back(ViewSendPackageToPackageConverter(_storage.at(i)));
+    }
+    const void* buffer = vec.data();
+    size_t size = _storage.size() * sizeof(Package);
+    StartSendingMessage(timeout, info.ip, info.port, buffer, size, hndl_except);
+}
 
 
 void TClient::StopSendingMessage() {
@@ -98,32 +121,26 @@ void TClient::clearStorage() {
 }//------------------------------------------------------------------
 
 
-
-// const TVecStorage<ViewSendPackage>& TClient::getStorage() const noexcept {
-//     return _storage;
-// }//------------------------------------------------------------------
-
-
-// size_t TClient::sizeStorage() const noexcept {
-//     return _storage.size();
-// }//------------------------------------------------------------------
-
-
-// ViewSendPackage TClient::getItemStorage(const size_t& index) {
-//     return _storage.at(index);
-// }//------------------------------------------------------------------
+void TClient::checkPackages() const {
+    for (auto& it : _storage) {
+        qDebug() << "CheckPackages: "
+                 << "TypeData: " << static_cast <int8_t>(it.type_data)
+                 << "\tTypeSignal: " << static_cast <int8_t>(it.type_signal)
+                 << "\tID: " << it.id
+                 << "\tPayload.parameter: " << it.payload.parameter
+                 << "\tPayload.word: " << it.payload.word
+                 << "\tPayload.llword: " << it.payload.llword;
+    }
+}//------------------------------------------------------------------
 
 
-// void TClient::addPackToStorage(ViewSendPackage pack) {
-//     _storage.push_back(pack);
-// }//------------------------------------------------------------------
-
-
-// void TClient::erasePackFromStorage(int index) {
-//     _storage.erase(index);
-// }//------------------------------------------------------------------
-
-
-// void TClient::clearStorage() noexcept {
-//     _storage.clear();
-// }//------------------------------------------------------------------
+Package TClient::ViewSendPackageToPackageConverter(
+    const ViewSendPackage& info) const noexcept
+{
+    return Package{
+        static_cast<int8_t>(info.type_data),
+        static_cast<int8_t>(info.type_signal),
+        info.id,
+        info.payload.parameter
+    };
+}//------------------------------------------------------------------

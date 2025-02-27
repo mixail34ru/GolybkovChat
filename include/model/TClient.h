@@ -5,16 +5,15 @@
 #include "timer.h"
 
 #include "TPackageFormat.h"
-#include "TVecStorage.h"
 
 #include <QObject>
+#include <QVector>
 
 #include <string>
 #include <memory>
 
-#include <QVector>
 
-class TClient : public QObject
+class TClient final : public QObject
 {
     Q_OBJECT
 
@@ -24,7 +23,7 @@ public:
     static constexpr auto default_exception_handler
         = [](std::exception_ptr, TClient*) {};
 
-    TClient(QObject* parent = nullptr);
+    explicit TClient(QObject* parent = nullptr);
     ~TClient();
 
     void SendMessage(
@@ -39,15 +38,16 @@ public:
         handler_exception_t hndl_except = default_exception_handler
     );
 
+    void SendParsel(NetAddress info);
+
+    void SendTimerParsel(
+        uint32_t timeout,
+        NetAddress info,
+        handler_exception_t hndl_except
+    );
+
     void StopSendingMessage();
     bool IsTimerSending() const;
-
-    // const TVecStorage<ViewSendPackage>& getStorage() const noexcept;
-    // size_t sizeStorage() const noexcept;
-    // ViewSendPackage getItemStorage(const size_t& index);
-    // void addPackToStorage(ViewSendPackage pack);
-    // void erasePackFromStorage(int index);
-    // void clearStorage() noexcept;
 
     const QVector<ViewSendPackage>& getStorage() const noexcept;
     void appendToStorage(const ViewSendPackage& value);
@@ -56,17 +56,16 @@ public:
 
 private:
     QVector<ViewSendPackage> _storage;
-
-    //TVecStorage<ViewSendPackage> _storage;
     ws2::TUDPClient _client;
     std::unique_ptr<wstd::timer> _timer;
+
+    void checkPackages() const;
+    Package ViewSendPackageToPackageConverter(
+        const ViewSendPackage& info) const noexcept;
 
 signals:
     void statusSendingTimerChanged(bool);
     void statusSendingChanged(bool);
-
-    //void storageChanged();
-    //void storageCleared();
 
     void storageInserted(int, int);
     void storageErased(int, int);

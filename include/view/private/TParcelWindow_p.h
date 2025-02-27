@@ -2,7 +2,7 @@
 #define TPARCELWINDOW_P_H
 
 #include "TParcelWindow.h"
-
+#include <QSortFilterProxyModel>
 
 class TParcelWindowPrivate
 {
@@ -11,6 +11,8 @@ class TParcelWindowPrivate
 public:
     explicit TParcelWindowPrivate(TModelStateInterface* model, TParcelWindow* qq);
     virtual ~TParcelWindowPrivate();
+
+    QModelIndexList _list;
 
 protected:
    TParcelWindow * const q_ptr;

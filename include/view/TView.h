@@ -24,8 +24,8 @@ signals:
     void delSendPackageActivated(int index);
     void clearSendStorageActivated();
 
-    void sendActivated(ViewSendInfo info);
-    void sendTimerActivated(uint timeout, ViewSendInfo info);
+    void sendActivated(NetAddress info);
+    void sendTimerActivated(uint timeout, NetAddress info);
 
     void receiveActivated(uint16_t max_pack, uint16_t port);
     void clearReceiveStorageActivated();

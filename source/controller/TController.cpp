@@ -56,11 +56,11 @@ TController::TController(int &argc, char **argv)
     );
     connect(
         _view, &TView::sendActivated,
-        this, &TController::send_package
+        this, &TController::send_parsel
     );
     connect(
         _view, &TView::sendTimerActivated,
-        this, &TController::send_timer_package
+        this, &TController::send_timer_parsel
     );
     connect(
         _view, &TView::receiveActivated,
@@ -114,16 +114,38 @@ void TController::send_package(ViewSendInfo info) {
 }//------------------------------------------------------------------
 
 
+void TController::send_parsel(NetAddress info)
+{
+    _client->SendParsel(info);
+}
+
+void TController::send_timer_parsel(uint timeout, NetAddress info)
+{
+    _pool->add_job([=, &info](){
+        if (_client->IsTimerSending()) {
+            _client->StopSendingMessage();
+        }
+        else{
+            _client->SendTimerParsel(timeout, info,
+                ThreadExceptionHandler<TClient>(
+                    _pool, [this](){ _client->StopSendingMessage(); }
+                )
+            );
+        }
+    });
+}
+
+
 void TController::send_timer_package(uint timeout, ViewSendInfo info) {
     _pool->add_job([=, &info](){
         if (_client->IsTimerSending()) {
             _client->StopSendingMessage();
         }
         else {
-            std::vector<Package> vec_pack;
-            for(int i = 0; i < info.count; i++){
-                vec_pack.push_back(ViewInfoToPackageConverter(info));
-            }
+             std::vector<Package> vec_pack;
+             for(int i = 0; i < info.count; i++){
+                 vec_pack.push_back(ViewInfoToPackageConverter(info));
+             }
            // Package package = ViewInfoToPackageConverter(info);
             _client->StartSendingMessage(
                 timeout,
@@ -140,6 +162,7 @@ void TController::send_timer_package(uint timeout, ViewSendInfo info) {
 
     debugSendInfo(info);
 }//------------------------------------------------------------------
+
 
 
 void TController::startReceivePackage(uint16_t max_pack, uint16_t port) {

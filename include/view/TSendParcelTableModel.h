@@ -66,6 +66,9 @@ public:
         const QModelIndex &parent = QModelIndex()
         ) override;
 
+    virtual Qt::DropActions supportedDragActions() const override;
+    virtual Qt::DropActions supportedDropActions() const override;
+
 protected:
     std::vector<QString> headers;
 

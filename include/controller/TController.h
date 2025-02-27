@@ -3,6 +3,7 @@
 
 #include "thread_pool.h"
 #include <TPackageFormat.h>
+#include <TVecStorage.h>
 
 #include <QApplication>
 
@@ -37,6 +38,8 @@ private slots:
 
     void send_package(ViewSendInfo info);
     void send_timer_package(uint timeout, ViewSendInfo info);
+    void send_parsel(NetAddress info);
+    void send_timer_parsel(uint timeout, NetAddress info);
 
     void startReceivePackage(uint16_t max_pack, uint16_t port);
     void clearReceiverStorage();

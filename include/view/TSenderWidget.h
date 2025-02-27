@@ -27,8 +27,8 @@ signals:
     void showParcelEditActivated();
     void addSendPackageActivated(ViewSendPackage pack);
 
-    void sendActivated(ViewSendInfo info);
-    void sendTimerActivated(uint timeout, ViewSendInfo info);
+    void sendActivated(NetAddress info);
+    void sendTimerActivated(uint timeout, NetAddress info);
 
 private:
     std::function<bool(void)> CheckTimerSendingStatus;

@@ -36,6 +36,8 @@ public:
 
     T at(const size_type& index) { return _storage.at(index); }
     const T at(const size_type& index) const { return _storage.at(index); }
+    T* data() noexcept { return _storage.data(); }
+    const T* data() const noexcept { return _storage.data(); }
 
     void push_back(const T& package) {
         _storage.push_back(package);

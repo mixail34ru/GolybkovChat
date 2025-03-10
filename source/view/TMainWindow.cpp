@@ -45,3 +45,8 @@ TMainWindow::TMainWindow(TModelStateInterface* model, QWidget *parent)
 
 TMainWindow::~TMainWindow() {
 }//------------------------------------------------------------------
+
+void TMainWindow::closeEvent(QCloseEvent *event)
+{
+    emit closed();
+}

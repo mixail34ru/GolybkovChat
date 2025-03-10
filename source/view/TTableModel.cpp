@@ -80,6 +80,10 @@ QVariant TTableModel::data(const QModelIndex & index, int role) const {
                 return _model->storageItem(row).id;
             case 4:
                 return _model->storageItem(row).payload.parameter;
+            case 5:
+                return _model->storageItem(row).payload.word;
+            case 6:
+                return static_cast<int32_t>(_model->storageItem(row).payload.llword >> 32);
             default: return QVariant();
             }
 
@@ -145,6 +149,6 @@ void TTableModel::clearTable() {
 
 void TTableModel::headersFormer(){
     headers = {
-        "Время получения", "Тип данных", "Тип сигнала", "Номер параметра", "Payload"
+        "Время получения", "Тип данных", "Тип сигнала", "Номер параметра", "Значение", "Матрица", "Маска"
     };
 }//------------------------------------------------------------------

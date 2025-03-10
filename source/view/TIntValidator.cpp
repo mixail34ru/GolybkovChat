@@ -1,5 +1,8 @@
 #include "TIntValidator.h"
 
+QRegularExpression valid_regexp("^0x[0-9ABCDEFf]{0,8}$|^-?[0-9]{1,10}$");
+QRegularExpression m_regexp("^0x[0-9ABCDEFf]{1,8}$");
+
 TIntValidator::TIntValidator(QObject* parent) : ICorrectLine(parent)
 {
     _validator = new QIntValidator(this);
@@ -17,12 +20,14 @@ TIntValidator::TIntValidator(int index, QObject* parent) : ICorrectLine(parent)
     }
     else if (index == 1) // матрица
     {
-        _validator = new QIntValidator(this);
+        _validator = new QRegularExpressionValidator(valid_regexp, this);
+        //_validator = new QIntValidator(this);
         setRange(INT32_MIN, INT32_MAX);
     }
     else if (index == 2) // маска
     {
-        _validator = new QIntValidator(this);
+        _validator = new QRegularExpressionValidator(valid_regexp, this);
+        //_validator = new QIntValidator(this);
         setRange(INT_MIN, INT_MAX);
     }
 }
@@ -46,12 +51,17 @@ bool TIntValidator::checkLineCorrect(const QString &text)
 {
     if (text == "")
         return _is_correct = false;
-    long long num = text.toLongLong();
-    if (num >=_range.min && num <= _range.max)
+    QRegularExpressionMatch match = m_regexp.match(text);
+    if (match.hasMatch()) {
         _is_correct = true;
-    else
-        _is_correct = false;
-
+    }
+    else{
+        long long num = text.toLongLong();
+        if (num >=_range.min && num <= _range.max)
+            _is_correct = true;
+        else
+            _is_correct = false;
+    }
     return _is_correct;
 }
 
@@ -63,7 +73,11 @@ void  TIntValidator::setRange(int min, int max)
 
 QString TIntValidator::delete_Null(QString &text)
 {
-    long long num = text.toLongLong();
-    text = QString::number(num);
+    QRegularExpressionMatch match = m_regexp.match(text);
+    if (!match.hasMatch()){
+        long long num = text.toLongLong();
+        text = QString::number(num);
+    }
     return text;
 }//------------------------------------------------------------------
+

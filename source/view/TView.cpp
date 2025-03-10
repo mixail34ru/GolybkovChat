@@ -14,6 +14,7 @@ TView::TViewPrivate::TViewPrivate(TModelStateInterface *model)
 {
     _main_wnd = new TMainWindow(model);
 
+
     connect(
         _main_wnd, &TMainWindow::showParcelEditActivated,
         [this](auto... arg){
@@ -50,6 +51,13 @@ TView::TViewPrivate::TViewPrivate(TModelStateInterface *model)
             Q_Q(TView);
             emit(q->clearReceiveStorageActivated(arg...));
         });
+    connect(
+        _main_wnd, &TMainWindow::closed,
+        [this](){
+            if (!_parcel_wnd.isNull())
+                _parcel_wnd->close();
+        });
+
 }//------------------------------------------------------------------
 
 
@@ -119,3 +127,4 @@ void TView::show_parcel_edit() {
     Q_D(TView);
     d->show_parcel_edit();
 }//------------------------------------------------------------------
+

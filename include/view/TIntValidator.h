@@ -2,7 +2,9 @@
 #define TINTVALIDATOR_H
 
 #include "ICorrectLine.h"
+
 #include <QIntValidator>
+#include <QRegularExpressionValidator>
 
 class TIntValidator : public ICorrectLine
 {
@@ -27,6 +29,7 @@ public:
     virtual bool checkLineCorrect(const QString &text) override;
     virtual QValidator* getValidator() const override;
     virtual QString delete_Null(QString &text) override;
+    void setValidators(const QString &text);
 
     void setRange(int min, int max);
 };

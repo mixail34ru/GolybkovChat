@@ -71,6 +71,7 @@ TController::TController(int &argc, char **argv)
         this, &TController::clearReceiverStorage
     );
 
+
     _view->run();
 }//------------------------------------------------------------------
 

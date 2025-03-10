@@ -34,8 +34,9 @@ bool TIPValidator::checkLineCorrect(const QString &text)
        _is_correct = false;
 
     return _is_correct;
-}//------------------------------------------------------------------
+}
+
 QString TIPValidator::delete_Null(QString &text)
 {
     return text;
-}
+}//------------------------------------------------------------------

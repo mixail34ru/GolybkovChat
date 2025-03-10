@@ -142,11 +142,21 @@ std::optional<ViewSendPackage> TSendDataGroupBox::get_package() {
             pack.payload.parameter = temp.toDouble();
         }
         else if (type == TypeData::INPUT_INT32 || type == TypeData::OUTPUT_INT32){
-            pack.payload.word = _matrix_ln_edit->text().toInt();
+            if (_matrix_ln_edit->text().contains("x"))
+                pack.payload.word = _matrix_ln_edit->text().toInt(nullptr, 16);
+            else
+                pack.payload.word = _matrix_ln_edit->text().toInt();
         }
+
         else {
-            pack.payload.llword = static_cast<int64_t>(_mask_ln_edit->text().toInt()) << 32;
-            pack.payload.llword = pack.payload.llword | static_cast<int64_t>(_matrix_ln_edit->text().toInt());
+            if (_mask_ln_edit->text().contains("x"))
+                pack.payload.llword = static_cast<int64_t>(_mask_ln_edit->text().toInt(nullptr, 16)) << 32;
+            else
+                pack.payload.llword = static_cast<int64_t>(_mask_ln_edit->text().toInt()) << 32;
+            if (_matrix_ln_edit->text().contains("x"))
+                pack.payload.llword = pack.payload.llword | static_cast<int64_t>(_matrix_ln_edit->text().toInt(nullptr, 16));
+            else
+                pack.payload.llword = pack.payload.llword | static_cast<int64_t>(_matrix_ln_edit->text().toInt());
         }
 
         return pack;

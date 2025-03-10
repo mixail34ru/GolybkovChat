@@ -62,6 +62,8 @@ void TServer::startReceiving(
                                  << "\tTypeSignal: " << it.type_signal
                                  << "\tID: " << it.id
                                  << "\tPayload.parameter: " << it.payload.parameter
+                                 << "\tPayload.llword: " << it.payload.llword
+                                 << "\tPayload.word: " << it.payload.word
                                  << "\tMax number of packages: " << max_pack;
                     }
 

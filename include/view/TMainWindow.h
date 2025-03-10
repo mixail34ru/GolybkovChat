@@ -27,9 +27,11 @@ signals:
 
     void receiveActivated(uint16_t max_pack, uint16_t port);
     void clearReceiveStorageActivated();
+    void closed();
 
 private:
     TCentralWidget* _central_wgt;
+    void closeEvent(QCloseEvent *event) override;
 
 }; //class TMainWindow
 //-------------------------------------------------------------------

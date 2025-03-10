@@ -152,24 +152,24 @@ TParcelWindowPrivate::TParcelWindowPrivate(
         _parcel_model, &TSendParcelTableModel::rowsRemoved,
         [=](const QModelIndex &parent, int first, int last)
         {
-            if(_parcel_model->rowCount() > 0){
+            if(_parcel_model->rowCount() > 0)
                 _clean_btn->setEnabled(true);
-            }
-            else{
+
+            else
                 _clean_btn->setEnabled(false);
-            }
+
         }
     );
     q->connect(
         _parcel_model, &TSendParcelTableModel::rowsInserted,
         [=](const QModelIndex &parent, int first, int last)
         {
-            if(_parcel_model->rowCount() > 0){
+            if(_parcel_model->rowCount() > 0)
                 _clean_btn->setEnabled(true);
-            }
-            else{
+
+            else
                 _clean_btn->setEnabled(false);
-            }
+
         }
     );
 
@@ -218,4 +218,5 @@ TParcelWindow::~TParcelWindow() {
 TParcelWindow::TParcelWindow(TParcelWindowPrivate &dd)
     : d_ptr(&dd)
 {}//-----------------------------------------------------------------
+
 

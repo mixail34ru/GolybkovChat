@@ -85,6 +85,10 @@ QVariant TSendParcelTableModel::data(
             return pack.id;
         case 3:
             return pack.payload.parameter;
+        case 4:
+            return pack.payload.word;
+        case 5:
+            return static_cast<int32_t>(pack.payload.llword >> 32);
         default: return QVariant();
         }
     }
@@ -201,6 +205,6 @@ void TSendParcelTableModel::clearTable() {
 
 void TSendParcelTableModel::headersFormer(){
     headers = {
-        "Тип данных", "Тип сигнала", "Номер параметра", "Payload"
+        "Тип данных", "Тип сигнала", "Номер параметра", "Значение", "Матрица", "Маска"
     };
 }//------------------------------------------------------------------
